@@ -9,8 +9,23 @@ import History from '../icons/concise/History.vue'
 import Updates from '../icons/concise/Updates.vue'
 import Upload from '../icons/concise/Upload.vue'
 import Uploader from '../icons/concise/Uploader.vue'
+import { ElText } from 'element-plus'
 
 const searchText = ref('')
+
+const searchHistory: string[] = ['Ciallo是什么意思', '秦泊夜', '绫地宁宁', '阿姆斯特朗回旋加速喷气式阿姆斯特朗炮', '萝莉神的安魂曲'] 
+const hotSearsh: string[] = [
+    '因幡巡是真实存在的吗',
+    'MHRS盾斧配装教程',
+    '游戏人生第二季制作决定',
+    '八幡语录',
+    '春物游戏材木座线',
+    '200多年前文火煮尿',
+    '原神新角色PV 刻晴',
+    '魔族人形香草杯',
+    '中国绊爱每天和你说晚安',
+    'hhsdd是什么梗'
+]
 
 </script>
 
@@ -46,9 +61,33 @@ const searchText = ref('')
                 </div> -->
                 <div class="floating-block" id="search-result">
                     <div>
-                        历史记录 清除历史
+                        <div id="result-history-title">
+                            <span>历史记录</span>
+                            <span id="result-history-clear-button">清除历史</span>
+                        </div>
                         <hr>
-                        <ElButton></ElButton>
+                        <div id="result-history-button-list">
+                            <ElButton 
+                                class="result-history-button"
+                                v-for="(value, idx) in searchHistory"
+                                :key="idx"
+                                size=small
+                            ><span :title="value">{{ value }}</span></ElButton>
+                        </div>
+                        <div id="result-hotsearch-title">
+                            <span>今日热搜</span>
+                        </div>
+                        <hr>
+                        <div id="result-hotsearch-list">
+                            <div 
+                                v-for="(value, idx) in hotSearsh" 
+                                :key="idx"
+                                class="result-hotsearch-item"
+                            >
+                            <span class="result-hotsearch-item-idx">{{ idx+1 }}</span>
+                            <span class="result-hotsearch-item-value">{{ value }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
