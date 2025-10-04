@@ -104,11 +104,11 @@ const hotSearsh: string[] = [
             <div id="avatar">
                 <img src="../assets/images/avatar.png" alt="">
                 <div class="floating-block" id="user-info">
-                    <ul style="list-style: none;">
-                        <li>赤座灯里 退出</li>
-                        <li>AC币 充值</li>
-                        <li>查看更多</li>
-                    </ul>
+                    <div>
+                        赤座灯里 退出
+                    </div>
+                    <div>AC币 充值</div>
+                    <div>查看更多</div>
                 </div>
             </div>
             <div id="message">
