@@ -1,13 +1,13 @@
 {
-    //   "files": [],
-    //   "references": [
-    //     {
-    //       "path": "./tsconfig.node.json"
-    //     },
-    //     {
-    //       "path": "./tsconfig.app.json"
-    //     }
-    //   ],
+    "files": [],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        },
+        {
+            "path": "./tsconfig.app.json"
+        }
+    ],
     "include": [
         "src/**/*.ts",
         "src/**/*.d.ts",
@@ -16,5 +16,14 @@
     ],
     "exclude": [
         "src/**/__tests__/*"
-    ]
+    ],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        },
+        "allowSyntheticDefaultImports": true
+    }
 }
