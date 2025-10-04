@@ -1,0 +1,10 @@
+.content {
+    display: flex;
+    justify-content:center;
+    overflow: hidden;
+}
+img {
+    min-height: 180px;
+    width: 120%;
+    object-fit: cover;
+}

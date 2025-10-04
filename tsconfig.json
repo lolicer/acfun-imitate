@@ -1,0 +1,20 @@
+{
+    //   "files": [],
+    //   "references": [
+    //     {
+    //       "path": "./tsconfig.node.json"
+    //     },
+    //     {
+    //       "path": "./tsconfig.app.json"
+    //     }
+    //   ],
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue"
+    ],
+    "exclude": [
+        "src/**/__tests__/*"
+    ]
+}
