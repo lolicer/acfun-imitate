@@ -95,8 +95,8 @@
     color: rgb(194, 198, 206);
 } */
 
-#search-result > div {
-    /* padding: 10px; */
+#search-result {
+    opacity: 0.9;   
 }
 #search-result > * > hr {
     border: none;
@@ -122,6 +122,7 @@
 }
 .result-history-button {
     margin: 0px 12px 0px 0px;
+    transition: none;
 }
 :deep(.result-history-button > span > span) {
     max-width: 100px;
@@ -172,6 +173,10 @@
 .result-hotsearch-item:hover {
     cursor: pointer;
     background-color: rgb(255, 237, 238);
+    span {
+        color: rgb(253, 76, 93);
+        font-weight: 500;
+    }
 }
 .result-hotsearch-item-idx {
     display: inline-block;
