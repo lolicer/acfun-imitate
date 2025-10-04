@@ -10,6 +10,7 @@ import Updates from '../icons/concise/Updates.vue'
 import Upload from '../icons/concise/Upload.vue'
 import Uploader from '../icons/concise/Uploader.vue'
 import { ElText } from 'element-plus'
+import Exit from '../icons/concise/Exit.vue'
 
 const searchText = ref('')
 
@@ -104,25 +105,38 @@ const hotSearsh: string[] = [
             <div id="avatar">
                 <img src="../assets/images/avatar.png" alt="">
                 <div class="floating-block" id="user-info">
-                    <div>
-                        赤座灯里 退出
+                    <div id="user-info-space">
+                        <ElButton id="user-info-space-name" type="text">
+                            七森中の阿卡林
+                        </ElButton>
+                        <ElButton id="user-info-space-exit" type="text" :icon="Exit">
+                            退出
+                        </ElButton>
                     </div>
-                    <div>AC币 充值</div>
-                    <div>查看更多</div>
+                    <div id="user-info-acbi">
+                        <div id="user-info-acbi-left">
+                            <img id="user-info-acbi-acbiimg" src="../icons/acbi.svg" alt=""> <!--display：online-block-->
+                            <span id="user-info-acbi-number">233</span>
+                        </div>
+                        <ElButton id="user-info-acbi-recharge" type="text">
+                            充值
+                        </ElButton>
+                    </div>
+                    <div id="user-info-more">
+                        查看更多
+                    </div>
                 </div>
             </div>
             <div id="message">
                 <div><Message class="mini-icon"/></div>
                 <div class="floating-block" id="message-info">
-                    <ul style="list-style: none;">
-                        <li>评论</li>
-                        <li>赞</li>
-                        <li>@我的</li>
-                        <li>礼物</li>
-                        <li>站内公告</li>
-                        <li>系统通知</li>
-                        <li>私信</li>
-                    </ul>
+                    <div>评论</div>
+                    <div>赞</div>
+                    <div>@我的</div>
+                    <div>礼物</div>
+                    <div>站内公告</div>
+                    <div>系统通知</div>
+                    <div>私信</div>
                 </div>
             </div>
             <div id="history">
