@@ -1,0 +1,185 @@
+/* 整体 */
+#content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+#left-content, #center-content, #right-content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    /* min-height: 44px; */
+}
+#left-content {
+    justify-content: flex-start;
+}
+#left-content > *:first-child {
+    margin-left: 50px;
+}
+#center-content {
+    justify-content: center;
+}
+#right-content {
+    justify-content: right;
+}
+#right-content > *:last-child {
+    margin-right: 50px;
+}
+
+
+/* 左边 */
+.extension {
+    display: flex;
+    align-items: center;
+}
+.extension-icon {
+    width: 18px;
+    height: 18px;
+    color:rgb(253, 76, 93);
+}
+.extension-text {
+    font-size: 14px;
+    color: black;
+}
+.text:hover {
+    color:rgb(253, 76, 93);
+}
+
+#shop-icon {
+    margin-left: 8px;
+    margin-right: 0px;
+}
+#camera-icon {
+    margin-left: 8px;
+    margin-right: 2px;
+}
+
+
+/* 中间 */
+#center-content > * {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#search {
+    width: 70%;
+    height: 90%;
+}
+#input {
+    width: 100%;
+}
+:deep(.el-input__wrapper) {
+    border-radius: 16px;
+}
+/* .input-area {
+    width: 100%;
+    background-image: transparent;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    padding-left: 16px;
+}
+.input-button {
+    background-color: transparent;
+    border: none;
+    margin-right: 4px;
+}
+.input-button-icon {
+    width: 16px;
+    height: 16px;
+    color: rgb(194, 198, 206);
+} */
+
+
+/* 右边 */
+#right-content > * {
+    margin-left: 8px;
+    margin-right: 8px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#right-content > * > *:first-child {
+    cursor: pointer;
+}
+.mini-icon {
+    width: 18px;
+    height: 18px;
+    color: rgb(173,173,173);
+}
+
+#avatar > img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+#upload-button {
+    color: rgb(255,251,251);
+}
+#upload-button-text {
+    margin-left: 4px;
+}
+
+
+/* 浮动块 */
+.floating-block {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden;
+    background-color: white;
+    box-shadow: 2px 5px 3px gray;
+}
+
+#search:focus-within #search-result{
+    visibility: visible;
+}
+#search-result {
+    width: 100%;
+}
+
+#phone:hover #app-download {
+    visibility: visible;
+}
+
+#avatar:hover #user-info {
+    visibility: visible;
+}
+#user-info {
+    width: 220px;
+}
+
+#message:hover #message-info {
+    visibility: visible;
+}
+#message-info {
+    width: 220px;
+}
+
+#history:hover #history-info {
+    visibility: visible;
+}
+#history-info {
+    width: 340px;
+}
+
+#updates:hover #updates-info {
+    visibility: visible;
+}
+#updates-info {
+    width: 340px;
+}
+
+#uploader:hover #uploader-info {
+    visibility: visible;
+}
+#uploader-info {
+    width: 73px;
+}
