@@ -95,9 +95,6 @@
     color: rgb(194, 198, 206);
 } */
 
-#search-result {
-    opacity: 0.9;   
-}
 #search-result > * > hr {
     border: none;
     height: 1px;
@@ -209,6 +206,85 @@
     height: 32px;
     border-radius: 50%;
 }
+#user-info > div {
+    height: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#user-info-space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+:deep(#user-info-space-name >span) {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+}
+:deep(#user-info-space-name > span:hover) {
+    color: rgb(253, 76, 93);
+}
+:deep(#user-info-space-exit > *) {
+    color: rgb(173,173,173);
+
+}:deep(#user-info-space-exit > span) {
+    margin-left: 3px;
+}
+
+#user-info-acbi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#user-info-acbi-left {
+    display: flex;
+    align-items: center;
+}
+#user-info-acbi-acbiimg {
+    width: 12px;
+    height: 12px;
+    transform: translateY(2px);
+}
+#user-info-acbi-number {
+    cursor: default;
+    font-size: 12px;
+    margin-left: 3px;
+}
+:deep(#user-info-acbi-recharge > span) {
+    color: black;
+    font-weight: 400;
+}
+:deep(#user-info-acbi-recharge:hover > span) {
+    color: rgb(253, 76, 93);
+}
+#user-info-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    background-color: rgb(238 ,238, 238);
+}
+#user-info-more:hover {
+    cursor: pointer;
+    background-color: rgb(228, 228, 228);
+}
+
+#message-info {
+    box-sizing: border-box;
+    padding: 10px;
+}
+#message-info > div {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    font-size: 13px;
+}
+#message-info > div:hover {
+    cursor: pointer;
+    color: rgb(253, 76, 93);
+}
+
 #upload-button {
     color: rgb(255,251,251);
 }
@@ -219,14 +295,14 @@
 
 /* 浮动块 */
 .floating-block {
+    opacity: 0.9;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
     visibility: hidden;
     background-color: white;
-    box-shadow: 2px 5px 3px gray,
-        2px -1px 3px gray;
+    box-shadow: 2px 6px 6px gray;
     z-index: 1;
 }
 
