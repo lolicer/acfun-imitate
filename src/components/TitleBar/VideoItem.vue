@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { formatRelativeTime } from '@/components/TitleBar/sharedFunctions';
+import { formatRelativeTime, formatSeconds } from '@/components/TitleBar/sharedFunctions';
 import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue';
 import DevicePC from '@/assets/icons/concise/DevicePC.vue';
 import Up from '@/assets/icons/concise/Up.vue';
@@ -15,6 +15,9 @@ console.log(props.data)
     <div id="content">
         <div id="image">
             <img :src="props.data.imgUrl" alt="测试图片">
+            <div id="duration">
+                {{ formatSeconds(props.data.position) + ' / ' + formatSeconds(props.data.duration) }}
+            </div>
         </div>
         <div id="info">
             <div id="title">{{ props.data.title }}</div>
@@ -51,11 +54,28 @@ console.log(props.data)
     justify-content:center;
     overflow: hidden;
     width: 112px;
+
+    position: relative;
 }
 #image > img {
     min-width: 100%;
     object-fit: cover;
     border-radius: 5px;
+}
+#duration {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    border-radius: 4px;
+    background-color: rgba(153, 153, 153, 0.65);
+    /* opacity: 0.7; */
+
+    font-size: 10px;
+    line-height: 14px;
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 1px;
 }
 #info {
     flex: 6;
