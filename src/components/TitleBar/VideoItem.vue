@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { formatRelativeTime } from '@/components/TitleBar/sharedFunctions';
-import DeviceMobile from '@/icons/concise/DeviceMobile.vue';
-import DevicePC from '@/icons/concise/DevicePC.vue';
-import Up from '@/icons/concise/Up.vue';
+import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue';
+import DevicePC from '@/assets/icons/concise/DevicePC.vue';
+import Up from '@/assets/icons/concise/Up.vue';
 import { VideoHistoryInfo } from '@/types/HistoryInfo';
 
 const props = defineProps<{
