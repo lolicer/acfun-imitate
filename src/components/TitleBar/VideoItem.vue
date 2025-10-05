@@ -4,11 +4,29 @@ import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue';
 import DevicePC from '@/assets/icons/concise/DevicePC.vue';
 import Up from '@/assets/icons/concise/Up.vue';
 import { VideoHistoryInfo } from '@/types/HistoryInfo';
+import { nextTick, onMounted, ref } from 'vue';
 
 const props = defineProps<{
   data: VideoHistoryInfo;
 }>();
-console.log(props.data)
+
+const tooltip = ref('')
+
+const checkOverflow = () => {
+  const titleEl = document.getElementById('title')
+  if (titleEl) {
+    // 判断文本是否溢出
+    if(titleEl.scrollHeight > titleEl.clientHeight) {
+        tooltip.value = props.data.title
+    }
+  }
+}
+
+onMounted(() => {
+    nextTick(() => {
+        checkOverflow()
+    })
+})
 </script>
 
 <template>
@@ -20,7 +38,7 @@ console.log(props.data)
             </div>
         </div>
         <div id="info">
-            <div id="title">{{ props.data.title }}</div>
+            <div id="title" :title="tooltip">{{ props.data.title }}</div>
             <div id="line-2">
                 <DevicePC class="device-icon" v-if="props.data.device === 'pc'"/>
                 <DeviceMobile class="device-icon" v-if="props.data.device === 'mobile'"/>
@@ -39,10 +57,6 @@ console.log(props.data)
     display: flex;
     padding: 10px;
 }
-.video-item-content:hover {
-    cursor: pointer;
-    background-color: rgb(227, 229, 231);
-}
 .video-item-content > div {
     height: 63px;
 }
@@ -56,6 +70,9 @@ console.log(props.data)
 
     position: relative;
 }
+#cover:hover {
+    cursor: pointer;
+}
 #cover > img {
     min-width: 100%;
     object-fit: cover;
@@ -67,7 +84,6 @@ console.log(props.data)
     right: 3px;
     border-radius: 4px;
     background-color: rgba(153, 153, 153, 0.85);
-    /* opacity: 0.7; */
 
     font-size: 10px;
     color: white;
@@ -83,7 +99,7 @@ console.log(props.data)
     padding-left: 10px;
 }
 #title {
-    /* 控制超出两行自动换行 */
+    /* 控制超出两行自动省略 */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -96,6 +112,7 @@ console.log(props.data)
     height: 33px;
 }
 #title:hover {
+    cursor: pointer;
     color: rgb(253, 76, 93);
 }
 
@@ -116,6 +133,9 @@ console.log(props.data)
     margin-left: 4px;
     color: rgb(153, 153, 153);
 }
+#watching-time:hover {
+    cursor: default;
+}
 
 #line-3 {
     height: 15px;
@@ -135,6 +155,7 @@ console.log(props.data)
     color: rgb(153, 153, 153);
 }
 #uploader-name:hover {
+    cursor: pointer;
     color: rgb(253, 76, 93);
 }
 </style>

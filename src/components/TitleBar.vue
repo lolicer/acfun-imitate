@@ -33,7 +33,7 @@ const historyInfo: HistoryInfo[] = [
     {
         imgUrl: '/images/history-video.png',
         url: '',
-        title: '“原来我们还是不适合”/双女声翻唱【在加纳共和国离婚】',
+        title: '“原来我们还是不适合”/MeUmy双女声翻唱【在加纳共和国离婚】',
         time: 1759543328000, // 2025-10-04 10:02:08
         device: 'pc',
         uploader: '呜米',
@@ -50,7 +50,7 @@ const historyInfo: HistoryInfo[] = [
         isLiveOn: false
     },
     {
-        imgUrl: '@/assets/images/history-article.png',
+        imgUrl: '/images/history-article.png',
         url: '',
         title: '【动画评价】里世界郊游——轻快的怪谈冒险动画',
         time: 1759080191000, // 2025-09-29 01:23:11

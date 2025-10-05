@@ -334,6 +334,7 @@
     visibility: visible;
 }
 #history-info {
+    transition-delay: 200ms; /* 添加这个是因为：当标题超出两行，hover显示title（tooltip）时，可能会出现BUG：由于鼠标移动到tootip上，导致观看历史失去了hover，自动收起 */
     box-sizing: border-box;
     padding-top: 16px;
     width: 340px;
