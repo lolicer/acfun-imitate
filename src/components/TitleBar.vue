@@ -11,6 +11,8 @@ import Upload from '../icons/concise/Upload.vue'
 import Uploader from '../icons/concise/Uploader.vue'
 import { ElText } from 'element-plus'
 import Exit from '../icons/concise/Exit.vue'
+import HistoryInfoItem from './TitleBar/HistoryInfoItem.vue'
+import { HistoryInfo } from '@/types/HistoryInfo'
 
 const searchText = ref('')
 
@@ -26,6 +28,35 @@ const hotSearsh: string[] = [
     '魔族人形香草杯',
     '中国绊爱每天和你说晚安',
     'hhsdd是什么梗'
+]
+const historyInfo: HistoryInfo[] = [
+    {
+        imgUrl: '/images/history-video.png',
+        url: '',
+        title: '“原来我们还是不适合”/双女声翻唱【在加纳共和国离婚】',
+        time: 1759543328000, // 2025-10-04 10:02:08
+        device: 'pc',
+        uploader: '呜米',
+        duration: 3600,
+        position: 1200
+    },
+    {
+        imgUrl: '/images/history-live.png',
+        url: '',
+        title: '假期快乐~',
+        time: 1759446714000, // 2025-10-03 07:11:54
+        device: 'pc',
+        uploader: '星海玲奈',
+        isLiveOn: false
+    },
+    {
+        imgUrl: '@/assets/images/history-article.png',
+        url: '',
+        title: '【动画评价】里世界郊游——轻快的怪谈冒险动画',
+        time: 1759080191000, // 2025-09-29 01:23:11
+        device: 'mobile',
+        uploader: '雨后折木'
+    }
 ]
 
 </script>
@@ -142,16 +173,7 @@ const hotSearsh: string[] = [
             <div id="history">
                 <div><History class="mini-icon"/></div>
                 <div class="floating-block" id="history-info">
-                    <ul style="list-style: none;">
-                        <li>看过的</li>
-                        <li>看过的</li>
-                        <li>看过的</li>
-                        <li>看过的</li>
-                        <li>看过的</li>
-                        <li>看过的</li>
-                        <li>看过的</li>
-                        <li>看过的</li>
-                    </ul>
+                    <HistoryInfoItem v-for="item in historyInfo" :data="item"/>
                 </div>
             </div>
             <div id="updates">

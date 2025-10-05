@@ -8,11 +8,15 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ArticleItem: typeof import('./src/components/TitleBar/ArticleItem.vue')['default']
     Banner: typeof import('./src/components/Banner.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElInput: typeof import('element-plus/es')['ElInput']
+    HistoryInfoItem: typeof import('./src/components/TitleBar/HistoryInfoItem.vue')['default']
+    LiveItem: typeof import('./src/components/TitleBar/LiveItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TitleBar: typeof import('./src/components/TitleBar.vue')['default']
+    VideoItem: typeof import('./src/components/TitleBar/VideoItem.vue')['default']
   }
 }

@@ -335,6 +335,8 @@
     visibility: visible;
 }
 #history-info {
+    box-sizing: border-box;
+    padding-top: 16px;
     width: 340px;
 }
 
