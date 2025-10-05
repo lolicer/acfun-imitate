@@ -1,16 +1,16 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import Camera from '../icons/concise/Camera.vue'
-import Shop from '../icons/concise/Shop.vue'
-import Search from '../icons/concise/Search.vue'
-import Phone from '../icons/concise/Phone.vue'
-import Message from '../icons/concise/Message.vue'
-import History from '../icons/concise/History.vue'
-import Updates from '../icons/concise/Updates.vue'
-import Upload from '../icons/concise/Upload.vue'
-import Uploader from '../icons/concise/Uploader.vue'
+import Camera from '@/assets/icons/concise/Camera.vue'
+import Shop from '@/assets/icons/concise/Shop.vue'
+import Search from '@/assets/icons/concise/Search.vue'
+import Phone from '@/assets/icons/concise/Phone.vue'
+import Message from '@/assets/icons/concise/Message.vue'
+import History from '@/assets/icons/concise/History.vue'
+import Updates from '@/assets/icons/concise/Updates.vue'
+import Upload from '@/assets/icons/concise/Upload.vue'
+import Uploader from '@/assets/icons/concise/Uploader.vue'
 import { ElText } from 'element-plus'
-import Exit from '../icons/concise/Exit.vue'
+import Exit from '@/assets/icons/concise/Exit.vue'
 import HistoryInfoItem from './TitleBar/HistoryInfoItem.vue'
 import { HistoryInfo } from '@/types/HistoryInfo'
 
@@ -66,7 +66,7 @@ const historyInfo: HistoryInfo[] = [
         <!-- 左边 -->
         <div id="left-content">
             <a href="/">
-                <img src="@/icons/acfunlogo.svg" alt="">
+                <img src="../assets/icons/acfunlogo.svg" alt="">
             </a>
             <a href="https://shop213417608.taobao.com/" target="_blank" class="extension">
                 <Shop class="extension-icon" id="shop-icon" />
@@ -146,7 +146,7 @@ const historyInfo: HistoryInfo[] = [
                     </div>
                     <div id="user-info-acbi">
                         <div id="user-info-acbi-left">
-                            <img id="user-info-acbi-acbiimg" src="../icons/acbi.svg" alt=""> <!--display：online-block-->
+                            <img id="user-info-acbi-acbiimg" src="../assets/icons/acbi.svg" alt=""> <!--display：online-block-->
                             <span id="user-info-acbi-number">233</span>
                         </div>
                         <ElButton id="user-info-acbi-recharge" type="text">
