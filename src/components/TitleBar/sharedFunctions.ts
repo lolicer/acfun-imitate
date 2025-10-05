@@ -56,9 +56,9 @@ export function formatSeconds(seconds: number): string {
   
   // 如果小于1小时，只显示分:秒
   if (hours === 0) {
-    return `${formatNumber(minutes)}:${formatNumber(secs)}`;
+    return `${minutes}:${formatNumber(secs)}`;
   }
   
   // 大于等于1小时，显示时:分:秒
-  return `${formatNumber(hours)}:${formatNumber(minutes)}:${formatNumber(secs)}`;
+  return `${hours}:${formatNumber(minutes)}:${formatNumber(secs)}`;
 }

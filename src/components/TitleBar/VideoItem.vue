@@ -12,8 +12,8 @@ console.log(props.data)
 </script>
 
 <template>
-    <div id="content">
-        <div id="image">
+    <div class="video-item-content">
+        <div id="cover">
             <img :src="props.data.imgUrl" alt="测试图片">
             <div id="duration">
                 {{ formatSeconds(props.data.position) + ' / ' + formatSeconds(props.data.duration) }}
@@ -35,19 +35,18 @@ console.log(props.data)
 </template>
 
 <style scoped>
-#content {
+.video-item-content {
     display: flex;
-    width: 100%;
     padding: 10px;
 }
-#content:hover {
+.video-item-content:hover {
     cursor: pointer;
     background-color: rgb(227, 229, 231);
 }
-#content > div {
+.video-item-content > div {
     height: 63px;
 }
-#image {
+#cover {
     flex: 4;
 
     display: flex;
@@ -57,7 +56,7 @@ console.log(props.data)
 
     position: relative;
 }
-#image > img {
+#cover > img {
     min-width: 100%;
     object-fit: cover;
     border-radius: 5px;
@@ -67,10 +66,11 @@ console.log(props.data)
     bottom: 3px;
     right: 3px;
     border-radius: 4px;
-    background-color: rgba(153, 153, 153, 0.65);
+    background-color: rgba(153, 153, 153, 0.85);
     /* opacity: 0.7; */
 
     font-size: 10px;
+    color: white;
     line-height: 14px;
     padding-top: 1px;
     padding-left: 3px;
@@ -93,6 +93,7 @@ console.log(props.data)
 
     font-size: 13px;
     line-height: 16.5px;
+    height: 33px;
 }
 #title:hover {
     color: rgb(253, 76, 93);
