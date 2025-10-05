@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { formatRelativeTime } from '@/components/TitleBar/sharedFunctions';
+import { drawThumbnail, formatRelativeTime } from '@/components/TitleBar/sharedFunctions';
 import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue';
 import DevicePC from '@/assets/icons/concise/DevicePC.vue';
 import Up from '@/assets/icons/concise/Up.vue';
@@ -11,7 +11,6 @@ const props = defineProps<{
 }>();
 
 const tooltip = ref('')
-
 const checkOverflow = () => {
   const titleEl = document.getElementById('title')
   if (titleEl) {
@@ -22,17 +21,33 @@ const checkOverflow = () => {
   }
 }
 
+// 准备将原图绘制成缩略图
+const coverCanvasRef = ref<HTMLCanvasElement | null>(null)
+
 onMounted(() => {
     nextTick(() => {
         checkOverflow()
     })
+    
+    // if(coverCanvasRef.value){
+    //     const ctx = coverCanvasRef.value.getContext('2d')
+    //     const img = new Image()
+    //     img.onload = function() {
+    //     // 将图片绘制到指定大小的canvas上
+    //     ctx.drawImage(img, 0, 0, 124, 63);
+    //     }
+    //     img.src = props.data.imgUrl
+    // }
+    
+    drawThumbnail(coverCanvasRef.value, props.data.imgUrl)
 })
 </script>
 
 <template>
     <div class="live-item-content">
         <div id="cover">
-            <img :src="props.data.imgUrl" alt="测试图片">
+            <!-- <img :src="props.data.imgUrl" alt="测试图片"> -->
+            <canvas ref="coverCanvasRef" class="cover-canvas" alt="ceshi" width="124" height="63"></canvas>
             <div class="live-status" id="live-status-true" v-if="props.data.isLiveOn === true">
                 直播中
             </div>
@@ -76,7 +91,7 @@ onMounted(() => {
 #cover:hover {
     cursor: pointer;
 }
-#cover > img {
+.cover-canvas {
     min-width: 100%;
     object-fit: cover;
     border-radius: 5px;
