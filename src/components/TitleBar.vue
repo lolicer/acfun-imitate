@@ -62,7 +62,7 @@ const historyInfo: HistoryInfo[] = [
 </script>
 
 <template>
-    <div id="content">
+    <div class="titlebar-content">
         <!-- 左边 -->
         <div id="left-content">
             <a href="/">
@@ -173,7 +173,7 @@ const historyInfo: HistoryInfo[] = [
             <div id="history">
                 <div><History class="mini-icon"/></div>
                 <div class="floating-block" id="history-info">
-                    <HistoryInfoItem v-for="item in historyInfo" :data="item"/>
+                    <HistoryInfoItem v-for="item in historyInfo" :data="item" :id="item.url"/>
                 </div>
             </div>
             <div id="updates">

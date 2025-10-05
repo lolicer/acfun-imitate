@@ -1,5 +1,5 @@
 /* 整体 */
-#content {
+.titlebar-content {
     display: flex;
     align-items: center;
     width: 100%;

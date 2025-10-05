@@ -11,7 +11,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div id="content">
+    <div>
         <VideoItem v-if="isVideoHistoryInfo(props.data)" :data="props.data"/>
         <LiveItem v-if="isLiveHistoryInfo(props.data)" :data="props.data"/>
         <ArticleItem v-if="isArticleHistoryInfo(props.data)" :data="props.data"/>
