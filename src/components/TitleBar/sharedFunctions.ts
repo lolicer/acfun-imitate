@@ -1,3 +1,8 @@
+/**
+ * 将时间戳转化为距离今天的相对时间
+ * @param timestamp 有毫秒的时间戳
+ * @returns 
+ */
 export function formatRelativeTime(timestamp: number): string {
   const now = new Date();
   const inputDate = new Date(timestamp);
@@ -28,4 +33,32 @@ export function formatRelativeTime(timestamp: number): string {
     const day = inputDate.getDate();
     return `${month}/${day < 10 ? '0' + day : day} ${timeStr}`;
   }
+}
+
+/**
+ * 将秒数转为时分秒
+ * @param seconds 秒数
+ * @returns 
+ */
+export function formatSeconds(seconds: number): string {
+  // 确保秒数为非负整数
+  const totalSeconds = Math.max(0, Math.floor(seconds));
+  
+  // 计算小时、分钟、秒
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+  
+  // 格式化数字，保证长度为2（不使用padStart）
+  const formatNumber = (num: number): string => {
+    return num < 10 ? '0' + num : '' + num;
+  };
+  
+  // 如果小于1小时，只显示分:秒
+  if (hours === 0) {
+    return `${formatNumber(minutes)}:${formatNumber(secs)}`;
+  }
+  
+  // 大于等于1小时，显示时:分:秒
+  return `${formatNumber(hours)}:${formatNumber(minutes)}:${formatNumber(secs)}`;
 }
