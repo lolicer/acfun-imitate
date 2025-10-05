@@ -217,19 +217,32 @@
     justify-content: space-between;
     align-items: center;
 }
-:deep(#user-info-space-name >span) {
+#user-info-space-name {
+    display: inline;
+
     font-size: 14px;
     font-weight: 400;
-    color: black;
 }
-:deep(#user-info-space-name > span:hover) {
+#user-info-space-name:hover {
+    cursor: pointer;
     color: rgb(253, 76, 93);
 }
-:deep(#user-info-space-exit > *) {
+#user-info-space-exit {
+    display: inline flex;
     color: rgb(173,173,173);
-
-}:deep(#user-info-space-exit > span) {
+    align-items: center;
+}
+#user-info-space-exit > svg {
+    width: 12px;
+    height: 12px;
+}
+#user-info-space-exit > span {
+    font-size: 13px;
+    line-height: 16px;
     margin-left: 3px;
+}
+#user-info-space-exit:hover {
+    cursor: pointer;
 }
 
 #user-info-acbi {
@@ -251,11 +264,13 @@
     font-size: 12px;
     margin-left: 3px;
 }
-:deep(#user-info-acbi-recharge > span) {
-    color: black;
-    font-weight: 400;
+#user-info-acbi-recharge {
+    display: inline;
+
+    font-size: 14px;
 }
-:deep(#user-info-acbi-recharge:hover > span) {
+#user-info-acbi-recharge:hover {
+    cursor: pointer;
     color: rgb(253, 76, 93);
 }
 #user-info-more {
@@ -303,6 +318,9 @@
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 2px 6px 6px gray;
     z-index: 1;
+
+    transition-delay: 100ms; /* 添加这个是因为：当标题超出两行，hover显示title（tooltip）时，可能会出现BUG：由于鼠标移动到tootip上，导致观看历史失去了hover，自动收起 */
+    
 }
 
 #search:focus-within #search-result{
@@ -334,7 +352,6 @@
     visibility: visible;
 }
 #history-info {
-    transition-delay: 200ms; /* 添加这个是因为：当标题超出两行，hover显示title（tooltip）时，可能会出现BUG：由于鼠标移动到tootip上，导致观看历史失去了hover，自动收起 */
     box-sizing: border-box;
     padding-top: 16px;
     width: 340px;

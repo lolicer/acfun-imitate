@@ -137,21 +137,22 @@ const historyInfo: HistoryInfo[] = [
                 <img src="../assets/images/avatar.png" alt="">
                 <div class="floating-block" id="user-info">
                     <div id="user-info-space">
-                        <ElButton id="user-info-space-name" type="text">
+                        <div id="user-info-space-name">
                             七森中の阿卡林
-                        </ElButton>
-                        <ElButton id="user-info-space-exit" type="text" :icon="Exit">
-                            退出
-                        </ElButton>
+                        </div>
+                        <div id="user-info-space-exit">
+                            <Exit/>
+                            <span>退出</span>
+                        </div>
                     </div>
                     <div id="user-info-acbi">
                         <div id="user-info-acbi-left">
                             <img id="user-info-acbi-acbiimg" src="../assets/icons/acbi.svg" alt=""> <!--display：online-block-->
                             <span id="user-info-acbi-number">233</span>
                         </div>
-                        <ElButton id="user-info-acbi-recharge" type="text">
+                        <div id="user-info-acbi-recharge" type="text">
                             充值
-                        </ElButton>
+                        </div>
                     </div>
                     <div id="user-info-more">
                         查看更多
