@@ -1,28 +1,29 @@
 <script lang="ts" setup>
-import { drawThumbnail, formatRelativeTime } from '@/components/TitleBar/sharedFunctions';
+import { formatRelativeTime, formatSeconds, drawThumbnail } from '@/components/TitleBar/sharedFunctions';
 import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue';
 import DevicePC from '@/assets/icons/concise/DevicePC.vue';
 import Up from '@/assets/icons/concise/Up.vue';
-import { LiveHistoryInfo } from '@/types/HistoryInfo';
+import { VideoHistoryInfo } from '@/types/HistoryInfo';
 import { nextTick, onMounted, ref } from 'vue';
 
 const props = defineProps<{
-  data: LiveHistoryInfo;
+  data: VideoHistoryInfo;
 }>();
 
+const titleRef = ref<HTMLElement>(null)
 const tooltip = ref('')
 const checkOverflow = () => {
-  const titleEl = document.getElementById('title')
-  if (titleEl) {
+  if (titleRef.value) {
     // 判断文本是否溢出
-    if(titleEl.scrollHeight > titleEl.clientHeight) {
+    if(titleRef.value.scrollHeight > titleRef.value.clientHeight + 1) { // 由于css设置行高为16.5px（非整数），导致标题为两行但未超过时存在误差
         tooltip.value = props.data.title
+    console.log(props.data.title, titleRef.value, titleRef.value.scrollHeight, titleRef.value.clientHeight)
     }
   }
 }
 
 // 准备将原图绘制成缩略图
-const coverCanvasRef = ref<HTMLCanvasElement | null>(null)
+const coverCanvasRef = ref<HTMLCanvasElement>(null)
 
 onMounted(() => {
     nextTick(() => {
@@ -38,25 +39,21 @@ onMounted(() => {
     //     }
     //     img.src = props.data.imgUrl
     // }
-    
     drawThumbnail(coverCanvasRef.value, props.data.imgUrl)
 })
 </script>
 
 <template>
-    <div class="live-item-content">
+    <div class="video-item-content">
         <div id="cover">
             <!-- <img :src="props.data.imgUrl" alt="测试图片"> -->
             <canvas ref="coverCanvasRef" class="cover-canvas" alt="ceshi" width="124" height="63"></canvas>
-            <div class="live-status" id="live-status-true" v-if="props.data.isLiveOn === true">
-                直播中
-            </div>
-            <div class="live-status" id="live-status-false" v-else>
-                未开播
+            <div id="duration">
+                {{ formatSeconds(props.data.position) + ' / ' + formatSeconds(props.data.duration) }}
             </div>
         </div>
         <div id="info">
-            <div id="title" :title="tooltip">{{ props.data.title }}</div>
+            <div ref="titleRef" class="title" :title="tooltip">{{ props.data.title }}</div>
             <div id="line-2">
                 <DevicePC class="device-icon" v-if="props.data.device === 'pc'"/>
                 <DeviceMobile class="device-icon" v-if="props.data.device === 'mobile'"/>
@@ -71,11 +68,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.live-item-content {
+.video-item-content {
     display: flex;
     padding: 10px;
 }
-.live-item-content > div {
+.video-item-content > div {
     height: 63px;
 }
 #cover {
@@ -96,11 +93,12 @@ onMounted(() => {
     object-fit: cover;
     border-radius: 5px;
 }
-.live-status {
+#duration {
     position: absolute;
-    top: 3px;
+    bottom: 3px;
     right: 3px;
     border-radius: 4px;
+    background-color: rgba(153, 153, 153, 0.85);
 
     font-size: 10px;
     color: white;
@@ -110,19 +108,12 @@ onMounted(() => {
     padding-right: 3px;
     padding-bottom: 1px;
 }
-#live-status-false {
-    background-color: rgba(153, 153, 153, 0.85);
-}
-#live-status-true {
-    background-color: rgba(253, 76, 93, 0.85);
-}
-
 #info {
     flex: 6;
     box-sizing: border-box;
     padding-left: 10px;
 }
-#title {
+.title {
     /* 控制超出两行自动省略 */
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -135,7 +126,7 @@ onMounted(() => {
     line-height: 16.5px;
     height: 33px;
 }
-#title:hover {
+.title:hover {
     cursor: pointer;
     color: rgb(253, 76, 93);
 }

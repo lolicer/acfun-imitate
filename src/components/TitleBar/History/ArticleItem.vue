@@ -1,23 +1,24 @@
 <script lang="ts" setup>
-import { formatRelativeTime, formatSeconds, drawThumbnail } from '@/components/TitleBar/sharedFunctions';
+import { drawThumbnail, formatRelativeTime } from '@/components/TitleBar/sharedFunctions';
 import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue';
 import DevicePC from '@/assets/icons/concise/DevicePC.vue';
 import Up from '@/assets/icons/concise/Up.vue';
-import { VideoHistoryInfo } from '@/types/HistoryInfo';
+import { ArticleHistoryInfo } from '@/types/HistoryInfo';
 import { nextTick, onMounted, ref } from 'vue';
 
 const props = defineProps<{
-  data: VideoHistoryInfo;
+  data: ArticleHistoryInfo;
 }>();
 
+const titleRef = ref<HTMLElement>(null)
 const tooltip = ref('')
 
 const checkOverflow = () => {
-  const titleEl = document.getElementById('title')
-  if (titleEl) {
+  if (titleRef.value) {
     // 判断文本是否溢出
-    if(titleEl.scrollHeight > titleEl.clientHeight) {
+    if(titleRef.value.scrollHeight > titleRef.value.clientHeight + 1) { // 由于css设置行高为16.5px（非整数），导致标题为两行但未超过时存在误差
         tooltip.value = props.data.title
+    console.log(props.data.title, titleRef.value, titleRef.value.scrollHeight, titleRef.value.clientHeight)
     }
   }
 }
@@ -29,7 +30,7 @@ onMounted(() => {
     nextTick(() => {
         checkOverflow()
     })
-    
+
     // if(coverCanvasRef.value){
     //     const ctx = coverCanvasRef.value.getContext('2d')
     //     const img = new Image()
@@ -44,16 +45,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="video-item-content">
-        <div id="cover">
-            <!-- <img :src="props.data.imgUrl" alt="测试图片"> -->
-            <canvas ref="coverCanvasRef" class="cover-canvas" alt="ceshi" width="124" height="63"></canvas>
-            <div id="duration">
-                {{ formatSeconds(props.data.position) + ' / ' + formatSeconds(props.data.duration) }}
-            </div>
-        </div>
+    <div class="article-item-content">
         <div id="info">
-            <div id="title" :title="tooltip">{{ props.data.title }}</div>
+            <div ref="titleRef" class="title" :title="tooltip">{{ props.data.title }}</div>
             <div id="line-2">
                 <DevicePC class="device-icon" v-if="props.data.device === 'pc'"/>
                 <DeviceMobile class="device-icon" v-if="props.data.device === 'mobile'"/>
@@ -64,15 +58,19 @@ onMounted(() => {
                 <span id="uploader-name">{{ props.data.uploader }}</span>
             </div>
         </div>
+        <div id="cover">
+            <!-- <img :src="props.data.imgUrl" alt="测试图片"> -->
+            <canvas ref="coverCanvasRef" class="cover-canvas" alt="ceshi" width="124" height="63"></canvas>
+        </div>
     </div>
 </template>
 
 <style scoped>
-.video-item-content {
+.article-item-content {
     display: flex;
     padding: 10px;
 }
-.video-item-content > div {
+.article-item-content > div {
     height: 63px;
 }
 #cover {
@@ -82,6 +80,7 @@ onMounted(() => {
     justify-content:center;
     overflow: hidden;
     width: 112px;
+    padding-left: 10px;
 
     position: relative;
 }
@@ -93,27 +92,12 @@ onMounted(() => {
     object-fit: cover;
     border-radius: 5px;
 }
-#duration {
-    position: absolute;
-    bottom: 3px;
-    right: 3px;
-    border-radius: 4px;
-    background-color: rgba(153, 153, 153, 0.85);
 
-    font-size: 10px;
-    color: white;
-    line-height: 14px;
-    padding-top: 1px;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-bottom: 1px;
-}
 #info {
     flex: 6;
     box-sizing: border-box;
-    padding-left: 10px;
 }
-#title {
+.title {
     /* 控制超出两行自动省略 */
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -126,7 +110,7 @@ onMounted(() => {
     line-height: 16.5px;
     height: 33px;
 }
-#title:hover {
+.title:hover {
     cursor: pointer;
     color: rgb(253, 76, 93);
 }
