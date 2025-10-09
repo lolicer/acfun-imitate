@@ -77,6 +77,8 @@ export function drawThumbnail(
     height: number = 63
 ) {
     const ctx = canvas.getContext('2d')
+    ctx.imageSmoothingEnabled = true
+    ctx.imageSmoothingQuality = 'high'
     if (!ctx) return
     
     const img = new Image()

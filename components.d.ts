@@ -8,16 +8,18 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ArticleItem: typeof import('./src/components/TitleBar/ArticleItem.vue')['default']
+    ArticleItem: typeof import('./src/components/TitleBar/History/ArticleItem.vue')['default']
     Banner: typeof import('./src/components/Banner.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElInput: typeof import('element-plus/es')['ElInput']
-    HistoryInfoItem: typeof import('./src/components/TitleBar/HistoryInfoItem.vue')['default']
-    LiveItem: typeof import('./src/components/TitleBar/LiveItem.vue')['default']
+    ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
+    HistoryInfoItem: typeof import('./src/components/TitleBar/History/HistoryInfoItem.vue')['default']
+    LiveItem: typeof import('./src/components/TitleBar/History/LiveItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TitleBar: typeof import('./src/components/TitleBar.vue')['default']
     Tooltip: typeof import('./src/components/public/Tooltip.vue')['default']
-    VideoItem: typeof import('./src/components/TitleBar/VideoItem.vue')['default']
+    UpdatesItem: typeof import('./src/components/TitleBar/Updates/UpdatesItem.vue')['default']
+    VideoItem: typeof import('./src/components/TitleBar/History/VideoItem.vue')['default']
   }
 }

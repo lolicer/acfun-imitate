@@ -352,9 +352,25 @@
     visibility: visible;
 }
 #history-info {
-    box-sizing: border-box;
-    padding-top: 16px;
     width: 340px;
+}
+#history-info-list {
+    margin-top: 16px;
+    height: 415px;
+}
+#history-info-view-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 10px 20px 10px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: rgb(240, 241, 242);
+    color: rgb(104, 104, 104);
+}
+#history-info-view-all:hover {
+    cursor: pointer;
+    color: black;
 }
 
 #updates:hover #updates-info {
@@ -362,6 +378,24 @@
 }
 #updates-info {
     width: 340px;
+}
+#updates-info-list {
+    margin-top: 16px;
+    height: 455px;
+}
+#updates-info-view-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 10px 20px 10px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: rgb(240, 241, 242);
+    color: rgb(104, 104, 104);
+}
+#updates-info-view-all:hover {
+    cursor: pointer;
+    color: black;
 }
 
 #uploader:hover #uploader-info {
