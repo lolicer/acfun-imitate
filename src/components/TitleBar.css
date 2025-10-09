@@ -317,6 +317,7 @@
     visibility: hidden;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 2px 6px 6px gray;
+    border-radius: 6px;
     z-index: 1;
 
     transition-delay: 100ms; /* 添加这个是因为：当标题超出两行，hover显示title（tooltip）时，可能会出现BUG：由于鼠标移动到tootip上，导致观看历史失去了hover，自动收起 */
