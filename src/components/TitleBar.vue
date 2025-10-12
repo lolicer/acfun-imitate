@@ -14,9 +14,11 @@ import ExitIcon from '@/assets/icons/concise/Exit.vue'
 
 import HistoryInfoItem from './TitleBar/History/HistoryInfoItem.vue'
 import { HistoryInfo } from '@/types/HistoryInfo'
-import { historyInfoData, hotSearshData, searchHistoryData, updatesData } from '@/data/TitleBar'
+import { historyInfoData, hotSearshData, searchHistoryData, updatesData, liveStreamers } from '@/data/TitleBar'
 import { Updates } from '@/types/Updates'
 import UpdatesItem from './TitleBar/Updates/UpdatesItem.vue'
+import LiveStreamItem from './TitleBar/Updates/LiveStreamItem.vue'
+import { ScrollbarInstance } from 'element-plus'
 
 const searchText = ref('')
 
@@ -24,6 +26,18 @@ const searchHistory: string[] = searchHistoryData
 const hotSearsh: string[] = hotSearshData
 const historyInfo: HistoryInfo[] = historyInfoData
 const updates: Updates[] = updatesData
+
+const liveStreamScrollbarRef = ref<ScrollbarInstance>()
+const scrollLeft = ref<number>(0)
+function handleScrollLiveStream(data){
+    console.log(data)
+    scrollLeft.value = data.scrollLeft as number
+}
+async function handleWheelLiveStream(event: WheelEvent){
+    event.preventDefault()
+    const scrollDistance = Math.sign(event.deltaY) * 64
+    await liveStreamScrollbarRef.value.scrollTo({ left: scrollLeft.value + scrollDistance, behavior: 'auto' })
+}
 
 </script>
 
@@ -153,6 +167,21 @@ const updates: Updates[] = updatesData
             <div id="updates">
                 <div><UpdatesIcon class="mini-icon"/></div>
                 <div class="floating-block" id="updates-info">
+                    <ElScrollbar 
+                        class="live-stream-list-scrollbar" 
+                        @wheel="handleWheelLiveStream" 
+                        @scroll="handleScrollLiveStream"
+                        ref="liveStreamScrollbarRef"
+                    >
+                        <div id="live-stream-list">
+                            <LiveStreamItem v-for="item in liveStreamers" :data="item"/>
+                        </div>
+                    </ElScrollbar>
+                    <div id="updates-info-list-header">
+                        <div class="fake-line"></div>
+                        <span>动态列表</span>
+                        <div class="fake-line"></div>
+                    </div>
                     <div id="updates-info-list">
                         <ElScrollbar>
                             <UpdatesItem v-for="item in updates" :data="item" :id="item.url"/>

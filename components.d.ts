@@ -15,12 +15,12 @@ declare module 'vue' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     HistoryInfoItem: typeof import('./src/components/TitleBar/History/HistoryInfoItem.vue')['default']
     LiveItem: typeof import('./src/components/TitleBar/History/LiveItem.vue')['default']
+    LiveStreamItem: typeof import('./src/components/TitleBar/Updates/LiveStreamItem.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Test: typeof import('./src/components/Test.vue')['default']
     TitleBar: typeof import('./src/components/TitleBar.vue')['default']
-    Tooltip: typeof import('./src/components/public/Tooltip.vue')['default']
     UpdatesItem: typeof import('./src/components/TitleBar/Updates/UpdatesItem.vue')['default']
     VideoItem: typeof import('./src/components/TitleBar/History/VideoItem.vue')['default']
   }

@@ -348,10 +348,10 @@
     visibility: visible;
 }
 #history-info {
+    padding-top: 16px;
     width: 340px;
 }
 #history-info-list {
-    margin-top: 16px;
     height: 415px;
 }
 #history-info-view-all {
@@ -373,10 +373,40 @@
     visibility: visible;
 }
 #updates-info {
+    padding-top: 16px;
     width: 340px;
 }
+.live-stream-list-scrollbar {
+    width: 320px;
+    margin: 0 auto;
+}
+#live-stream-list {
+    display: flex;
+}
+#updates-info-list-header {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#updates-info-list-header > * {
+    display: inline-block;
+}
+#updates-info-list-header > span {
+    flex: 2;
+    font-size: 10px;
+    text-align: center;
+}
+.fake-line {
+    flex: 4;
+    height: 1px;
+    background-color: var(--color-gray-3);
+    margin-left: 10px;
+    margin-right: 10px;
+}
 #updates-info-list {
-    margin-top: 16px;
     height: 455px;
 }
 #updates-info-view-all {
