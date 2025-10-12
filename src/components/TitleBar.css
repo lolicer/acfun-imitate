@@ -42,14 +42,14 @@
 .extension-icon {
     width: 18px;
     height: 18px;
-    color:rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 .extension-text {
     font-size: 14px;
     color: black;
 }
 .text:hover {
-    color:rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 
 #shop-icon {
@@ -79,30 +79,11 @@
 :deep(.el-input__wrapper) {
     border-radius: 16px;
 }
-/* .input-area {
-    width: 100%;
-    background-image: transparent;
-    background-color: transparent;
-    border: none;
-    outline: none;
-
-    padding-left: 16px;
-}
-.input-button {
-    background-color: transparent;
-    border: none;
-    margin-right: 4px;
-}
-.input-button-icon {
-    width: 16px;
-    height: 16px;
-    color: rgb(194, 198, 206);
-} */
 
 #search-result > * > hr {
     border: none;
     height: 1px;
-    background-color: rgb(173,173,173);
+    background-color: var(--color-gray-2);
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -124,6 +105,7 @@
 .result-history-button {
     margin: 0px 12px 0px 0px;
     transition: none;
+    /* border-color: var(--color-gray-3); */
 }
 :deep(.result-history-button > span > span) {
     max-width: 100px;
@@ -132,15 +114,15 @@
     white-space: nowrap;
 }
 :deep(.result-history-button:hover > span) {
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 #result-history-clear-button:hover {
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
     cursor: pointer;
 }
 :deep(.result-history-button:hover) {
     background-color: white;
-    border-color: rgb(220, 223, 230);
+    border-color: var(--color-gray-3);
 }
 
 #result-hotsearch-title {
@@ -165,7 +147,7 @@
     font-size: 14px;
 }
 .result-hotsearch-item:nth-child(-n+3) {
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
     font-weight: 500;
 }
 .result-hotsearch-item:nth-child(n+4) {
@@ -173,9 +155,9 @@
 }
 .result-hotsearch-item:hover {
     cursor: pointer;
-    background-color: rgb(255, 237, 238);
+    background-color: var(--color-acfun-light);
     span {
-        color: rgb(253, 76, 93);
+        color: var(--color-acfun);
         font-weight: 500;
     }
 }
@@ -202,7 +184,7 @@
 .mini-icon {
     width: 18px;
     height: 18px;
-    color: rgb(173,173,173);
+    color: var(--color-gray-2);
 }
 
 #avatar > img {
@@ -229,11 +211,11 @@
 }
 #user-info-space-name:hover {
     cursor: pointer;
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 #user-info-space-exit {
     display: inline flex;
-    color: rgb(173,173,173);
+    color: var(--color-gray-2);
     align-items: center;
 }
 #user-info-space-exit > svg {
@@ -275,18 +257,18 @@
 }
 #user-info-acbi-recharge:hover {
     cursor: pointer;
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 #user-info-more {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    background-color: rgb(238 ,238, 238);
+    background-color: var(--color-gray-4);
 }
 #user-info-more:hover {
     cursor: pointer;
-    background-color: rgb(228, 228, 228);
+    background-color: var(--color-gray-3);
 }
 
 #message-info {
@@ -302,11 +284,11 @@
 }
 #message-info > div:hover {
     cursor: pointer;
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 
 #upload-button {
-    color: rgb(255,251,251);
+    color: white;
 }
 #upload-button-text {
     margin-left: 4px;
@@ -325,7 +307,7 @@
 }
 #uploader-info > div:hover {
     cursor: pointer;
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 
 
@@ -336,7 +318,7 @@
     left: 50%;
     transform: translateX(-50%);
     visibility: hidden;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--color-white-transparent);
     box-shadow: 2px 6px 6px gray;
     border-radius: 6px;
 
@@ -383,8 +365,8 @@
     margin: 10px 10px 20px 10px;
     height: 48px;
     border-radius: 8px;
-    background-color: rgb(240, 241, 242);
-    color: rgb(104, 104, 104);
+    background-color: var(--color-gray-4);
+    color: var(--color-gray-0);
 }
 #history-info-view-all:hover {
     cursor: pointer;
@@ -408,8 +390,8 @@
     margin: 10px 10px 20px 10px;
     height: 48px;
     border-radius: 8px;
-    background-color: rgb(240, 241, 242);
-    color: rgb(104, 104, 104);
+    background-color: var(--color-gray-4);
+    color: var(--color-gray-0);
 }
 #updates-info-view-all:hover {
     cursor: pointer;
