@@ -172,12 +172,10 @@ const updates: Updates[] = updatesData
             <div id="uploader">
                 <div><UploaderIcon class="mini-icon"/></div>
                 <div class="floating-block" id="uploader-info">
-                    <ul style="list-style: none;">
-                        <li>稿件管理</li>
-                        <li>数据中心</li>
-                        <li>互动管理</li>
-                        <li>阿普学院</li>
-                    </ul>
+                    <div>稿件管理</div>
+                    <div>数据中心</div>
+                    <div>互动管理</div>
+                    <div>阿普学院</div>
                 </div>
             </div>
         </div>
