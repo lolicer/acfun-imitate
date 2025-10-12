@@ -38,4 +38,8 @@ interface Updates {
     releaseTime: number;
 }
 
-export { type Updates }
+interface LiveStreamer {
+    name: string,
+    avatarUrl: string
+}
+export { type Updates, type LiveStreamer }

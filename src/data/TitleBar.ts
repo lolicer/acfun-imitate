@@ -1,5 +1,5 @@
-import { HistoryInfo } from "@/types/HistoryInfo"
-import { Updates } from "@/types/Updates"
+import { HistoryInfo } from "@/types/HistoryInfo.js"
+import { Updates, LiveStreamer } from "@/types/Updates.js"
 
 export const searchHistoryData: string[] = ['Ciallo是什么意思', '秦泊夜', '绫地宁宁', '阿姆斯特朗回旋加速喷气式阿姆斯特朗炮', '萝莉神的安魂曲'] 
 
@@ -193,4 +193,14 @@ export const updatesData: Updates[] = [
         title: '你最帅了！《叛逆神魂》steam点数商店头像、动态背景已上线~送头像大图',
         releaseTime: 1759723577000 // 2025-10-06 12:06:17
     }
+]
+
+export const liveStreamers: LiveStreamer[] = [
+    {name: '混沌之神虚妄喵', avatarUrl: '/images/updates/liveAvatars/0.png'},
+    {name: '烛不遥', avatarUrl: '/images/updates/liveAvatars/1.png'},
+    {name: '桜都子', avatarUrl: '/images/updates/liveAvatars/2.png'},
+    {name: '大雪菜', avatarUrl: '/images/updates/liveAvatars/3.png'},
+    {name: '烛灵儿Hikari', avatarUrl: '/images/updates/liveAvatars/4.png'},
+    {name: '一生挚爱-由比滨结衣', avatarUrl: '/images/updates/liveAvatars/5.png'},
+    {name: 'Google中国', avatarUrl: '/images/updates/liveAvatars/6.png'}
 ]
