@@ -164,7 +164,7 @@ const updates: Updates[] = updatesData
                 </div>
             </div>
             <div id="upload">
-                <ElButton id="upload-button" color="rgb(253, 76, 93)">
+                <ElButton id="upload-button" color="var(--color-acfun)">
                     <UploadIcon/>
                     <span id="upload-button-text">投稿</span>
                 </ElButton>

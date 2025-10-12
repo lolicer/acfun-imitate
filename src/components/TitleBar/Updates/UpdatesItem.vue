@@ -80,7 +80,7 @@ onMounted(() => {
     overflow: hidden;
     
     font-size: 13px;
-    color: rgb(104, 104, 104);
+    color: var(--color-gray-0);
 }
 .title {
     /* 控制超出两行自动省略 */
@@ -97,21 +97,21 @@ onMounted(() => {
 }
 .title:hover {
     cursor: pointer;
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 .article-mark {
     display: inline-block; /* 改为行内块元素 */
-    border: 1px solid rgb(253, 76, 93);
+    border: 1px solid var(--color-acfun);
     border-radius: 2px;
     padding: 0 3px; /* 添加内边距 */
     margin-right: 2px; /* 与标题文字的间距 */
     font-size: 11px; /* 稍微调小字体 */
-    color: rgb(253, 76, 93); /* 文字颜色与边框一致 */
+    color: var(--color-acfun); /* 文字颜色与边框一致 */
     line-height: 15px; /* 固定行高 */
 }
 .release-time {
     font-size: 11px;
-    color: rgb(104, 104, 104);
+    color: var(--color-gray-0);
 }
 
 .cover {

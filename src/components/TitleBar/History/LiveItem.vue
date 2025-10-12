@@ -112,10 +112,10 @@ onMounted(() => {
     padding-bottom: 1px;
 }
 #live-status-false {
-    background-color: rgba(153, 153, 153, 0.85);
+    background-color: var(--color-gray-1-transparent);
 }
 #live-status-true {
-    background-color: rgba(253, 76, 93, 0.85);
+    background-color: var(--color-acfun-transparent);
 }
 
 #info {
@@ -138,7 +138,7 @@ onMounted(() => {
 }
 .title:hover {
     cursor: pointer;
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 
 #line-2 {
@@ -149,14 +149,14 @@ onMounted(() => {
 .device-icon {
     width: 14px;
     height: 14px;
-    color: rgb(153, 153, 153);
+    color: var(--color-gray-1);
 }
 #watching-time {
     font-size: 11px;
     line-height: 15px;
     transform: translateY(-1px);
     margin-left: 4px;
-    color: rgb(153, 153, 153);
+    color: var(--color-gray-1);
 }
 #watching-time:hover {
     cursor: default;
@@ -170,17 +170,17 @@ onMounted(() => {
 #uploader-icon {
     width: 15px;
     height: 15px;
-    color: rgb(153, 153, 153);
+    color: var(--color-gray-1);
 }
 #uploader-name {
     font-size: 12px;
     line-height: 15px;
     transform: translateY(-1px);
     margin-left: 4px;
-    color: rgb(153, 153, 153);
+    color: var(--color-gray-1);
 }
 #uploader-name:hover {
     cursor: pointer;
-    color: rgb(253, 76, 93);
+    color: var(--color-acfun);
 }
 </style>

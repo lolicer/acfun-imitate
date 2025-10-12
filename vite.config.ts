@@ -18,6 +18,13 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
   ],
+  css: {
+    preprocessorOptions: {
+        scss: {
+            additionalData: `@import "@/styles/main.scss";`
+        }
+    }
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')

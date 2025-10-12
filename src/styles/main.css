@@ -1,3 +1,18 @@
 a {
     text-decoration: none;
 }
+
+:root {
+    /* 颜色变量 */
+    --color-acfun: rgb(253, 76, 93);
+    --color-acfun-transparent: rgba(253, 76, 93, 0.85);
+    --color-acfun-light: rgb(255, 237, 238);
+
+    --color-gray-0: rgb(104, 104, 104);
+    --color-gray-1: rgb(153, 153, 153);
+    --color-gray-1-transparent: rgba(153, 153, 153, 0.85);
+    --color-gray-2: rgb(173, 173, 173);
+    --color-gray-3: rgb(228, 228, 228);
+    --color-gray-4: rgb(238, 238, 238);
+    --color-white-transparent: rgba(255, 255, 255, 0.9);
+}
