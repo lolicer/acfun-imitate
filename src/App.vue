@@ -11,8 +11,8 @@ import Test from './components/Test.vue';
     <TitleBar/>
     <Banner/>
     <Navigation/>
-    <Test/>
     <RouterView/>
+    <Test/>
 </template>
 
 <style scoped></style>

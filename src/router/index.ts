@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Home from '../views/home/aHome.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -7,15 +7,72 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: Home,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      path: '/live',
+      name: 'live',
+      component: () => import('@/views/home/bLive.vue'),
+    },
+    {
+      path: '/anime',
+      name: 'anime',
+      component: () => import('@/views/home/cAnime.vue'),
+    },
+    {
+      path: '/donghua',
+      name: 'donghua',
+      component: () => import('@/views/home/dDonghua.vue'),
+    },
+    {
+      path: '/entertainment',
+      name: 'entertainment',
+      component: () => import('@/views/home/eEntertainment.vue'),
+    },
+    {
+      path: '/lifestyle',
+      name: 'lifestyle',
+      component: () => import('@/views/home/fLifestyle.vue'),
+    },
+    {
+      path: '/music',
+      name: 'music',
+      component: () => import('@/views/home/gMusic.vue'),
+    },
+    {
+      path: '/danceandidol',
+      name: 'danceandidol',
+      component: () => import('@/views/home/hDanceAndIdol.vue'),
+    },
+    {
+      path: '/gaming',
+      name: 'gaming',
+      component: () => import('@/views/home/iGaming.vue'),
+    },
+    {
+      path: '/technology',
+      name: 'technology',
+      component: () => import('@/views/home/jTechnology.vue'),
+    },
+    {
+      path: '/filmandtv',
+      name: 'filmandtv',
+      component: () => import('@/views/home/kFilmAndTV.vue'),
+    },
+    {
+      path: '/sports',
+      name: 'sports',
+      component: () => import('@/views/home/lSports.vue'),
+    },
+    {
+      path: '/trending',
+      name: 'trending',
+      component: () => import('@/views/home/mTrending.vue'),
+    },
+    {
+      path: '/article',
+      name: 'article',
+      component: () => import('@/views/home/nArticle.vue'),
     },
   ],
 })

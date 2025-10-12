@@ -15,4 +15,8 @@ a {
     --color-gray-3: rgb(228, 228, 228);
     --color-gray-4: rgb(238, 238, 238);
     --color-white-transparent: rgba(255, 255, 255, 0.9);
+
+    /* 阴影 */
+    --shadow-0: 0px 2px 2px 1px rgba(0, 0, 0, 0.04);
+    --shadow-1: 0px 2px 2px 1px rgba(0, 0, 0, 0.08);
 }

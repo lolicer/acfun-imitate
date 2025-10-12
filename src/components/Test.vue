@@ -12,6 +12,7 @@
 .content {
     width: 100%;
     height: 5000px;
-    background-color: cadetblue;
+    background-color: white;
+    border-top: 1px dotted black;
 }
 </style>

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    About
+    科技
 </template>
 
 <style scoped></style>
