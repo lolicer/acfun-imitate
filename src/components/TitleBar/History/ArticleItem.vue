@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { drawThumbnail, formatRelativeTime } from '@/components/TitleBar/sharedFunctions';
+import { formatRelativeTime } from '@/utils/time';
+import { drawThumbnail } from '@/utils/canvas';
 import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue';
 import DevicePC from '@/assets/icons/concise/DevicePC.vue';
 import Up from '@/assets/icons/concise/Up.vue';
