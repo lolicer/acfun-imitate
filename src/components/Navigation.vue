@@ -45,6 +45,8 @@ const navigationData = [
     padding-left: 50px;
     padding-right: 50px;
     box-shadow: var(--shadow-1);
+
+    z-index: 900;
 }
 .left-item {
     display: inline-block;

@@ -12,7 +12,8 @@ import Test from './components/Test.vue';
     <Banner/>
     <Navigation/>
     <RouterView/>
-    <Test/>
+    <hr>
+    <!-- <Test/> -->
 </template>
 
 <style scoped></style>

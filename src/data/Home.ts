@@ -1,0 +1,92 @@
+import VideoItem from "@/types/VideoItem.js"
+
+export const carouselData = [
+    {
+        title: '我的男朋友才不是这种没用的家伙！',
+        imgUrl: '/images/home/carousel/0.png',
+        to: 'https://www.bilibili.com/video/BV1KT4uz9EkW'
+    },
+    {
+        title: '和打游戏的男人结婚',
+        imgUrl: '/images/home/carousel/1.png',
+        to: 'https://www.bilibili.com/video/BV1t8W5zaEwU'
+    },
+    {
+        title: '💙超💙级💙萌💙萌💙泉💙',
+        imgUrl: '/images/home/carousel/2.png',
+        to: 'https://www.bilibili.com/video/BV1bongz1EW5'
+    },
+    {
+        title: '柚子社新作介绍MV',
+        imgUrl: '/images/home/carousel/3.png',
+        to: 'https://www.bilibili.com/video/BV1aVTNzeEH2'
+    },
+    {
+        title: '【战双帕弥什】角色故事前瞻 | 无休止的死斗',
+        imgUrl: '/images/home/carousel/4.png',
+        to: 'https://www.bilibili.com/video/BV18sHezSERH'
+    }
+]
+
+export const VideoItemData: VideoItem[] = [
+    {
+        coverUrl: '/images/home/videoItems/0.png',
+        title: '标题标题标题标题标题标题标题标题标题标题标题标题',
+        to: '',
+        up: 'ac_114514',
+        releaseTime: Date.now() - 2  * 1000, // 2min前
+        viewCount: 2330000,
+        bulletScreenCount: 233,
+        duration: 441
+    },
+    {
+        coverUrl: '/images/home/videoItems/0.png',
+        title: '标题',
+        to: '',
+        up: 'ac_114514',
+        releaseTime: Date.now() - 14 * 60 * 1000, // 2min前
+        viewCount: 2330000,
+        bulletScreenCount: 233,
+        duration: 441
+    },
+    {
+        coverUrl: '/images/home/videoItems/0.png',
+        title: '标题',
+        to: '',
+        up: 'ac_114514',
+        releaseTime: Date.now() - 10 * 60 * 60 * 1000, // 10h前
+        viewCount: 2330000,
+        bulletScreenCount: 233,
+        duration: 441
+    },
+    {
+        coverUrl: '/images/home/videoItems/0.png',
+        title: '标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题',
+        to: '',
+        up: 'ac_114514',
+        releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000, // 3d前,
+        viewCount: 2330000,
+        bulletScreenCount: 233,
+        duration: 441
+    },
+    {
+        coverUrl: '/images/home/videoItems/0.png',
+        title: '标题',
+        to: '',
+        up: 'ac_114514',
+        releaseTime: 1760500893000, // 2025-10-15 12:01:33,
+        viewCount: 2330000,
+        bulletScreenCount: 233,
+        duration: 441
+    },
+    {
+        coverUrl: '/images/home/videoItems/0.png',
+        title: '标题',
+        to: '',
+        up: 'ac_114514',
+        releaseTime: 1726754749000, // 2024-09-19 22:05:49,
+        viewCount: 2330000,
+        bulletScreenCount: 233,
+        duration: 441
+    }
+]

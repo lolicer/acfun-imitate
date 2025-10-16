@@ -27,18 +27,18 @@ const hotSearsh: string[] = hotSearshData
 const historyInfo: HistoryInfo[] = historyInfoData
 const updates: Updates[] = updatesData
 
-const liveStreamScrollbarRef = ref<ScrollbarInstance>()
-const scrollLeft = ref<number>(0)
-function handleScrollLiveStream(data){
-    console.log(data)
-    scrollLeft.value = data.scrollLeft as number
-}
-async function handleWheelLiveStream(event: WheelEvent){
-    event.preventDefault()
-    const scrollDistance = Math.sign(event.deltaY) * 64
-    await liveStreamScrollbarRef.value.scrollTo({ left: scrollLeft.value + scrollDistance, behavior: 'auto' })
-}
-
+// const liveStreamScrollbarRef = ref<ScrollbarInstance>()
+// const scrollLeft = ref<number>(0)
+// function handleScrollLiveStream(data){
+//     console.log(data)
+//     scrollLeft.value = data.scrollLeft as number
+// }
+// async function handleWheelLiveStream(event: WheelEvent){
+//     event.preventDefault()
+//     const scrollDistance = Math.sign(event.deltaY) * 64
+//     await liveStreamScrollbarRef.value.scrollTo({ left: scrollLeft.value + scrollDistance, behavior: 'auto' })
+// }
+// shift+滚轮可实现横向滚动
 </script>
 
 <template>
@@ -169,10 +169,12 @@ async function handleWheelLiveStream(event: WheelEvent){
                 <div class="floating-block" id="updates-info">
                     <ElScrollbar 
                         class="live-stream-list-scrollbar" 
-                        @wheel="handleWheelLiveStream" 
-                        @scroll="handleScrollLiveStream"
-                        ref="liveStreamScrollbarRef"
                     >
+                    <!-- 
+                        @wheel="handleWheelLiveStream" 
+                        @scroll="handleScrollLiveStream" 
+                        ref="liveStreamScrollbarRef"
+                    -->
                         <div id="live-stream-list">
                             <LiveStreamItem v-for="item in liveStreamers" :data="item"/>
                         </div>
