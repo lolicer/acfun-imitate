@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { drawThumbnail } from '@/components/TitleBar/sharedFunctions';
+import { drawThumbnail } from '@/utils/canvas';
 import { LiveStreamer } from '@/types/Updates';
 import { nextTick, onMounted, ref } from 'vue';
 

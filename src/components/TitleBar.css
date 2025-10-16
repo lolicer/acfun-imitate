@@ -147,7 +147,7 @@
     font-weight: 500;
 }
 .result-hotsearch-item:nth-child(n+4) {
-    color: #999999;
+    color: var(--color-gray-1);
 }
 .result-hotsearch-item:hover {
     cursor: pointer;

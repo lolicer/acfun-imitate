@@ -62,3 +62,55 @@ export function formatSeconds(seconds: number): string {
   // 大于等于1小时，显示时:分:秒
   return `${hours}:${formatNumber(minutes)}:${formatNumber(secs)}`;
 }
+
+/**
+ * 将时间戳转换为日期字符串
+ * @param timestamp 时间戳（毫秒）
+ * @returns 格式化的日期字符串
+ */
+export function formatTimestampToDate(timestamp: number): string {
+    const date = new Date(timestamp);
+    const now = new Date();
+    
+    // 计算时间差（毫秒）
+    const diff = now.getTime() - timestamp;
+    const seconds = Math.floor(diff / 1000);
+    const minutes = Math.floor(diff / (1000 * 60));
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    
+    // 60秒内：返回xx秒前
+    if(seconds < 60) {
+        return `${seconds}秒前`;
+    }
+    // 60分钟内：返回xx分钟前
+    else if (minutes < 60) {
+        return `${minutes}分钟前`;
+    }
+    // 24小时内：返回xx小时前
+    else if (hours < 24) {
+        return `${hours}小时前`;
+    }
+    // 7天内：返回xx天前
+    else if (days < 7) {
+        return `${days}天前`;
+    }
+    // 超过7天，按日期格式显示
+    else {
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1; // 月份从0开始，需要+1
+        const day = date.getDate();
+
+        // 获取当前年份
+        const currentYear = now.getFullYear();
+
+        // 月日前面不补零
+        if (year === currentYear) {
+            // 今年：省略年份
+            return `${month}-${day}`;
+        } else {
+            // 非今年：显示完整年月日
+            return `${year}-${month}-${day}`;
+        }
+    }
+}

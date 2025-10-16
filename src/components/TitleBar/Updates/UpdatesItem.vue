@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { formatRelativeTime, drawThumbnail } from '@/components/TitleBar/sharedFunctions';
+import { drawThumbnail } from '@/utils/canvas';
+import { formatRelativeTime } from '@/utils/time';
 import { Updates } from '@/types/Updates';
 import { nextTick, onMounted, ref } from 'vue';
 

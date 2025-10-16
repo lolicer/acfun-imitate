@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import type { HistoryInfo, VideoHistoryInfo, LiveHistoryInfo, ArticleHistoryInfo } from '@/types/HistoryInfo';
 import { isVideoHistoryInfo, isLiveHistoryInfo, isArticleHistoryInfo } from '@/types/HistoryInfo';
-import VideoItem from './VideoItem.vue';
-import LiveItem from './LiveItem.vue';
-import ArticleItem from './ArticleItem.vue';
+import VideoItem from './VideoHistoryItem.vue';
+import LiveItem from './LiveHistoryItem.vue';
+import ArticleItem from './ArticleHistoryItem.vue';
 
 const props = defineProps<{
     data: HistoryInfo
