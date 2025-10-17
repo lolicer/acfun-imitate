@@ -101,12 +101,16 @@ onMounted(() => {
     color: white;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 8px;
+    padding: 0 8px;    
 }
 #cover-info > div {
     display: flex;
     align-items: center;
     font-size: 15px;
+}
+
+#info {
+    margin-top: 4px;
 }
 #info-viewcount {
     margin-right: 8px;
