@@ -1,3 +1,4 @@
+import LiveItem from "@/types/LiveItem.js"
 import VideoItem from "@/types/VideoItem.js"
 
 export const carouselData = [
@@ -88,5 +89,58 @@ export const VideoItemData: VideoItem[] = [
         viewCount: 2330000,
         bulletScreenCount: 233,
         duration: 441
+    }
+]
+
+export const LiveItemData: LiveItem[] = [
+    {
+        tag: '虚拟日常',
+        coverUrl: '/images/home/liveItems/cover-0.png',
+        avatarUrl: '/images/home/liveItems/avatar-0.png',
+        title: '嘿~想我了吗！',
+        to: 'https://live.bilibili.com/264788',
+        up: '有棵里里',
+        likeCount: 16000,
+        audienceCount: 256
+    },
+    {
+        tag: '虚拟Singer',
+        coverUrl: '/images/home/liveItems/cover-1.png',
+        avatarUrl: '/images/home/liveItems/avatar-1.png',
+        title: '【歌】我很安静陪着你',
+        to: 'https://live.bilibili.com/26832833',
+        up: '绮葵kiko',
+        likeCount: 589,
+        audienceCount: 214
+    },
+    {
+        tag: '虚拟Singer',
+        coverUrl: '/images/home/liveItems/cover-2.png',
+        avatarUrl: '/images/home/liveItems/avatar-2.png',
+        title: '以歌为药 聊以为家',
+        to: 'https://live.bilibili.com/1777487861',
+        up: '漫漫tail',
+        likeCount: 1122,
+        audienceCount: 102
+    },
+    {
+        tag: '单机游戏',
+        coverUrl: '/images/home/liveItems/cover-3.png',
+        avatarUrl: '/images/home/liveItems/avatar-3.png',
+        title: '继续丝之歌！！！',
+        to: 'https://live.bilibili.com/21852',
+        up: '老番茄',
+        likeCount: 998012,
+        audienceCount: 2333
+    },
+    {
+        tag: '虚拟日常',
+        coverUrl: '/images/home/liveItems/cover-4.png',
+        avatarUrl: '/images/home/liveItems/avatar-4.png',
+        title: '汪汪队！当吸血鬼！给我吸吸',
+        to: 'https://live.bilibili.com/21652717',
+        up: '白神遥Haruka',
+        likeCount: 8189,
+        audienceCount: 321
     }
 ]
