@@ -1,9 +1,12 @@
 <script lang="ts" setup>
+import LiveItem from '@/components/public/LiveItem.vue';
 import VideoItem from '@/components/public/VideoItem.vue';
-import { carouselData, VideoItemData } from '@/data/Home';
+import { carouselData, VideoItemData, LiveItemData } from '@/data/Home';
 import { ElCarousel, ElCarouselItem } from 'element-plus';
 const carousel = carouselData
 const videoItem = VideoItemData
+const liveItem = LiveItemData
+const rightImg = '/images/home/pagelet-live-right.png'
 </script>
 
 <template>
@@ -23,6 +26,13 @@ const videoItem = VideoItemData
             </div>
             <div id="pagelet-top-right-featured">
                 <VideoItem class="featured-video-item" v-for="item in videoItem" :data="item"/>
+            </div>
+        </div>
+        <div id="pagelet-live">
+            <LiveItem class="live-item" v-for="item in liveItem" :data="item"/>
+            
+            <div id="content-right-img">
+                <img :src="rightImg" alt="">
             </div>
         </div>
     </div>
@@ -102,5 +112,21 @@ const videoItem = VideoItemData
 .featured-video-item {
     width: 100%;
     height: 100%;
+}
+
+#pagelet-live {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) 1.8fr;
+    gap: 8px;
+    width: 100%;
+}
+#content-right-img {
+    text-align: right;
+}
+#content-right-img > img {
+    height: 100%;
+    object-fit: cover;
+    max-width: calc(100% - 25px);
+    border-radius: 4px;
 }
 </style>

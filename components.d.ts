@@ -15,6 +15,7 @@ declare module 'vue' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     HistoryInfoItem: typeof import('./src/components/TitleBar/History/HistoryInfoItem.vue')['default']
     LiveHistoryItem: typeof import('./src/components/TitleBar/History/LiveHistoryItem.vue')['default']
+    LiveItem: typeof import('./src/components/public/LiveItem.vue')['default']
     LiveStreamItem: typeof import('./src/components/TitleBar/Updates/LiveStreamItem.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
