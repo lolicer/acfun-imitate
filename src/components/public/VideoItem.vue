@@ -1,7 +1,9 @@
  <script lang="ts" setup>
+import BulletScreenCount from '@/assets/icons/concise/BulletScreenCount.vue';
 import Up from '@/assets/icons/concise/Up.vue';
+import ViewCount from '@/assets/icons/concise/ViewCount.vue';
 import VideoItem from '@/types/VideoItem';
-import { formatTimestampToDate } from '@/utils/time';
+import { formatTimestampToDate, formatSeconds, formatNumber } from '@/utils/time';
 import { nextTick, onMounted, ref } from 'vue';
 const props = defineProps<{
     data: VideoItem
@@ -30,6 +32,19 @@ onMounted(() => {
     <div id="video-item-content">
         <div id="cover">
             <img :src="props.data.coverUrl" alt="">
+            <div id="info-cover">
+                <div id="info-viewcount">
+                    <ViewCount/>
+                    <span>{{ formatNumber(props.data.viewCount) }}</span>
+                </div>
+                <div id="info-bullet-screen-count">
+                    <BulletScreenCount/>
+                    <span>{{ formatNumber(props.data.bulletScreenCount) }}</span>
+                </div>
+                <div id="info-duration">
+                    <span>{{ formatSeconds(props.data.duration) }}</span>
+                </div>
+            </div>
         </div>
         <div id="info">
             <span id="title" ref="titleRef" :title="tooltip">{{ props.data.title }}</span>
@@ -53,6 +68,7 @@ onMounted(() => {
 }
 #cover {
     width: 100%;
+    position: relative;
 }
 #cover:hover {
     cursor: pointer;
@@ -63,6 +79,36 @@ onMounted(() => {
     overflow: hidden;
     border-radius: 4px;
 }
+#info-cover {
+    position: absolute;
+    bottom: 6px;
+    display: flex;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 8px;
+}
+#info-cover > div {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+#info-viewcount {
+    margin-right: 8px;
+}
+#info-viewcount > span {
+    margin-left: 1px;
+}
+#info-bullet-screen-count > span {
+    margin-left: 1px;
+}
+#info-cover > div > span {
+    transform: translateY(-1px);
+}
+#info-duration {
+    margin-left: auto;
+}
+
 #title {
     /* 控制超出两行自动省略 */
     display: -webkit-box;

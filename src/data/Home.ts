@@ -35,7 +35,7 @@ export const VideoItemData: VideoItem[] = [
         to: '',
         up: 'ac_114514',
         releaseTime: Date.now() - 2  * 1000, // 2min前
-        viewCount: 2330000,
+        viewCount: 9999,
         bulletScreenCount: 233,
         duration: 441
     },
@@ -45,7 +45,7 @@ export const VideoItemData: VideoItem[] = [
         to: '',
         up: 'ac_114514',
         releaseTime: Date.now() - 14 * 60 * 1000, // 2min前
-        viewCount: 2330000,
+        viewCount: 12,
         bulletScreenCount: 233,
         duration: 441
     },
@@ -65,7 +65,7 @@ export const VideoItemData: VideoItem[] = [
         to: '',
         up: 'ac_114514',
         releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000, // 3d前,
-        viewCount: 2330000,
+        viewCount: 23300000000,
         bulletScreenCount: 233,
         duration: 441
     },

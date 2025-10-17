@@ -56,11 +56,29 @@ export function formatSeconds(seconds: number): string {
   
   // 如果小于1小时，只显示分:秒
   if (hours === 0) {
-    return `${minutes}:${formatNumber(secs)}`;
+    if(minutes < 10)
+        return `0${minutes}:${formatNumber(secs)}`;
+    else 
+        return `${minutes}:${formatNumber(secs)}`;
   }
   
   // 大于等于1小时，显示时:分:秒
   return `${hours}:${formatNumber(minutes)}:${formatNumber(secs)}`;
+}
+
+/**
+ * 将数字转换为有单位的数字
+ */
+export function formatNumber(num: number): string {
+    if (num < 10000) {
+        return num.toString()
+    }
+    else if (num < 100000000) {
+        return (Math.round((num / 10000) * 10) / 10) + '万'
+    }
+    else {
+        return (Math.round((num / 100000000) * 10) / 10) + '亿'
+    }
 }
 
 /**
