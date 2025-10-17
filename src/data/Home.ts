@@ -32,59 +32,59 @@ export const carouselData = [
 export const VideoItemData: VideoItem[] = [
     {
         coverUrl: '/images/home/videoItems/0.png',
-        title: '标题标题标题标题标题标题标题标题标题标题标题标题',
-        to: '',
-        up: 'ac_114514',
+        title: '以前在日企实习因为工作效率高每天被领导请吃饭？',
+        to: 'https://www.bilibili.com/video/BV1h7xoztEw7',
+        up: '_雾岛和声',
         releaseTime: Date.now() - 2  * 1000, // 2min前
         viewCount: 9999,
         bulletScreenCount: 233,
         duration: 441
     },
     {
-        coverUrl: '/images/home/videoItems/0.png',
-        title: '标题',
-        to: '',
-        up: 'ac_114514',
+        coverUrl: '/images/home/videoItems/1.png',
+        title: '1400只猿神，依旧菜的没边。',
+        to: 'https://www.bilibili.com/video/BV1Yo4JzFEgc',
+        up: '菜鸟裔站',
         releaseTime: Date.now() - 14 * 60 * 1000, // 2min前
         viewCount: 12,
         bulletScreenCount: 233,
         duration: 441
     },
     {
-        coverUrl: '/images/home/videoItems/0.png',
-        title: '标题',
-        to: '',
-        up: 'ac_114514',
+        coverUrl: '/images/home/videoItems/2.png',
+        title: '“我只是个路过的小萝莉”',
+        to: 'https://www.bilibili.com/video/BV1rxpRzYE82',
+        up: '月初雪の誓言',
         releaseTime: Date.now() - 10 * 60 * 60 * 1000, // 10h前
         viewCount: 2330000,
         bulletScreenCount: 233,
         duration: 441
     },
     {
-        coverUrl: '/images/home/videoItems/0.png',
-        title: '标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题',
-        to: '',
-        up: 'ac_114514',
+        coverUrl: '/images/home/videoItems/3.png',
+        title: '【WOTA艺/21オ】现実という名の怪物と戦う者たち',
+        to: 'https://www.bilibili.com/video/BV1mu43zFEPQ',
+        up: '巫妖王奥祖',
         releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000, // 3d前,
         viewCount: 23300000000,
         bulletScreenCount: 233,
         duration: 441
     },
     {
-        coverUrl: '/images/home/videoItems/0.png',
-        title: '标题',
-        to: '',
-        up: 'ac_114514',
+        coverUrl: '/images/home/videoItems/4.png',
+        title: '月亮在你的眼睛 太阳在我心『写一首歌』【泽音Melody】',
+        to: 'https://www.bilibili.com/video/BV1LtWazoEza',
+        up: '泽音Melody',
         releaseTime: 1760500893000, // 2025-10-15 12:01:33,
         viewCount: 2330000,
         bulletScreenCount: 233,
         duration: 441
     },
     {
-        coverUrl: '/images/home/videoItems/0.png',
-        title: '标题',
-        to: '',
-        up: 'ac_114514',
+        coverUrl: '/images/home/videoItems/5.png',
+        title: '朋友说再玩眠太刀就弄死我',
+        to: 'https://www.bilibili.com/video/BV1JZ4zzcEv9',
+        up: '勤奋的Tol',
         releaseTime: 1726754749000, // 2024-09-19 22:05:49,
         viewCount: 2330000,
         bulletScreenCount: 233,

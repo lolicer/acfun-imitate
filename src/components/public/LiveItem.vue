@@ -73,6 +73,7 @@ onMounted(() => {
 }
 #cover {
     width: 100%;
+    aspect-ratio: 16/9;
     position: relative;
     overflow: hidden;
     border-radius: 4px;
@@ -94,6 +95,7 @@ onMounted(() => {
 }
 #cover > img {
     width: 100%;
+    aspect-ratio: 16/9;
     object-fit: cover;
 }
 #cover-info {

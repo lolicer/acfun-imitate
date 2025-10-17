@@ -32,7 +32,8 @@ onMounted(() => {
     <div id="video-item-content">
         <div id="cover">
             <img :src="props.data.coverUrl" alt="">
-            <div id="info-cover">
+            <div id="cover-overlay"></div>
+            <div id="cover-info">
                 <div id="info-viewcount">
                     <ViewCount/>
                     <span>{{ formatNumber(props.data.viewCount) }}</span>
@@ -68,18 +69,32 @@ onMounted(() => {
 }
 #cover {
     width: 100%;
+    aspect-ratio: 16/9;
     position: relative;
+    overflow: hidden;
+    border-radius: 4px;
 }
 #cover:hover {
     cursor: pointer;
 }
+#cover-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+    );
+}
 #cover > img {
     width: 100%;
+    aspect-ratio: 16/9;
     object-fit: cover;
-    overflow: hidden;
-    border-radius: 4px;
 }
-#info-cover {
+#cover-info {
     position: absolute;
     bottom: 6px;
     display: flex;
@@ -88,7 +103,7 @@ onMounted(() => {
     box-sizing: border-box;
     padding: 0 8px;
 }
-#info-cover > div {
+#cover-info > div {
     display: flex;
     align-items: center;
     font-size: 15px;
@@ -102,7 +117,7 @@ onMounted(() => {
 #info-bullet-screen-count > span {
     margin-left: 1px;
 }
-#info-cover > div > span {
+#cover-info > div > span {
     transform: translateY(-1px);
 }
 #info-duration {
