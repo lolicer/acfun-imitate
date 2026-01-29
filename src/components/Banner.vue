@@ -1,10 +1,8 @@
-<script lang="ts" setup>
-
-</script>
+<script lang="ts" setup></script>
 
 <template>
     <div class="banner-content">
-        <img src="../assets/images/Banner.png" alt="">
+        <img src="../assets/images/Banner.png" alt="" />
     </div>
 </template>
 

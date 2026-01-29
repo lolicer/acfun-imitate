@@ -14,7 +14,13 @@ import ExitIcon from '@/assets/icons/concise/Exit.vue'
 
 import HistoryInfoItem from './TitleBar/History/HistoryInfoItem.vue'
 import { HistoryInfo } from '@/types/HistoryInfo'
-import { historyInfoData, hotSearshData, searchHistoryData, updatesData, liveStreamers } from '@/data/TitleBar'
+import {
+    historyInfoData,
+    hotSearshData,
+    searchHistoryData,
+    updatesData,
+    liveStreamers
+} from '@/data/TitleBar'
 import { Updates } from '@/types/Updates'
 import UpdatesItem from './TitleBar/Updates/UpdatesItem.vue'
 import LiveStreamItem from './TitleBar/Updates/LiveStreamItem.vue'
@@ -46,13 +52,21 @@ const updates: Updates[] = updatesData
         <!-- 左边 -->
         <div id="left-content">
             <a href="/">
-                <img src="../assets/icons/acfunlogo.svg" alt="">
+                <img src="../assets/icons/acfunlogo.svg" alt="" />
             </a>
-            <a href="https://shop213417608.taobao.com/" target="_blank" class="extension">
+            <a
+                href="https://shop213417608.taobao.com/"
+                target="_blank"
+                class="extension"
+            >
                 <ShopIcon class="extension-icon" id="shop-icon" />
                 <span class="extension-text">周边商场</span>
             </a>
-            <a href="https://www.acfun.cn/face-catcher" target="_blank" class="extension">
+            <a
+                href="https://www.acfun.cn/face-catcher"
+                target="_blank"
+                class="extension"
+            >
                 <CameraIcon class="extension-icon" id="camera-icon" />
                 <span class="extension-text">AcFun面补助手</span>
             </a>
@@ -64,7 +78,7 @@ const updates: Updates[] = updatesData
                 <ElInput
                     id="input"
                     type="search"
-                    v-model="searchText" 
+                    v-model="searchText"
                     :suffix-icon="SearchIcon"
                 />
                 <!-- <div class="input">
@@ -75,29 +89,38 @@ const updates: Updates[] = updatesData
                     <div>
                         <div id="result-history-title">
                             <span>历史记录</span>
-                            <span id="result-history-clear-button">清除历史</span>
+                            <span id="result-history-clear-button"
+                                >清除历史</span
+                            >
                         </div>
-                        <hr>
+                        <hr />
                         <div id="result-history-button-list">
-                            <ElButton 
+                            <ElButton
                                 class="result-history-button"
                                 v-for="(value, idx) in searchHistory"
                                 :key="idx"
-                                size=small
-                            ><span :title="value">{{ value }}</span></ElButton>
+                                size="small"
+                                ><span :title="value">{{
+                                    value
+                                }}</span></ElButton
+                            >
                         </div>
                         <div id="result-hotsearch-title">
                             <span>今日热搜</span>
                         </div>
-                        <hr>
+                        <hr />
                         <div id="result-hotsearch-list">
-                            <div 
-                                v-for="(value, idx) in hotSearsh" 
+                            <div
+                                v-for="(value, idx) in hotSearsh"
                                 :key="idx"
                                 class="result-hotsearch-item"
                             >
-                            <span class="result-hotsearch-item-idx">{{ idx+1 }}</span>
-                            <span class="result-hotsearch-item-value">{{ value }}</span>
+                                <span class="result-hotsearch-item-idx">{{
+                                    idx + 1
+                                }}</span>
+                                <span class="result-hotsearch-item-value">{{
+                                    value
+                                }}</span>
                             </div>
                         </div>
                     </div>
@@ -108,39 +131,38 @@ const updates: Updates[] = updatesData
         <!-- 右边 -->
         <div id="right-content">
             <div id="phone">
-                <div><PhoneIcon class="mini-icon"/></div>
+                <div><PhoneIcon class="mini-icon" /></div>
                 <div class="floating-block" id="app-download">
-                    <img src="../assets/images/app-download.png" alt="">
+                    <img src="../assets/images/app-download.png" alt="" />
                 </div>
             </div>
             <div id="avatar">
-                <img src="../assets/images/avatar.png" alt="">
+                <img src="../assets/images/avatar.png" alt="" />
                 <div class="floating-block" id="user-info">
                     <div id="user-info-space">
-                        <div id="user-info-space-name">
-                            七森中の阿卡林
-                        </div>
+                        <div id="user-info-space-name">七森中の阿卡林</div>
                         <div id="user-info-space-exit">
-                            <ExitIcon/>
+                            <ExitIcon />
                             <span>退出</span>
                         </div>
                     </div>
                     <div id="user-info-acbi">
                         <div id="user-info-acbi-left">
-                            <img id="user-info-acbi-acbiimg" src="../assets/icons/acbi.svg" alt=""> <!--display：online-block-->
+                            <img
+                                id="user-info-acbi-acbiimg"
+                                src="../assets/icons/acbi.svg"
+                                alt=""
+                            />
+                            <!--display：online-block-->
                             <span id="user-info-acbi-number">233</span>
                         </div>
-                        <div id="user-info-acbi-recharge" type="text">
-                            充值
-                        </div>
+                        <div id="user-info-acbi-recharge" type="text">充值</div>
                     </div>
-                    <div id="user-info-more">
-                        查看更多
-                    </div>
+                    <div id="user-info-more">查看更多</div>
                 </div>
             </div>
             <div id="message">
-                <div><MessageIcon class="mini-icon"/></div>
+                <div><MessageIcon class="mini-icon" /></div>
                 <div class="floating-block" id="message-info">
                     <div>评论</div>
                     <div>赞</div>
@@ -152,31 +174,34 @@ const updates: Updates[] = updatesData
                 </div>
             </div>
             <div id="history">
-                <div><HistoryIcon class="mini-icon"/></div>
+                <div><HistoryIcon class="mini-icon" /></div>
                 <div class="floating-block" id="history-info">
                     <div id="history-info-list">
                         <ElScrollbar>
-                            <HistoryInfoItem v-for="item in historyInfo" :data="item" :id="item.url"/>
-                            <div id="history-info-view-all">
-                                查看全部
-                            </div>
+                            <HistoryInfoItem
+                                v-for="item in historyInfo"
+                                :data="item"
+                                :id="item.url"
+                            />
+                            <div id="history-info-view-all">查看全部</div>
                         </ElScrollbar>
                     </div>
                 </div>
             </div>
             <div id="updates">
-                <div><UpdatesIcon class="mini-icon"/></div>
+                <div><UpdatesIcon class="mini-icon" /></div>
                 <div class="floating-block" id="updates-info">
-                    <ElScrollbar 
-                        class="live-stream-list-scrollbar" 
-                    >
-                    <!-- 
+                    <ElScrollbar class="live-stream-list-scrollbar">
+                        <!-- 
                         @wheel="handleWheelLiveStream" 
                         @scroll="handleScrollLiveStream" 
                         ref="liveStreamScrollbarRef"
                     -->
                         <div id="live-stream-list">
-                            <LiveStreamItem v-for="item in liveStreamers" :data="item"/>
+                            <LiveStreamItem
+                                v-for="item in liveStreamers"
+                                :data="item"
+                            />
                         </div>
                     </ElScrollbar>
                     <div id="updates-info-list-header">
@@ -186,22 +211,24 @@ const updates: Updates[] = updatesData
                     </div>
                     <div id="updates-info-list">
                         <ElScrollbar>
-                            <UpdatesItem v-for="item in updates" :data="item" :id="item.url"/>
-                            <div id="updates-info-view-all">
-                                查看全部动态
-                            </div>
+                            <UpdatesItem
+                                v-for="item in updates"
+                                :data="item"
+                                :id="item.url"
+                            />
+                            <div id="updates-info-view-all">查看全部动态</div>
                         </ElScrollbar>
                     </div>
                 </div>
             </div>
             <div id="upload">
                 <ElButton id="upload-button" color="var(--color-acfun)">
-                    <UploadIcon/>
+                    <UploadIcon />
                     <span id="upload-button-text">投稿</span>
                 </ElButton>
             </div>
             <div id="uploader">
-                <div><UploaderIcon class="mini-icon"/></div>
+                <div><UploaderIcon class="mini-icon" /></div>
                 <div class="floating-block" id="uploader-info">
                     <div>稿件管理</div>
                     <div>数据中心</div>

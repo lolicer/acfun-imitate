@@ -1,18 +1,18 @@
 export default interface VideoItem {
     /** 封面地址 */
-    coverUrl: string;
+    coverUrl: string
     /** 标题 */
-    title: string;
+    title: string
     /**跳转地址 */
-    to: string;
+    to: string
     /** UP主名字 */
-    up: string;
+    up: string
     /** 发布时间戳 */
-    releaseTime: number;
+    releaseTime: number
     /** 观看数量 */
-    viewCount: number;
+    viewCount: number
     /** 弹幕数量 */
-    bulletScreenCount: number;
+    bulletScreenCount: number
     /** 视频时长 */
-    duration: number;
+    duration: number
 }

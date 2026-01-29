@@ -13,7 +13,9 @@
     background-color: white;
     z-index: 999;
 }
-#left-content, #center-content, #right-content {
+#left-content,
+#center-content,
+#right-content {
     display: flex;
     flex: 1;
     align-items: center;
@@ -28,7 +30,6 @@
 #right-content {
     justify-content: right;
 }
-
 
 /* 左边 */
 .extension {
@@ -56,7 +57,6 @@
     margin-left: 8px;
     margin-right: 2px;
 }
-
 
 /* 中间 */
 #center-content > * {
@@ -94,7 +94,7 @@
 #result-history-title > span {
     font-size: 12.5px;
 }
-#result-history-button-list{
+#result-history-button-list {
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -135,18 +135,18 @@
 .result-hotsearch-item {
     height: 32px;
     line-height: 32px;
-    
+
     padding-left: 10px;
     padding-right: 10px;
 }
 .result-hotsearch-item > span {
     font-size: 14px;
 }
-.result-hotsearch-item:nth-child(-n+3) {
+.result-hotsearch-item:nth-child(-n + 3) {
     color: var(--color-acfun);
     font-weight: 500;
 }
-.result-hotsearch-item:nth-child(n+4) {
+.result-hotsearch-item:nth-child(n + 4) {
     color: var(--color-gray-1);
 }
 .result-hotsearch-item:hover {
@@ -163,7 +163,6 @@
     margin-right: 8px;
     text-align: center;
 }
-
 
 /* 右边 */
 #right-content > * {
@@ -306,7 +305,6 @@
     color: var(--color-acfun);
 }
 
-
 /* 浮动块 */
 .floating-block {
     position: absolute;
@@ -319,10 +317,9 @@
     border-radius: 6px;
 
     transition-delay: 100ms; /* 添加这个是因为：当标题超出两行，hover显示title（tooltip）时，可能会出现BUG：由于鼠标移动到tootip上，导致观看历史失去了hover，自动收起 */
-    
 }
 
-#search:focus-within #search-result{
+#search:focus-within #search-result {
     visibility: visible;
 }
 #search-result {
@@ -389,7 +386,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 #updates-info-list-header > * {
     display: inline-block;

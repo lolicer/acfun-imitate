@@ -1,10 +1,10 @@
- <script lang="ts" setup>
-import Up from '@/assets/icons/concise/Up.vue';
-import Like from '@/assets/icons/concise/Like.vue';
-import People from '@/assets/icons/concise/People.vue';
-import LiveItem from '@/types/LiveItem';
-import { formatNumber } from '@/utils/time';
-import { nextTick, onMounted, ref } from 'vue';
+<script lang="ts" setup>
+import Up from '@/assets/icons/concise/Up.vue'
+import Like from '@/assets/icons/concise/Like.vue'
+import People from '@/assets/icons/concise/People.vue'
+import LiveItem from '@/types/LiveItem'
+import { formatNumber } from '@/utils/time'
+import { nextTick, onMounted, ref } from 'vue'
 const props = defineProps<{
     data: LiveItem
 }>()
@@ -12,13 +12,18 @@ const props = defineProps<{
 const titleRef = ref<HTMLElement>(null)
 const tooltip = ref('')
 const checkOverflow = () => {
-  if (titleRef.value) {
-    // 判断文本是否溢出
-    if(titleRef.value.scrollHeight > titleRef.value.clientHeight) {
-        tooltip.value = props.data.title
-    console.log(props.data.title, titleRef.value, titleRef.value.scrollHeight, titleRef.value.clientHeight)
+    if (titleRef.value) {
+        // 判断文本是否溢出
+        if (titleRef.value.scrollHeight > titleRef.value.clientHeight) {
+            tooltip.value = props.data.title
+            console.log(
+                props.data.title,
+                titleRef.value,
+                titleRef.value.scrollHeight,
+                titleRef.value.clientHeight
+            )
+        }
     }
-  }
 }
 
 onMounted(() => {
@@ -31,31 +36,33 @@ onMounted(() => {
 <template>
     <div id="live-item-content">
         <div id="cover">
-            <img :src="props.data.coverUrl" alt="">
+            <img :src="props.data.coverUrl" alt="" />
             <div id="cover-overlay"></div>
             <div id="cover-info">
                 <span id="cover-info-tag">
                     {{ props.data.tag }}
                 </span>
                 <div id="cover-info-like">
-                    <Like/>
+                    <Like />
                     <span>{{ formatNumber(props.data.likeCount) }}</span>
                 </div>
                 <div id="cover-info-audience-count">
-                    <People/>
+                    <People />
                     <span>{{ formatNumber(props.data.audienceCount) }}</span>
                 </div>
             </div>
         </div>
         <div id="info">
             <div id="info-avatar">
-                <img :src="props.data.avatarUrl" alt="">
+                <img :src="props.data.avatarUrl" alt="" />
             </div>
             <div id="info-right">
-                <span id="title" ref="titleRef" :title="tooltip">{{ props.data.title }}</span>
+                <span id="title" ref="titleRef" :title="tooltip">{{
+                    props.data.title
+                }}</span>
                 <div id="info-line-2">
                     <div id="up">
-                        <Up id="up-icon"/>
+                        <Up id="up-icon" />
                         <span id="up-name">{{ props.data.up }}</span>
                     </div>
                 </div>
@@ -140,7 +147,7 @@ onMounted(() => {
     border-radius: 50%;
 }
 #info-right {
-    flex:64;
+    flex: 64;
     box-sizing: border-box;
     padding-left: 10px;
 }

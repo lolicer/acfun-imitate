@@ -1,11 +1,7 @@
-<script lang="ts" setup>
-
-</script>
+<script lang="ts" setup></script>
 
 <template>
-    <div class="content">
-        我是测试
-    </div>
+    <div class="content">我是测试</div>
 </template>
 
 <style scoped>

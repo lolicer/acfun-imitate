@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-import { drawThumbnail } from '@/utils/canvas';
-import { LiveStreamer } from '@/types/Updates';
-import { nextTick, onMounted, ref } from 'vue';
+import { drawThumbnail } from '@/utils/canvas'
+import { LiveStreamer } from '@/types/Updates'
+import { nextTick, onMounted, ref } from 'vue'
 
 const props = defineProps<{
     data: LiveStreamer
-}>();
+}>()
 
 const nameRef = ref<HTMLElement>(null)
 const tooltip = ref('')
 const checkOverflow = () => {
     if (nameRef.value) {
         // 判断文本是否溢出
-        if(nameRef.value.scrollHeight > nameRef.value.clientHeight) {
+        if (nameRef.value.scrollHeight > nameRef.value.clientHeight) {
             tooltip.value = props.data.name
         }
     }
@@ -30,7 +30,13 @@ onMounted(() => {
 <template>
     <div class="content">
         <div class="avatar">
-            <canvas ref="avatarCanvasRef" class="avatar-canvas" alt="ceshi" width="44" height="44"></canvas>
+            <canvas
+                ref="avatarCanvasRef"
+                class="avatar-canvas"
+                alt="ceshi"
+                width="44"
+                height="44"
+            ></canvas>
         </div>
         <span ref="nameRef" class="name">{{ props.data.name }}</span>
     </div>

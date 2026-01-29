@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    番剧
-</template>
+<template>番剧</template>
 
 <style scoped></style>

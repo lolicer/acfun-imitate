@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    鱼塘
-</template>
+<template>鱼塘</template>
 
 <style scoped></style>

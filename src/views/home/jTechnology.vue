@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    科技
-</template>
+<template>科技</template>
 
 <style scoped></style>

@@ -1,7 +1,13 @@
-import { HistoryInfo } from "@/types/HistoryInfo.js"
-import { Updates, LiveStreamer } from "@/types/Updates.js"
+import { HistoryInfo } from '@/types/HistoryInfo.js'
+import { Updates, LiveStreamer } from '@/types/Updates.js'
 
-export const searchHistoryData: string[] = ['Ciallo是什么意思', '秦泊夜', '绫地宁宁', '阿姆斯特朗回旋加速喷气式阿姆斯特朗炮', '萝莉神的安魂曲'] 
+export const searchHistoryData: string[] = [
+    'Ciallo是什么意思',
+    '秦泊夜',
+    '绫地宁宁',
+    '阿姆斯特朗回旋加速喷气式阿姆斯特朗炮',
+    '萝莉神的安魂曲'
+]
 
 export const hotSearshData: string[] = [
     '因幡巡是真实存在的吗',
@@ -90,7 +96,7 @@ export const historyInfoData: HistoryInfo[] = [
         uploader: '九条可怜',
         duration: 105,
         position: 105
-    },
+    }
 ]
 
 export const updatesData: Updates[] = [
@@ -100,7 +106,7 @@ export const updatesData: Updates[] = [
         coverUrl: '/images/updates/covers/0.png',
         uploader: '鸣潮先行公约',
         url: 'https://www.bilibili.com/video/BV1oCnvzaE4u',
-        title: '《鸣潮》先约电台EP2.7——嘉贝莉娜《远光点（APHELION [Galbrena\'s Lullaby]）》',
+        title: "《鸣潮》先约电台EP2.7——嘉贝莉娜《远光点（APHELION [Galbrena's Lullaby]）》",
         releaseTime: 1760002827000 // 2025-10-09 17:40:27
     },
     {
@@ -196,11 +202,14 @@ export const updatesData: Updates[] = [
 ]
 
 export const liveStreamers: LiveStreamer[] = [
-    {name: '混沌之神虚妄喵', avatarUrl: '/images/updates/liveAvatars/0.png'},
-    {name: '烛不遥', avatarUrl: '/images/updates/liveAvatars/1.png'},
-    {name: '桜都子', avatarUrl: '/images/updates/liveAvatars/2.png'},
-    {name: '大雪菜', avatarUrl: '/images/updates/liveAvatars/3.png'},
-    {name: '烛灵儿Hikari', avatarUrl: '/images/updates/liveAvatars/4.png'},
-    {name: '一生挚爱-由比滨结衣', avatarUrl: '/images/updates/liveAvatars/5.png'},
-    {name: 'Google中国', avatarUrl: '/images/updates/liveAvatars/6.png'}
+    { name: '混沌之神虚妄喵', avatarUrl: '/images/updates/liveAvatars/0.png' },
+    { name: '烛不遥', avatarUrl: '/images/updates/liveAvatars/1.png' },
+    { name: '桜都子', avatarUrl: '/images/updates/liveAvatars/2.png' },
+    { name: '大雪菜', avatarUrl: '/images/updates/liveAvatars/3.png' },
+    { name: '烛灵儿Hikari', avatarUrl: '/images/updates/liveAvatars/4.png' },
+    {
+        name: '一生挚爱-由比滨结衣',
+        avatarUrl: '/images/updates/liveAvatars/5.png'
+    },
+    { name: 'Google中国', avatarUrl: '/images/updates/liveAvatars/6.png' }
 ]
