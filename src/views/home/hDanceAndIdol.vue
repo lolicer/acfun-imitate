@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    舞蹈·偶像
-</template>
+<template>舞蹈·偶像</template>
 
 <style scoped></style>

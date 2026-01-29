@@ -1,26 +1,32 @@
 <script lang="ts" setup>
-import { formatRelativeTime, formatSeconds } from '@/utils/time';
-import { drawThumbnail } from '@/utils/canvas';
-import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue';
-import DevicePC from '@/assets/icons/concise/DevicePC.vue';
-import Up from '@/assets/icons/concise/Up.vue';
-import { VideoHistoryInfo } from '@/types/HistoryInfo';
-import { nextTick, onMounted, ref } from 'vue';
+import { formatRelativeTime, formatSeconds } from '@/utils/time'
+import { drawThumbnail } from '@/utils/canvas'
+import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue'
+import DevicePC from '@/assets/icons/concise/DevicePC.vue'
+import Up from '@/assets/icons/concise/Up.vue'
+import { VideoHistoryInfo } from '@/types/HistoryInfo'
+import { nextTick, onMounted, ref } from 'vue'
 
 const props = defineProps<{
-  data: VideoHistoryInfo;
-}>();
+    data: VideoHistoryInfo
+}>()
 
 const titleRef = ref<HTMLElement>(null)
 const tooltip = ref('')
 const checkOverflow = () => {
-  if (titleRef.value) {
-    // 判断文本是否溢出
-    if(titleRef.value.scrollHeight > titleRef.value.clientHeight + 1) { // 由于css设置行高为16.5px（非整数），导致标题为两行但未超过时存在误差
-        tooltip.value = props.data.title
-    console.log(props.data.title, titleRef.value, titleRef.value.scrollHeight, titleRef.value.clientHeight)
+    if (titleRef.value) {
+        // 判断文本是否溢出
+        if (titleRef.value.scrollHeight > titleRef.value.clientHeight + 1) {
+            // 由于css设置行高为16.5px（非整数），导致标题为两行但未超过时存在误差
+            tooltip.value = props.data.title
+            console.log(
+                props.data.title,
+                titleRef.value,
+                titleRef.value.scrollHeight,
+                titleRef.value.clientHeight
+            )
+        }
     }
-  }
 }
 
 // 准备将原图绘制成缩略图
@@ -30,7 +36,7 @@ onMounted(() => {
     nextTick(() => {
         checkOverflow()
     })
-    
+
     // if(coverCanvasRef.value){
     //     const ctx = coverCanvasRef.value.getContext('2d')
     //     const img = new Image()
@@ -48,20 +54,40 @@ onMounted(() => {
     <div class="video-item-content">
         <div id="cover">
             <!-- <img :src="props.data.imgUrl" alt="测试图片"> -->
-            <canvas ref="coverCanvasRef" class="cover-canvas" alt="ceshi" width="124" height="63"></canvas>
+            <canvas
+                ref="coverCanvasRef"
+                class="cover-canvas"
+                alt="ceshi"
+                width="124"
+                height="63"
+            ></canvas>
             <div id="duration">
-                {{ formatSeconds(props.data.position) + ' / ' + formatSeconds(props.data.duration) }}
+                {{
+                    formatSeconds(props.data.position) +
+                    ' / ' +
+                    formatSeconds(props.data.duration)
+                }}
             </div>
         </div>
         <div id="info">
-            <div ref="titleRef" class="title" :title="tooltip">{{ props.data.title }}</div>
+            <div ref="titleRef" class="title" :title="tooltip">
+                {{ props.data.title }}
+            </div>
             <div id="line-2">
-                <DevicePC class="device-icon" v-if="props.data.device === 'pc'"/>
-                <DeviceMobile class="device-icon" v-if="props.data.device === 'mobile'"/>
-                <span id="watching-time">{{ formatRelativeTime(props.data.time) }}</span>
+                <DevicePC
+                    class="device-icon"
+                    v-if="props.data.device === 'pc'"
+                />
+                <DeviceMobile
+                    class="device-icon"
+                    v-if="props.data.device === 'mobile'"
+                />
+                <span id="watching-time">{{
+                    formatRelativeTime(props.data.time)
+                }}</span>
             </div>
             <div id="line-3">
-                <Up id="uploader-icon"/>
+                <Up id="uploader-icon" />
                 <span id="uploader-name">{{ props.data.uploader }}</span>
             </div>
         </div>
@@ -80,7 +106,7 @@ onMounted(() => {
     flex: 4;
 
     display: flex;
-    justify-content:center;
+    justify-content: center;
     overflow: hidden;
     width: 112px;
 
@@ -157,7 +183,7 @@ onMounted(() => {
     height: 15px;
     display: flex;
     align-items: center;
-}   
+}
 #uploader-icon {
     width: 15px;
     height: 15px;

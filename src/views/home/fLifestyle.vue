@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    生活
-</template>
+<template>生活</template>
 
 <style scoped></style>

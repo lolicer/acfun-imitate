@@ -8,29 +8,29 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    // vueDevTools(),
-     AutoImport({
-      resolvers: [ElementPlusResolver()],
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()],
-    }),
-  ],
-  css: {
-    preprocessorOptions: {
-        scss: {
-            additionalData: `@import "@/styles/main.scss";`
+    plugins: [
+        vue(),
+        // vueDevTools(),
+        AutoImport({
+            resolvers: [ElementPlusResolver()]
+        }),
+        Components({
+            resolvers: [ElementPlusResolver()]
+        })
+    ],
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@import "@/styles/main.scss";`
+            }
         }
-    }
-  },
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src')
     },
-  },
-  server: {
-    port: 3004
-  }
+    resolve: {
+        alias: {
+            '@': resolve(__dirname, 'src')
+        }
+    },
+    server: {
+        port: 3004
+    }
 })

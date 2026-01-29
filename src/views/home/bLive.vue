@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    直播
-</template>
+<template>直播</template>
 
 <style scoped></style>

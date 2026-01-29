@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    游戏
-</template>
+<template>游戏</template>
 
 <style scoped></style>

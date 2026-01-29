@@ -5,41 +5,41 @@ interface Updates {
     /**
      * 动态类型
      */
-    type: 'video' | 'article';
+    type: 'video' | 'article'
 
     /**
      * UP主头像地址
      */
-    avatarUrl: string;
+    avatarUrl: string
 
     /**
      * 封面图片地址
      */
-    coverUrl: string;
+    coverUrl: string
 
     /**
      * UP主名
      */
-    uploader: string;
+    uploader: string
 
     /**
      * 地址
      */
-    url: string;
+    url: string
 
     /**
      * 标题
      */
-    title: string;
+    title: string
 
     /**
      * 发布时间戳
      */
-    releaseTime: number;
+    releaseTime: number
 }
 
 interface LiveStreamer {
-    name: string,
+    name: string
     avatarUrl: string
 }
 export { type Updates, type LiveStreamer }

@@ -1,19 +1,20 @@
 <script lang="ts" setup>
-import { drawThumbnail } from '@/utils/canvas';
-import { formatRelativeTime } from '@/utils/time';
-import { Updates } from '@/types/Updates';
-import { nextTick, onMounted, ref } from 'vue';
+import { drawThumbnail } from '@/utils/canvas'
+import { formatRelativeTime } from '@/utils/time'
+import { Updates } from '@/types/Updates'
+import { nextTick, onMounted, ref } from 'vue'
 
 const props = defineProps<{
     data: Updates
-}>();
+}>()
 
 const titleRef = ref<HTMLElement>(null)
 const tooltip = ref('')
 const checkOverflow = () => {
     if (titleRef.value) {
         // 判断文本是否溢出
-        if(titleRef.value.scrollHeight > titleRef.value.clientHeight + 1) { // 由于css设置行高为16.5px（非整数），导致标题为两行但未超过时存在误差
+        if (titleRef.value.scrollHeight > titleRef.value.clientHeight + 1) {
+            // 由于css设置行高为16.5px（非整数），导致标题为两行但未超过时存在误差
             tooltip.value = props.data.title
         }
     }
@@ -32,21 +33,33 @@ onMounted(() => {
 <template>
     <div class="content">
         <div class="avatar">
-            <img :src="props.data.avatarUrl" alt="头像">
+            <img :src="props.data.avatarUrl" alt="头像" />
         </div>
         <div class="info">
             <div class="uploader">{{ props.data.uploader }}</div>
             <div>
                 <div ref="titleRef" class="title" :title="tooltip">
-                    <span v-if="props.data.type === 'article'" class="article-mark">文章</span>
+                    <span
+                        v-if="props.data.type === 'article'"
+                        class="article-mark"
+                        >文章</span
+                    >
                     {{ props.data.title }}
                 </div>
-                <div class="release-time">{{ formatRelativeTime(props.data.releaseTime) }}</div>
+                <div class="release-time">
+                    {{ formatRelativeTime(props.data.releaseTime) }}
+                </div>
             </div>
         </div>
         <div class="cover">
             <div></div>
-            <canvas ref="coverCanvasRef" class="cover-canvas" alt="ceshi" width="100" height="52"></canvas>
+            <canvas
+                ref="coverCanvasRef"
+                class="cover-canvas"
+                alt="ceshi"
+                width="100"
+                height="52"
+            ></canvas>
         </div>
     </div>
 </template>
@@ -79,7 +92,7 @@ onMounted(() => {
     -webkit-line-clamp: 2;
     line-clamp: 1;
     overflow: hidden;
-    
+
     font-size: 13px;
     color: var(--color-gray-0);
 }

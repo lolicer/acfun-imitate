@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    文章
-</template>
+<template>文章</template>
 
 <style scoped></style>

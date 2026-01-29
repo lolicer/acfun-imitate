@@ -1,10 +1,14 @@
- <script lang="ts" setup>
-import BulletScreenCount from '@/assets/icons/concise/BulletScreenCount.vue';
-import Up from '@/assets/icons/concise/Up.vue';
-import ViewCount from '@/assets/icons/concise/ViewCount.vue';
-import VideoItem from '@/types/VideoItem';
-import { formatTimestampToDate, formatSeconds, formatNumber } from '@/utils/time';
-import { nextTick, onMounted, ref } from 'vue';
+<script lang="ts" setup>
+import BulletScreenCount from '@/assets/icons/concise/BulletScreenCount.vue'
+import Up from '@/assets/icons/concise/Up.vue'
+import ViewCount from '@/assets/icons/concise/ViewCount.vue'
+import VideoItem from '@/types/VideoItem'
+import {
+    formatTimestampToDate,
+    formatSeconds,
+    formatNumber
+} from '@/utils/time'
+import { nextTick, onMounted, ref } from 'vue'
 const props = defineProps<{
     data: VideoItem
 }>()
@@ -12,13 +16,18 @@ const props = defineProps<{
 const titleRef = ref<HTMLElement>(null)
 const tooltip = ref('')
 const checkOverflow = () => {
-  if (titleRef.value) {
-    // 判断文本是否溢出
-    if(titleRef.value.scrollHeight > titleRef.value.clientHeight) {
-        tooltip.value = props.data.title
-    console.log(props.data.title, titleRef.value, titleRef.value.scrollHeight, titleRef.value.clientHeight)
+    if (titleRef.value) {
+        // 判断文本是否溢出
+        if (titleRef.value.scrollHeight > titleRef.value.clientHeight) {
+            tooltip.value = props.data.title
+            console.log(
+                props.data.title,
+                titleRef.value,
+                titleRef.value.scrollHeight,
+                titleRef.value.clientHeight
+            )
+        }
     }
-  }
 }
 
 onMounted(() => {
@@ -31,16 +40,18 @@ onMounted(() => {
 <template>
     <div id="video-item-content">
         <div id="cover">
-            <img :src="props.data.coverUrl" alt="">
+            <img :src="props.data.coverUrl" alt="" />
             <div id="cover-overlay"></div>
             <div id="cover-info">
                 <div id="info-viewcount">
-                    <ViewCount/>
+                    <ViewCount />
                     <span>{{ formatNumber(props.data.viewCount) }}</span>
                 </div>
                 <div id="info-bullet-screen-count">
-                    <BulletScreenCount/>
-                    <span>{{ formatNumber(props.data.bulletScreenCount) }}</span>
+                    <BulletScreenCount />
+                    <span>{{
+                        formatNumber(props.data.bulletScreenCount)
+                    }}</span>
                 </div>
                 <div id="info-duration">
                     <span>{{ formatSeconds(props.data.duration) }}</span>
@@ -48,13 +59,17 @@ onMounted(() => {
             </div>
         </div>
         <div id="info">
-            <span id="title" ref="titleRef" :title="tooltip">{{ props.data.title }}</span>
+            <span id="title" ref="titleRef" :title="tooltip">{{
+                props.data.title
+            }}</span>
             <div id="info-line-2">
                 <div id="up">
-                    <Up id="up-icon"/>
+                    <Up id="up-icon" />
                     <span id="up-name">{{ props.data.up }}</span>
                 </div>
-                <span id="release-time">·{{ formatTimestampToDate(props.data.releaseTime) }}</span>
+                <span id="release-time"
+                    >·{{ formatTimestampToDate(props.data.releaseTime) }}</span
+                >
             </div>
         </div>
     </div>
@@ -101,7 +116,7 @@ onMounted(() => {
     color: white;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 8px;    
+    padding: 0 8px;
 }
 #cover-info > div {
     display: flex;

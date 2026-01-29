@@ -1,5 +1,5 @@
-import LiveItem from "@/types/LiveItem.js"
-import VideoItem from "@/types/VideoItem.js"
+import LiveItem from '@/types/LiveItem.js'
+import VideoItem from '@/types/VideoItem.js'
 
 export const carouselData = [
     {
@@ -35,7 +35,7 @@ export const VideoItemData: VideoItem[] = [
         title: '以前在日企实习因为工作效率高每天被领导请吃饭？',
         to: 'https://www.bilibili.com/video/BV1h7xoztEw7',
         up: '_雾岛和声',
-        releaseTime: Date.now() - 2  * 1000, // 2min前
+        releaseTime: Date.now() - 2 * 1000, // 2min前
         viewCount: 9999,
         bulletScreenCount: 233,
         duration: 441

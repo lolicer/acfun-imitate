@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    动画
-</template>
+<template>动画</template>
 
 <style scoped></style>

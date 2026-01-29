@@ -1,9 +1,5 @@
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<template>
-    娱乐
-</template>
+<template>娱乐</template>
 
 <style scoped></style>
