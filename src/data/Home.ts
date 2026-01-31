@@ -1,31 +1,115 @@
+import { CarouselBangumiData } from '@/types/BangumiProgressItem.js'
 import LiveItem from '@/types/LiveItem.js'
 import VideoItem from '@/types/VideoItem.js'
 
-export const carouselData = [
+export const carouselTopData = [
     {
         title: '我的男朋友才不是这种没用的家伙！',
-        imgUrl: '/images/home/carousel/0.png',
+        imgUrl: '/images/home/carousel/top0.png',
         to: 'https://www.bilibili.com/video/BV1KT4uz9EkW'
     },
     {
         title: '和打游戏的男人结婚',
-        imgUrl: '/images/home/carousel/1.png',
+        imgUrl: '/images/home/carousel/top1.png',
         to: 'https://www.bilibili.com/video/BV1t8W5zaEwU'
     },
     {
         title: '💙超💙级💙萌💙萌💙泉💙',
-        imgUrl: '/images/home/carousel/2.png',
+        imgUrl: '/images/home/carousel/top2.png',
         to: 'https://www.bilibili.com/video/BV1bongz1EW5'
     },
     {
         title: '柚子社新作介绍MV',
-        imgUrl: '/images/home/carousel/3.png',
+        imgUrl: '/images/home/carousel/top3.png',
         to: 'https://www.bilibili.com/video/BV1aVTNzeEH2'
     },
     {
         title: '【战双帕弥什】角色故事前瞻 | 无休止的死斗',
-        imgUrl: '/images/home/carousel/4.png',
+        imgUrl: '/images/home/carousel/top4.png',
         to: 'https://www.bilibili.com/video/BV18sHezSERH'
+    }
+]
+
+export const carouselBangumiData: CarouselBangumiData[] = [
+    {
+        title: '雏子的笔记',
+        imgUrl: '/images/home/carousel/bangumi0.png',
+        to: 'https://www.bilibili.com/bangumi/play/ss5993',
+        totalEpisodes: 12,
+        progress: {
+            currentEpisode: '第4话',
+            currentEpisodeProgress: 0.01
+        }
+    },
+    {
+        title: '少女编号',
+        imgUrl: '/images/home/carousel/bangumi1.jpg',
+        to: 'https://www.bilibili.com/bangumi/play/ss5532',
+        totalEpisodes: 12,
+        progress: {
+            currentEpisode: '第1话',
+            currentEpisodeProgress: 0.36
+        }
+    },
+    {
+        title: '琉璃的宝石',
+        imgUrl: '/images/home/carousel/bangumi2.jpg',
+        to: 'https://www.bilibili.com/bangumi/play/ss102014',
+        totalEpisodes: 13,
+        progress: {
+            currentEpisode: '第1话',
+            currentEpisodeProgress: 0.03
+        }
+    },
+    {
+        title: '地缚少年花子君 第二季',
+        imgUrl: '/images/home/carousel/bangumi3.png',
+        to: 'https://www.bilibili.com/bangumi/play/ss76110',
+        totalEpisodes: 24,
+        progress: {
+            currentEpisode: '第7话',
+            currentEpisodeProgress: 0.01
+        }
+    },
+    {
+        title: '间谍过家家 第二季',
+        imgUrl: '/images/home/carousel/bangumi4.png',
+        to: 'https://www.bilibili.com/bangumi/play/ss112827',
+        totalEpisodes: 37,
+        progress: {
+            currentEpisode: null,
+            currentEpisodeProgress: 0
+        }
+    },
+    {
+        title: '浦和小调',
+        imgUrl: '/images/home/carousel/bangumi5.jpg',
+        to: 'https://www.bilibili.com/bangumi/play/ss1597',
+        totalEpisodes: 12,
+        progress: {
+            currentEpisode: '第1话',
+            currentEpisodeProgress: 0.09
+        }
+    },
+    {
+        title: '式守同学不止可爱而已',
+        imgUrl: '/images/home/carousel/bangumi6.jpg',
+        to: 'https://www.bilibili.com/bangumi/play/ss41416',
+        totalEpisodes: 12,
+        progress: {
+            currentEpisode: '第1话',
+            currentEpisodeProgress: 0.01
+        }
+    },
+    {
+        title: '关于我转生成为史莱姆这档事 第三季',
+        imgUrl: '/images/home/carousel/bangumi7.jpg',
+        to: 'https://www.bilibili.com/bangumi/play/ss48852',
+        totalEpisodes: 24,
+        progress: {
+            currentEpisode: null,
+            currentEpisodeProgress: 0
+        }
     }
 ]
 
@@ -68,7 +152,7 @@ export const VideoItemData: VideoItem[] = [
         releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000, // 3d前,
         viewCount: 23300000000,
         bulletScreenCount: 233,
-        duration: 441
+        duration: 314
     },
     {
         coverUrl: '/images/home/videoItems/4.png',

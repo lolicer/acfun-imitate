@@ -1,12 +1,31 @@
 <script lang="ts" setup>
+import HeartCheck from '@/assets/icons/concise/HeartCheck.vue'
+import BangumiProgressItem from '@/components/Home/BangumiProgressItem.vue'
 import LiveItem from '@/components/public/LiveItem.vue'
 import VideoItem from '@/components/public/VideoItem.vue'
-import { carouselData, VideoItemData, LiveItemData } from '@/data/Home'
-import { ElCarousel, ElCarouselItem } from 'element-plus'
-const carousel = carouselData
+import {
+    carouselTopData,
+    carouselBangumiData,
+    VideoItemData,
+    LiveItemData
+} from '@/data/Home'
+import { CarouselBangumiData } from '@/types/BangumiProgressItem'
+import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus'
+import { computed } from 'vue'
+
+const carouselTop = carouselTopData
 const videoItem = VideoItemData
 const liveItem = LiveItemData
 const rightImg = '/images/home/pagelet-live-right.png'
+
+const carouselBangumi = computed(() => {
+    const res: CarouselBangumiData[][] = []
+    for (let i = 0; i < carouselBangumiData.length; i += 6) {
+        res.push(carouselBangumiData.slice(i, i + 6))
+    }
+
+    return res
+})
 </script>
 
 <template>
@@ -15,7 +34,10 @@ const rightImg = '/images/home/pagelet-live-right.png'
             <div id="pagelet-top-carousel-area">
                 <div>
                     <ElCarousel class="pagelet-top-carousel">
-                        <ElCarouselItem v-for="item in carousel" :key="item.to">
+                        <ElCarouselItem
+                            v-for="item in carouselTop"
+                            :key="item.to"
+                        >
                             <img
                                 class="pagelet-top-carousel-img"
                                 :src="item.imgUrl"
@@ -36,13 +58,60 @@ const rightImg = '/images/home/pagelet-live-right.png'
                 />
             </div>
         </div>
+
         <div id="pagelet-live">
+            <!-- 直播pagelet，展示一些推荐的直播 -->
             <LiveItem class="live-item" v-for="item in liveItem" :data="item" />
 
             <div id="content-right-img">
                 <img :src="rightImg" alt="" />
             </div>
         </div>
+
+        <div id="pagelet-bangumi-progress">
+            <!-- 番剧进度pagelet，展示用户正在追的番剧。 -->
+            <div id="pagelet-bangumi-progress-titlebar">
+                <div id="pagelet-bangumi-progress-titlebar-title">
+                    <div id="pagelet-bangumi-progress-titlebar-title-icon">
+                        <img src="/src/assets/icons/BangumiLike.png" alt="" />
+                    </div>
+                    <span id="pagelet-bangumi-progress-titlebar-title-text">
+                        正在追
+                    </span>
+                </div>
+                <ElButton
+                    id="pagelet-bangumi-progress-titlebar-list"
+                    color="var(--color-acfun)"
+                >
+                    <HeartCheck />
+                    <span id="pagelet-bangumi-progress-titlebar-list-text">
+                        追番列表
+                    </span>
+                </ElButton>
+            </div>
+            <div id="pagelet-bangumi-progress-content">
+                <ElCarousel
+                    id="pagelet-bangumi-progress-content-carousel"
+                    indicator-position="none"
+                    arrow="always"
+                    :autoplay="false"
+                >
+                    <ElCarouselItem
+                        class="pagelet-bangumi-progress-content-carousel-item"
+                        v-for="(group, index) in carouselBangumi"
+                        :key="index"
+                    >
+                        <BangumiProgressItem
+                            v-for="(item, idx) in group"
+                            :data="item"
+                            :key="idx"
+                        />
+                    </ElCarouselItem>
+                </ElCarousel>
+            </div>
+        </div>
+
+        <div id="pagelet-bottom">已经到底啦~</div>
     </div>
 </template>
 
@@ -136,5 +205,54 @@ const rightImg = '/images/home/pagelet-live-right.png'
     object-fit: cover;
     max-width: calc(100% - 25px);
     border-radius: 4px;
+}
+
+#pagelet-bangumi-progress {
+    width: 100%;
+    padding-top: 30px;
+}
+#pagelet-bangumi-progress-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#pagelet-bangumi-progress-titlebar-title {
+    display: flex;
+    align-items: center;
+}
+#pagelet-bangumi-progress-titlebar-title-icon {
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+}
+#pagelet-bangumi-progress-titlebar-title-icon > img {
+    width: 100%;
+    height: 100%;
+}
+#pagelet-bangumi-progress-titlebar-title-text {
+    padding-left: 4px;
+    font-size: 24px;
+    font-weight: 500;
+}
+#pagelet-bangumi-progress-titlebar-list {
+    display: inline;
+    color: white;
+}
+#pagelet-bangumi-progress-titlebar-list-text {
+    padding-left: 2px;
+}
+#pagelet-bangumi-progress-content-carousel {
+    padding: 10px 0 10px 0;
+    height: 180px;
+}
+.pagelet-bangumi-progress-content-carousel-item {
+    display: flex;
+}
+
+#pagelet-bottom {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
 }
 </style>
