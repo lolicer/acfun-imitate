@@ -8,66 +8,48 @@ import {
     formatSeconds,
     formatNumber
 } from '@/utils/time'
-import { nextTick, onMounted, ref } from 'vue'
+import TruncatedText from './TruncatedText.vue'
 const props = defineProps<{
     data: VideoItem
 }>()
-
-const titleRef = ref<HTMLElement>(null)
-const tooltip = ref('')
-const checkOverflow = () => {
-    if (titleRef.value) {
-        // 判断文本是否溢出
-        if (titleRef.value.scrollHeight > titleRef.value.clientHeight) {
-            tooltip.value = props.data.title
-            console.log(
-                props.data.title,
-                titleRef.value,
-                titleRef.value.scrollHeight,
-                titleRef.value.clientHeight
-            )
-        }
-    }
-}
-
-onMounted(() => {
-    nextTick(() => {
-        checkOverflow()
-    })
-})
 </script>
 
 <template>
-    <div id="video-item-content">
-        <div id="cover">
+    <div class="video-item-content">
+        <div class="cover">
             <img :src="props.data.coverUrl" alt="" />
-            <div id="cover-overlay"></div>
-            <div id="cover-info">
-                <div id="info-viewcount">
+            <div class="cover-overlay"></div>
+            <div class="cover-info">
+                <div class="info-viewcount">
                     <ViewCount />
                     <span>{{ formatNumber(props.data.viewCount) }}</span>
                 </div>
-                <div id="info-bullet-screen-count">
+                <div class="info-bullet-screen-count">
                     <BulletScreenCount />
                     <span>{{
                         formatNumber(props.data.bulletScreenCount)
                     }}</span>
                 </div>
-                <div id="info-duration">
+                <div class="info-duration">
                     <span>{{ formatSeconds(props.data.duration) }}</span>
                 </div>
             </div>
         </div>
-        <div id="info">
-            <span id="title" ref="titleRef" :title="tooltip">{{
+        <div class="info">
+            <!-- <span class="title" ref="titleRef" :title="tooltip">{{
                 props.data.title
-            }}</span>
-            <div id="info-line-2">
-                <div id="up">
-                    <Up id="up-icon" />
-                    <span id="up-name">{{ props.data.up }}</span>
+            }}</span> -->
+            <TruncatedText
+                class="title"
+                :text="props.data.title"
+                :max-line="2"
+            />
+            <div class="info-line-2">
+                <div class="up">
+                    <Up class="up-icon" />
+                    <span class="up-name">{{ props.data.up }}</span>
                 </div>
-                <span id="release-time"
+                <span class="release-time"
                     >·{{ formatTimestampToDate(props.data.releaseTime) }}</span
                 >
             </div>
@@ -76,23 +58,23 @@ onMounted(() => {
 </template>
 
 <style scoped>
-#video-item-content {
+.video-item-content {
     display: inline-block;
     min-width: 256px;
     aspect-ratio: 20 / 17;
     box-sizing: border-box;
 }
-#cover {
+.cover {
     width: 100%;
     aspect-ratio: 16/9;
     position: relative;
     overflow: hidden;
     border-radius: 4px;
 }
-#cover:hover {
+.cover:hover {
     cursor: pointer;
 }
-#cover-overlay {
+.cover-overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -104,12 +86,12 @@ onMounted(() => {
         transparent 100%
     );
 }
-#cover > img {
+.cover > img {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
 }
-#cover-info {
+.cover-info {
     position: absolute;
     bottom: 6px;
     display: flex;
@@ -118,72 +100,64 @@ onMounted(() => {
     box-sizing: border-box;
     padding: 0 8px;
 }
-#cover-info > div {
+.cover-info > div {
     display: flex;
     align-items: center;
     font-size: 15px;
 }
 
-#info {
+.info {
     margin-top: 4px;
 }
-#info-viewcount {
+.info-viewcount {
     margin-right: 8px;
 }
-#info-viewcount > span {
+.info-viewcount > span {
     margin-left: 1px;
 }
-#info-bullet-screen-count > span {
+.info-bullet-screen-count > span {
     margin-left: 1px;
 }
-#cover-info > div > span {
+.cover-info > div > span {
     transform: translateY(-1px);
 }
-#info-duration {
+.info-duration {
     margin-left: auto;
 }
 
-#title {
-    /* 控制超出两行自动省略 */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
+.title {
     line-height: 20px;
     height: 40px;
     font-size: 15px;
 }
-#title:hover {
+.title:hover {
     cursor: pointer;
     color: var(--color-acfun);
 }
-#info-line-2 {
+.info-line-2 {
     display: flex;
     line-height: 16px;
 }
-#info-line-2:hover {
+.info-line-2:hover {
     cursor: pointer;
     * {
         color: var(--color-acfun);
     }
 }
-#up {
+.up {
     display: flex;
     align-items: center;
 }
-#up-icon {
+.up-icon {
     color: var(--color-gray-1);
     transform: translateY(2px);
 }
-#up-name {
+.up-name {
     font-size: 13px;
     padding-left: 4px;
     color: var(--color-gray-1);
 }
-#release-time {
+.release-time {
     font-size: 13px;
     color: var(--color-gray-1);
 }

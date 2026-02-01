@@ -3,29 +3,16 @@ import { drawThumbnail } from '@/utils/canvas'
 import { formatRelativeTime } from '@/utils/time'
 import { Updates } from '@/types/Updates'
 import { nextTick, onMounted, ref } from 'vue'
+import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const props = defineProps<{
     data: Updates
 }>()
 
-const titleRef = ref<HTMLElement>(null)
-const tooltip = ref('')
-const checkOverflow = () => {
-    if (titleRef.value) {
-        // 判断文本是否溢出
-        if (titleRef.value.scrollHeight > titleRef.value.clientHeight + 1) {
-            // 由于css设置行高为16.5px（非整数），导致标题为两行但未超过时存在误差
-            tooltip.value = props.data.title
-        }
-    }
-}
-
 const coverCanvasRef = ref<HTMLCanvasElement>(null)
 
 onMounted(() => {
-    nextTick(() => {
-        checkOverflow()
-    })
+    nextTick(() => {})
     drawThumbnail(coverCanvasRef.value, props.data.coverUrl, 100, 52)
 })
 </script>
@@ -38,14 +25,19 @@ onMounted(() => {
         <div class="info">
             <div class="uploader">{{ props.data.uploader }}</div>
             <div>
-                <div ref="titleRef" class="title" :title="tooltip">
-                    <span
-                        v-if="props.data.type === 'article'"
-                        class="article-mark"
-                        >文章</span
-                    >
-                    {{ props.data.title }}
-                </div>
+                <TruncatedText
+                    class="title"
+                    :text="props.data.title"
+                    :max-line="2"
+                >
+                    <template #article-icon>
+                        <span
+                            v-if="props.data.type === 'article'"
+                            class="article-mark"
+                            >文章</span
+                        >
+                    </template>
+                </TruncatedText>
                 <div class="release-time">
                     {{ formatRelativeTime(props.data.releaseTime) }}
                 </div>
