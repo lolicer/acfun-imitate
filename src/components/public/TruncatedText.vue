@@ -12,12 +12,6 @@ const checkOverflow = () => {
         // 判断文本是否溢出
         if (textRef.value.scrollHeight > textRef.value.clientHeight) {
             tooltip.value = props.text
-            console.log(
-                props.text,
-                textRef.value,
-                textRef.value.scrollHeight,
-                textRef.value.clientHeight
-            )
         }
     }
 }
@@ -42,6 +36,7 @@ onMounted(() => {
             'text-overflow': 'ellipsis'
         }"
     >
+        <slot name="article-icon"></slot>
         {{ props.text }}
     </div>
 </template>

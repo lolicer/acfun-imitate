@@ -2,7 +2,8 @@
 import { FollowingBangumiData } from '@/types/BangumiProgressItem'
 import { getCssVar } from '@/utils/style'
 import { ElProgress } from 'element-plus'
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed } from 'vue'
+import TruncatedText from '../public/TruncatedText.vue'
 
 const props = defineProps<{
     data: FollowingBangumiData
@@ -13,30 +14,7 @@ const processPercentage = computed(() => {
     return num * 100 + '%'
 })
 
-const titleRef = ref<HTMLElement>(null)
-const tooltip = ref('')
-const checkOverflow = () => {
-    if (titleRef.value) {
-        // 判断文本是否溢出
-        if (titleRef.value.scrollHeight > titleRef.value.clientHeight) {
-            tooltip.value = props.data.title
-            console.log(
-                props.data.title,
-                titleRef.value,
-                titleRef.value.scrollHeight,
-                titleRef.value.clientHeight
-            )
-        }
-    }
-}
-
 const progressColor = getCssVar('--color-acfun')
-
-onMounted(() => {
-    nextTick(() => {
-        checkOverflow()
-    })
-})
 </script>
 
 <template>
@@ -64,9 +42,7 @@ onMounted(() => {
             </div>
         </div>
 
-        <div class="content-title" ref="titleRef" :title="tooltip">
-            {{ data.title }}
-        </div>
+        <TruncatedText :text="props.data.title" :max-line="1" />
         <div class="content-total-episodes">全{{ data.totalEpisodes }}话</div>
     </div>
 </template>
@@ -117,15 +93,15 @@ onMounted(() => {
     padding: 2px 0 2px 0;
 }
 
-.content-title {
-    /* 控制超出一行自动省略 */
+/* .content-title {
+    控制超出一行自动省略 
     display: -webkit-box;
     -webkit-line-clamp: 1;
     line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+} */
 .content-title:hover {
     cursor: pointer;
     color: var(--color-acfun);
