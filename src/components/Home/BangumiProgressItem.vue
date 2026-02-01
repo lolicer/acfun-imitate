@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { CarouselBangumiData } from '@/types/BangumiProgressItem'
+import { FollowingBangumiData } from '@/types/BangumiProgressItem'
 import { getCssVar } from '@/utils/style'
 import { ElProgress } from 'element-plus'
 import { computed, nextTick, onMounted, ref } from 'vue'
 
 const props = defineProps<{
-    data: CarouselBangumiData
+    data: FollowingBangumiData
 }>()
 
 const processPercentage = computed(() => {

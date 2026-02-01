@@ -1,17 +1,15 @@
 <script lang="ts" setup>
 import HeartCheck from '@/assets/icons/concise/HeartCheck.vue'
+import RightArrow from '@/assets/icons/concise/RightArrow.vue'
 import BangumiProgressItem from '@/components/Home/BangumiProgressItem.vue'
 import LiveItem from '@/components/public/LiveItem.vue'
 import VideoItem from '@/components/public/VideoItem.vue'
-import {
-    carouselTopData,
-    carouselBangumiData,
-    VideoItemData,
-    LiveItemData
-} from '@/data/Home'
-import { CarouselBangumiData } from '@/types/BangumiProgressItem'
+import { carouselTopData, VideoItemData, LiveItemData } from '@/data/Home'
+import { followingBangumiData, seasonalBangumiData } from '@/data/Bangumi'
+import { FollowingBangumiData } from '@/types/BangumiProgressItem'
 import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus'
 import { computed } from 'vue'
+import BangumiItem from '@/components/Home/BangumiItem.vue'
 
 const carouselTop = carouselTopData
 const videoItem = VideoItemData
@@ -19,13 +17,14 @@ const liveItem = LiveItemData
 const rightImg = '/images/home/pagelet-live-right.png'
 
 const carouselBangumi = computed(() => {
-    const res: CarouselBangumiData[][] = []
-    for (let i = 0; i < carouselBangumiData.length; i += 6) {
-        res.push(carouselBangumiData.slice(i, i + 6))
+    const res: FollowingBangumiData[][] = []
+    for (let i = 0; i < followingBangumiData.length; i += 6) {
+        res.push(followingBangumiData.slice(i, i + 6))
     }
 
     return res
 })
+const seasonalBangumi = seasonalBangumiData
 </script>
 
 <template>
@@ -80,11 +79,11 @@ const carouselBangumi = computed(() => {
                     </span>
                 </div>
                 <ElButton
-                    id="pagelet-bangumi-progress-titlebar-list"
+                    id="pagelet-bangumi-progress-titlebar-btn"
                     color="var(--color-acfun)"
                 >
                     <HeartCheck />
-                    <span id="pagelet-bangumi-progress-titlebar-list-text">
+                    <span id="pagelet-bangumi-progress-titlebar-btn-text">
                         追番列表
                     </span>
                 </ElButton>
@@ -108,6 +107,33 @@ const carouselBangumi = computed(() => {
                         />
                     </ElCarouselItem>
                 </ElCarousel>
+            </div>
+        </div>
+
+        <div id="pagelet-bangumi">
+            <!-- 新番时间表 -->
+            <div id="pagelet-bangumi-titlebar">
+                <div id="pagelet-bangumi-titlebar-title">
+                    <div id="pagelet-bangumi-titlebar-title-icon">
+                        <img
+                            src="/src/assets/icons/BangumiSchedule.png"
+                            alt=""
+                        />
+                    </div>
+                    <span id="pagelet-bangumi-titlebar-title-text">
+                        新番时间表
+                    </span>
+                </div>
+                <ElButton
+                    id="pagelet-bangumi-titlebar-btn"
+                    color="var(--color-acfun)"
+                >
+                    <span id="pagelet-bangumi-titlebar-btn-text">查看全部</span>
+                    <RightArrow />
+                </ElButton>
+            </div>
+            <div id="pagelet-bangumi-content">
+                <BangumiItem v-for="item in seasonalBangumi" :data="item" />
             </div>
         </div>
 
@@ -234,11 +260,10 @@ const carouselBangumi = computed(() => {
     font-size: 24px;
     font-weight: 500;
 }
-#pagelet-bangumi-progress-titlebar-list {
-    display: inline;
+#pagelet-bangumi-progress-titlebar-btn {
     color: white;
 }
-#pagelet-bangumi-progress-titlebar-list-text {
+#pagelet-bangumi-progress-titlebar-btn-text {
     padding-left: 2px;
 }
 #pagelet-bangumi-progress-content-carousel {
@@ -247,6 +272,50 @@ const carouselBangumi = computed(() => {
 }
 .pagelet-bangumi-progress-content-carousel-item {
     display: flex;
+}
+
+#pagelet-bangumi {
+    width: 100%;
+    padding-top: 30px;
+}
+#pagelet-bangumi-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#pagelet-bangumi-titlebar-title {
+    display: flex;
+    align-items: center;
+}
+#pagelet-bangumi-titlebar-title-icon {
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+}
+#pagelet-bangumi-titlebar-title-icon > img {
+    width: 100%;
+    height: 100%;
+}
+#pagelet-bangumi-titlebar-title-text {
+    padding-left: 4px;
+    font-size: 24px;
+    font-weight: 500;
+}
+#pagelet-bangumi-titlebar-btn {
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+#pagelet-bangumi-titlebar-btn-text {
+    padding-right: 2px;
+}
+
+#pagelet-bangumi-content {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    padding: 10px 0 10px 0;
 }
 
 #pagelet-bottom {

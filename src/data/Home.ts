@@ -1,4 +1,3 @@
-import { CarouselBangumiData } from '@/types/BangumiProgressItem.js'
 import LiveItem from '@/types/LiveItem.js'
 import VideoItem from '@/types/VideoItem.js'
 
@@ -27,89 +26,6 @@ export const carouselTopData = [
         title: '【战双帕弥什】角色故事前瞻 | 无休止的死斗',
         imgUrl: '/images/home/carousel/top4.png',
         to: 'https://www.bilibili.com/video/BV18sHezSERH'
-    }
-]
-
-export const carouselBangumiData: CarouselBangumiData[] = [
-    {
-        title: '雏子的笔记',
-        imgUrl: '/images/home/carousel/bangumi0.png',
-        to: 'https://www.bilibili.com/bangumi/play/ss5993',
-        totalEpisodes: 12,
-        progress: {
-            currentEpisode: '第4话',
-            currentEpisodeProgress: 0.01
-        }
-    },
-    {
-        title: '少女编号',
-        imgUrl: '/images/home/carousel/bangumi1.jpg',
-        to: 'https://www.bilibili.com/bangumi/play/ss5532',
-        totalEpisodes: 12,
-        progress: {
-            currentEpisode: '第1话',
-            currentEpisodeProgress: 0.36
-        }
-    },
-    {
-        title: '琉璃的宝石',
-        imgUrl: '/images/home/carousel/bangumi2.jpg',
-        to: 'https://www.bilibili.com/bangumi/play/ss102014',
-        totalEpisodes: 13,
-        progress: {
-            currentEpisode: '第1话',
-            currentEpisodeProgress: 0.03
-        }
-    },
-    {
-        title: '地缚少年花子君 第二季',
-        imgUrl: '/images/home/carousel/bangumi3.png',
-        to: 'https://www.bilibili.com/bangumi/play/ss76110',
-        totalEpisodes: 24,
-        progress: {
-            currentEpisode: '第7话',
-            currentEpisodeProgress: 0.01
-        }
-    },
-    {
-        title: '间谍过家家 第二季',
-        imgUrl: '/images/home/carousel/bangumi4.png',
-        to: 'https://www.bilibili.com/bangumi/play/ss112827',
-        totalEpisodes: 37,
-        progress: {
-            currentEpisode: null,
-            currentEpisodeProgress: 0
-        }
-    },
-    {
-        title: '浦和小调',
-        imgUrl: '/images/home/carousel/bangumi5.jpg',
-        to: 'https://www.bilibili.com/bangumi/play/ss1597',
-        totalEpisodes: 12,
-        progress: {
-            currentEpisode: '第1话',
-            currentEpisodeProgress: 0.09
-        }
-    },
-    {
-        title: '式守同学不止可爱而已',
-        imgUrl: '/images/home/carousel/bangumi6.jpg',
-        to: 'https://www.bilibili.com/bangumi/play/ss41416',
-        totalEpisodes: 12,
-        progress: {
-            currentEpisode: '第1话',
-            currentEpisodeProgress: 0.01
-        }
-    },
-    {
-        title: '关于我转生成为史莱姆这档事 第三季',
-        imgUrl: '/images/home/carousel/bangumi7.jpg',
-        to: 'https://www.bilibili.com/bangumi/play/ss48852',
-        totalEpisodes: 24,
-        progress: {
-            currentEpisode: null,
-            currentEpisodeProgress: 0
-        }
     }
 ]
 

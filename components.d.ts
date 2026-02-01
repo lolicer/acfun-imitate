@@ -28,6 +28,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Test: typeof import('./src/components/Test.vue')['default']
     TitleBar: typeof import('./src/components/TitleBar.vue')['default']
+    TruncatedText: typeof import('./src/components/public/TruncatedText.vue')['default']
     UpdatesItem: typeof import('./src/components/TitleBar/Updates/UpdatesItem.vue')['default']
     VideoHistoryItem: typeof import('./src/components/TitleBar/History/VideoHistoryItem.vue')['default']
     VideoItem: typeof import('./src/components/public/VideoItem.vue')['default']
