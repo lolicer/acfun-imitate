@@ -6,10 +6,12 @@ import LiveItem from '@/components/public/LiveItem.vue'
 import VideoItem from '@/components/public/VideoItem.vue'
 import { carouselTopData, VideoItemData, LiveItemData } from '@/data/Home'
 import { followingBangumiData, seasonalBangumiData } from '@/data/Bangumi'
+import { donghuaSectionData } from '@/data/HomeSection'
 import { FollowingBangumiData } from '@/types/BangumiProgressItem'
 import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus'
 import { computed } from 'vue'
 import BangumiItem from '@/components/Home/BangumiItem.vue'
+import SectionItem from '@/components/Home/SectionItem/SectionItem.vue'
 
 const carouselTop = carouselTopData
 const videoItem = VideoItemData
@@ -25,6 +27,8 @@ const carouselBangumi = computed(() => {
     return res
 })
 const seasonalBangumi = seasonalBangumiData
+
+const donghuaSection = donghuaSectionData
 </script>
 
 <template>
@@ -136,6 +140,12 @@ const seasonalBangumi = seasonalBangumiData
                 <BangumiItem v-for="item in seasonalBangumi" :data="item" />
             </div>
         </div>
+
+        <SectionItem
+            :data="donghuaSection"
+            title-icon-url="src/assets/icons/section/donghua.png"
+            section="动画"
+        />
 
         <div id="pagelet-bottom">已经到底啦~</div>
     </div>
