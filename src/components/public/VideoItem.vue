@@ -150,7 +150,7 @@ const props = defineProps<{
 }
 .up-icon {
     color: var(--color-gray-1);
-    transform: translateY(2px);
+    transform: translateY(1px);
 }
 .up-name {
     font-size: 13px;
