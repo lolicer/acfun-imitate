@@ -4,7 +4,7 @@ import Barchart from '@/assets/icons/concise/Barchart.vue'
 const navigationData = [
     { name: '首页', to: '/' },
     { name: '直播', to: '/live' },
-    { name: '番剧', to: '/anime' },
+    { name: '番剧', to: '/bangumi' },
     { name: '动画', to: '/donghua' },
     { name: '娱乐', to: '/entertainment' },
     { name: '生活', to: '/lifestyle' },

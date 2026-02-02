@@ -15,9 +15,9 @@ const router = createRouter({
             component: () => import('@/views/home/bLive.vue')
         },
         {
-            path: '/anime',
-            name: 'anime',
-            component: () => import('@/views/home/cAnime.vue')
+            path: '/bangumi',
+            name: 'bangumi',
+            component: () => import('@/views/home/cBangumi.vue')
         },
         {
             path: '/donghua',
