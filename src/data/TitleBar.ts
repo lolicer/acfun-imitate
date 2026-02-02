@@ -24,7 +24,7 @@ export const hotSearshData: string[] = [
 
 export const historyInfoData: HistoryInfo[] = [
     {
-        imgUrl: '/images/history-video-0.png',
+        imgUrl: '/images/history/history-video-0.png',
         url: '',
         title: '【搬运/BadGirl】芳文跳纯享30分钟',
         time: 1759666746000, // 2025-10-05 20:19:06
@@ -34,7 +34,7 @@ export const historyInfoData: HistoryInfo[] = [
         position: 58
     },
     {
-        imgUrl: '/images/history-live-0.png',
+        imgUrl: '/images/history/history-live-0.png',
         url: '',
         title: '假期快乐~',
         time: 1759543328000, // 2025-10-04 10:02:08
@@ -43,7 +43,7 @@ export const historyInfoData: HistoryInfo[] = [
         isLiveOn: true
     },
     {
-        imgUrl: '/images/history-live-1.png',
+        imgUrl: '/images/history/history-live-1.png',
         url: '',
         title: '天才歌姬秋绘开播啦！唱点古风歌怎么样？',
         time: 1759507200000, // 2025-10-04 00:00:00
@@ -52,7 +52,7 @@ export const historyInfoData: HistoryInfo[] = [
         isLiveOn: false
     },
     {
-        imgUrl: '/images/history-video-1.png',
+        imgUrl: '/images/history/history-video-1.png',
         url: '',
         title: '“原来我们还是不适合”/MeUmy双女声翻唱【在加纳共和国离婚】',
         time: 1759446714000, // 2025-10-03 07:11:54
@@ -62,7 +62,7 @@ export const historyInfoData: HistoryInfo[] = [
         position: 1200
     },
     {
-        imgUrl: '/images/history-article-0.png',
+        imgUrl: '/images/history/history-article-0.png',
         url: '',
         title: '【动画评价】里世界郊游——轻快的怪谈冒险动画',
         time: 1759080191000, // 2025-09-29 01:23:11
@@ -70,7 +70,7 @@ export const historyInfoData: HistoryInfo[] = [
         uploader: '雨后折木'
     },
     {
-        imgUrl: '/images/history-article-1.png',
+        imgUrl: '/images/history/history-article-1.png',
         url: '',
         title: 'anon可爱表情包',
         time: 1759021905000, // 2025-09-28 09:11:45
@@ -78,7 +78,7 @@ export const historyInfoData: HistoryInfo[] = [
         uploader: 'XCWすごい'
     },
     {
-        imgUrl: '/images/history-video-2.png',
+        imgUrl: '/images/history/history-video-2.png',
         url: '',
         title: '急 急 喵 内 令',
         time: 1759018459000, // 2025-09-28 08:14:19
@@ -88,7 +88,7 @@ export const historyInfoData: HistoryInfo[] = [
         position: 51
     },
     {
-        imgUrl: '/images/history-video-3.png',
+        imgUrl: '/images/history/history-video-3.png',
         url: '',
         title: '喵内~喵内~喵内~',
         time: 1758975660000, // 2025-09-27 20:21:00
