@@ -7,7 +7,7 @@
  * @param progress.currentEpisode 观看到的集数
  * @param progress.currentEpisodeProgress 观看到该集的哪里，区间[0,1]
  */
-interface FollowingBangumiData {
+interface FollowingBangumi {
     title: string
     imgUrl: string
     to: string
@@ -18,4 +18,4 @@ interface FollowingBangumiData {
     }
 }
 
-export { FollowingBangumiData }
+export { FollowingBangumi }

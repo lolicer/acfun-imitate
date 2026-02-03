@@ -1,34 +1,32 @@
 <script lang="ts" setup>
 import HeartCheck from '@/assets/icons/concise/HeartCheck.vue'
 import RightArrow from '@/assets/icons/concise/RightArrow.vue'
-import BangumiProgressItem from '@/components/Home/BangumiProgressItem.vue'
+
+import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus'
+
+import { CarouselTopData, VideoItemData, LiveItemData } from '@/data/Home'
+import { FollowingBangumiData, SeasonalBangumiData } from '@/data/Bangumi'
+import { FollowingBangumi } from '@/types/BangumiProgressItem'
+import { SectionItemData } from '@/data/HomeSection'
+
+import { computed } from 'vue'
+
 import LiveItem from '@/components/public/LiveItem.vue'
 import VideoItem from '@/components/public/VideoItem.vue'
-import { carouselTopData, VideoItemData, LiveItemData } from '@/data/Home'
-import { followingBangumiData, seasonalBangumiData } from '@/data/Bangumi'
-import { donghuaSectionData } from '@/data/HomeSection'
-import { FollowingBangumiData } from '@/types/BangumiProgressItem'
-import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus'
-import { computed } from 'vue'
 import BangumiItem from '@/components/Home/BangumiItem.vue'
+import BangumiProgressItem from '@/components/Home/BangumiProgressItem.vue'
 import SectionItem from '@/components/Home/SectionItem/SectionItem.vue'
 
-const carouselTop = carouselTopData
-const videoItem = VideoItemData
-const liveItem = LiveItemData
 const rightImg = '/images/home/pagelet-live-right.png'
 
-const carouselBangumi = computed(() => {
-    const res: FollowingBangumiData[][] = []
-    for (let i = 0; i < followingBangumiData.length; i += 6) {
-        res.push(followingBangumiData.slice(i, i + 6))
+const CarouselBangumiData = computed(() => {
+    const res: FollowingBangumi[][] = []
+    for (let i = 0; i < FollowingBangumiData.length; i += 6) {
+        res.push(FollowingBangumiData.slice(i, i + 6))
     }
 
     return res
 })
-const seasonalBangumi = seasonalBangumiData
-
-const donghuaSection = donghuaSectionData
 </script>
 
 <template>
@@ -38,7 +36,7 @@ const donghuaSection = donghuaSectionData
                 <div>
                     <ElCarousel class="pagelet-top-carousel">
                         <ElCarouselItem
-                            v-for="item in carouselTop"
+                            v-for="item in CarouselTopData"
                             :key="item.to"
                         >
                             <img
@@ -56,7 +54,7 @@ const donghuaSection = donghuaSectionData
             <div id="pagelet-top-right-featured">
                 <VideoItem
                     class="featured-video-item"
-                    v-for="item in videoItem"
+                    v-for="item in VideoItemData"
                     :data="item"
                 />
             </div>
@@ -64,7 +62,11 @@ const donghuaSection = donghuaSectionData
 
         <div id="pagelet-live">
             <!-- 直播pagelet，展示一些推荐的直播 -->
-            <LiveItem class="live-item" v-for="item in liveItem" :data="item" />
+            <LiveItem
+                class="live-item"
+                v-for="item in LiveItemData"
+                :data="item"
+            />
 
             <div id="content-right-img">
                 <img :src="rightImg" alt="" />
@@ -101,7 +103,7 @@ const donghuaSection = donghuaSectionData
                 >
                     <ElCarouselItem
                         class="pagelet-bangumi-progress-content-carousel-item"
-                        v-for="(group, index) in carouselBangumi"
+                        v-for="(group, index) in CarouselBangumiData"
                         :key="index"
                     >
                         <BangumiProgressItem
@@ -137,14 +139,16 @@ const donghuaSection = donghuaSectionData
                 </ElButton>
             </div>
             <div id="pagelet-bangumi-content">
-                <BangumiItem v-for="item in seasonalBangumi" :data="item" />
+                <BangumiItem v-for="item in SeasonalBangumiData" :data="item" />
             </div>
         </div>
 
         <SectionItem
-            :data="donghuaSection"
-            title-icon-url="src/assets/icons/section/donghua.png"
-            section="动画"
+            v-for="(item, index) in SectionItemData"
+            :data="item.data"
+            :title-icon-url="item.titleIconUrl"
+            :section="item.title"
+            :key="index"
         />
 
         <div id="pagelet-bottom">已经到底啦~</div>

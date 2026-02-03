@@ -8,7 +8,7 @@
  * @param airSchedule.airTime 放送时间
  * @param tags 标签
  */
-interface SeasonalBangumiData {
+interface SeasonalBangumi {
     title: string
     rank: number
     imgUrl: string
@@ -21,4 +21,4 @@ interface SeasonalBangumiData {
     tags: string[]
 }
 
-export { SeasonalBangumiData }
+export { SeasonalBangumi }
