@@ -1,7 +1,7 @@
 import LiveItem from '@/types/LiveItem.js'
 import VideoItem from '@/types/VideoItem.js'
 
-export const carouselTopData = [
+export const CarouselTopData = [
     {
         title: '我的男朋友才不是这种没用的家伙！',
         imgUrl: '/images/home/carousel/top0.png',

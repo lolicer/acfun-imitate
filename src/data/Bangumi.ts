@@ -1,7 +1,7 @@
-import { SeasonalBangumiData } from '@/types/BangumiItem.js'
-import { FollowingBangumiData } from '@/types/BangumiProgressItem.js'
+import { SeasonalBangumi } from '@/types/BangumiItem.js'
+import { FollowingBangumi } from '@/types/BangumiProgressItem.js'
 
-export const followingBangumiData: FollowingBangumiData[] = [
+export const FollowingBangumiData: FollowingBangumi[] = [
     {
         title: '雏子的笔记',
         imgUrl: '/images/home/bangumi/bangumi0.png',
@@ -84,7 +84,7 @@ export const followingBangumiData: FollowingBangumiData[] = [
     }
 ]
 
-export const seasonalBangumiData: SeasonalBangumiData[] = [
+export const SeasonalBangumiData: SeasonalBangumi[] = [
     {
         title: '漆黑的子弹 第二季',
         rank: 1,

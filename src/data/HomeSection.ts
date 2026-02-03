@@ -1,6 +1,6 @@
 import { HomeSectionData } from '@/types/HomeSection.js'
 
-const donghuaSectionData: HomeSectionData = {
+const DonghuaSectionData: HomeSectionData = {
     main: [
         {
             coverUrl: '/images/home/section/donghua/main_0.jpg',
@@ -122,7 +122,7 @@ const donghuaSectionData: HomeSectionData = {
     ]
 }
 
-const lifestyleSectionData: HomeSectionData = {
+const LifestyleSectionData: HomeSectionData = {
     main: [
         {
             coverUrl: '/images/home/section/lifestyle/main_0.jpg',
@@ -244,7 +244,7 @@ const lifestyleSectionData: HomeSectionData = {
     ]
 }
 
-const musicSectionData: HomeSectionData = {
+const MusicSectionData: HomeSectionData = {
     main: [
         {
             coverUrl: '/images/home/section/music/main_0.jpg',
@@ -366,7 +366,7 @@ const musicSectionData: HomeSectionData = {
     ]
 }
 
-const danceAndIdolSectionData: HomeSectionData = {
+const DanceAndIdolSectionData: HomeSectionData = {
     main: [
         {
             coverUrl: '/images/home/section/danceAndIdol/main_0.jpg',
@@ -488,7 +488,7 @@ const danceAndIdolSectionData: HomeSectionData = {
     ]
 }
 
-const gamingSectionData: HomeSectionData = {
+const GamingSectionData: HomeSectionData = {
     main: [
         {
             coverUrl: '/images/home/section/gaming/main_0.jpg',
@@ -610,7 +610,7 @@ const gamingSectionData: HomeSectionData = {
     ]
 }
 
-const technologySectionData: HomeSectionData = {
+const TechnologySectionData: HomeSectionData = {
     main: [
         {
             coverUrl: '/images/home/section/technology/main_0.jpg',
@@ -732,7 +732,7 @@ const technologySectionData: HomeSectionData = {
     ]
 }
 
-const filmAndTVSectionData: HomeSectionData = {
+const FilmAndTVSectionData: HomeSectionData = {
     main: [
         {
             coverUrl: '/images/home/section/filmAndTV/main_0.jpg',
@@ -854,7 +854,7 @@ const filmAndTVSectionData: HomeSectionData = {
     ]
 }
 
-const sportsSectionData: HomeSectionData = {
+const SportsSectionData: HomeSectionData = {
     main: [
         {
             coverUrl: '/images/home/section/sports/main_0.jpg',
@@ -976,7 +976,7 @@ const sportsSectionData: HomeSectionData = {
     ]
 }
 
-const trendingSectionData: HomeSectionData = {
+const TrendingSectionData: HomeSectionData = {
     main: [
         {
             coverUrl: '/images/home/section/trending/main_0.jpg',
@@ -1098,56 +1098,56 @@ const trendingSectionData: HomeSectionData = {
     ]
 }
 
-const sectionItemData: {
+const SectionItemData: {
     data: HomeSectionData
     titleIconUrl: string
     title: string
 }[] = [
     {
-        data: donghuaSectionData,
+        data: DonghuaSectionData,
         titleIconUrl: 'src/assets/icons/section/donghua.png',
         title: '动画'
     },
     {
-        data: lifestyleSectionData,
+        data: LifestyleSectionData,
         titleIconUrl: 'src/assets/icons/section/lifestyle.png',
         title: '生活'
     },
     {
-        data: musicSectionData,
+        data: MusicSectionData,
         titleIconUrl: 'src/assets/icons/section/music.png',
         title: '音乐'
     },
     {
-        data: danceAndIdolSectionData,
+        data: DanceAndIdolSectionData,
         titleIconUrl: 'src/assets/icons/section/danceAndIdol.png',
         title: '舞蹈·偶像'
     },
     {
-        data: gamingSectionData,
+        data: GamingSectionData,
         titleIconUrl: 'src/assets/icons/section/gaming.png',
         title: '游戏'
     },
     {
-        data: technologySectionData,
+        data: TechnologySectionData,
         titleIconUrl: 'src/assets/icons/section/technology.png',
         title: '科技'
     },
     {
-        data: filmAndTVSectionData,
+        data: FilmAndTVSectionData,
         titleIconUrl: 'src/assets/icons/section/filmAndTV.png',
         title: '影视'
     },
     {
-        data: sportsSectionData,
+        data: SportsSectionData,
         titleIconUrl: 'src/assets/icons/section/filmAndTV.png',
         title: '体育'
     },
     {
-        data: trendingSectionData,
+        data: TrendingSectionData,
         titleIconUrl: 'src/assets/icons/section/trending.png',
         title: '鱼塘'
     }
 ]
 
-export { sectionItemData }
+export { SectionItemData }
