@@ -150,8 +150,6 @@ const CarouselBangumiData = computed(() => {
             :section="item.title"
             :key="index"
         />
-
-        <div id="pagelet-bottom">已经到底啦~</div>
     </div>
 </template>
 
@@ -330,12 +328,5 @@ const CarouselBangumiData = computed(() => {
     display: flex;
     gap: 16px;
     padding: 10px 0 10px 0;
-}
-
-#pagelet-bottom {
-    width: 100%;
-    padding: 10px 0 10px 0;
-    display: flex;
-    justify-content: center;
 }
 </style>
