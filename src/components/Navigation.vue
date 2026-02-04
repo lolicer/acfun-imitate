@@ -3,8 +3,8 @@ import Barchart from '@/assets/icons/concise/Barchart.vue'
 
 const navigationData = [
     { name: '首页', to: '/' },
-    { name: '直播', to: '/live' },
-    { name: '番剧', to: '/bangumi' },
+    { name: '直播', to: '/live', newTab: true },
+    { name: '番剧', to: '/bangumi', newTab: true },
     { name: '动画', to: '/donghua' },
     { name: '娱乐', to: '/entertainment' },
     { name: '生活', to: '/lifestyle' },
@@ -22,9 +22,9 @@ const navigationData = [
 <template>
     <div class="content">
         <div v-for="item in navigationData" class="left-item">
-            <router-link v-if="item.to === '/'" :to="item.to" exact>{{
-                item.name
-            }}</router-link>
+            <a v-if="item.newTab" :href="item.to" target="_blank">
+                {{ item.name }}
+            </a>
             <router-link v-else :to="item.to">{{ item.name }}</router-link>
         </div>
         <div class="right-item">
