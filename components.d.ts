@@ -16,6 +16,7 @@ declare module 'vue' {
     BangumiItem: typeof import('./src/components/Home/BangumiItem.vue')['default']
     BangumiProgressItem: typeof import('./src/components/Home/BangumiProgressItem.vue')['default']
     Banner: typeof import('./src/components/Banner.vue')['default']
+    Bottom: typeof import('./src/components/public/Bottom.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
