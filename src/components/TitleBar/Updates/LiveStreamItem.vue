@@ -2,27 +2,15 @@
 import { drawThumbnail } from '@/utils/canvas'
 import { LiveStreamer } from '@/types/Updates'
 import { nextTick, onMounted, ref } from 'vue'
+import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const props = defineProps<{
     data: LiveStreamer
 }>()
 
-const nameRef = ref<HTMLElement>(null)
-const tooltip = ref('')
-const checkOverflow = () => {
-    if (nameRef.value) {
-        // 判断文本是否溢出
-        if (nameRef.value.scrollHeight > nameRef.value.clientHeight) {
-            tooltip.value = props.data.name
-        }
-    }
-}
-
 const avatarCanvasRef = ref<HTMLCanvasElement>(null)
 onMounted(() => {
-    nextTick(() => {
-        checkOverflow()
-    })
+    nextTick(() => {})
     drawThumbnail(avatarCanvasRef.value, props.data.avatarUrl, 44, 44)
 })
 </script>
@@ -38,7 +26,7 @@ onMounted(() => {
                 height="44"
             ></canvas>
         </div>
-        <span ref="nameRef" class="name">{{ props.data.name }}</span>
+        <TruncatedText class="name" :text="props.data.name" :max-line="2" />
     </div>
 </template>
 
@@ -69,13 +57,6 @@ onMounted(() => {
     border: 3px solid var(--color-acfun);
 }
 .name {
-    /* 控制超出两行自动省略 */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
     text-align: center;
 
     width: 100%;
