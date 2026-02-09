@@ -3,9 +3,31 @@ import { LiveHeaderData } from '@/data/Live'
 import { ref } from 'vue'
 
 const activeVideo = ref(0)
-
 function changeVideo(index: number) {
     activeVideo.value = index
+}
+
+const headerVideoRef = ref<HTMLVideoElement | null>(null)
+
+// 播放/暂停控制
+const isPlaying = ref<boolean>(false)
+async function togglePlayback() {
+    if (!headerVideoRef.value) return
+
+    if (isPlaying.value) {
+        headerVideoRef.value.pause()
+    } else {
+        await headerVideoRef.value.play()
+    }
+}
+
+// 静音控制
+const isMuted = ref<boolean>(true)
+function toogleMute() {
+    if (!headerVideoRef.value) return
+
+    isMuted.value = !isMuted.value
+    headerVideoRef.value.muted = isMuted.value
 }
 </script>
 
@@ -14,13 +36,45 @@ function changeVideo(index: number) {
         <div class="header">
             <div class="header-content">
                 <video
+                    ref="headerVideoRef"
                     :src="LiveHeaderData[activeVideo].videoUrl"
                     :poster="LiveHeaderData[activeVideo].coverUrl"
-                    controls
                     autoplay
                     muted
                     loop
+                    @playing="isPlaying = true"
+                    @pause="isPlaying = false"
                 ></video>
+                <div class="header-content-overlay">
+                    <div
+                        class="header-content-overlay-playback-btn"
+                        @click="togglePlayback"
+                    >
+                        <img
+                            v-if="isPlaying"
+                            src="/icons/public/videoControl/pause.svg"
+                        />
+                        <img v-else src="/icons/public/videoControl/play.svg" />
+                    </div>
+                    <div
+                        class="header-content-overlay-mute-btn"
+                        @click="toogleMute"
+                    >
+                        <img
+                            v-if="isMuted"
+                            src="/icons/public/videoControl/volumeOff.svg"
+                        />
+                        <img
+                            v-else
+                            src="/icons/public/videoControl/volumeOn_2.svg"
+                        />
+                    </div>
+                    <div class="header-content-overlay-enter-btn">
+                        <span class="header-content-overlay-enter-btn-text"
+                            >进入直播间</span
+                        >
+                    </div>
+                </div>
             </div>
             <div class="header-nav">
                 <div
@@ -60,9 +114,87 @@ function changeVideo(index: number) {
 
     display: flex;
     justify-content: center;
+
+    position: relative;
 }
 .header-content > video {
     height: 100%;
+}
+.header-content-overlay {
+    display: none;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 5%,
+        transparent 10%,
+        transparent 100%
+    );
+}
+.header-content:hover .header-content-overlay {
+    display: block;
+}
+.header-content-overlay-playback-btn {
+    position: absolute;
+    left: 24px;
+    bottom: 12px;
+
+    height: 32px;
+    cursor: pointer;
+    display: inline;
+}
+.header-content-overlay-playback-btn > img {
+    height: 100%;
+}
+.header-content-overlay-mute-btn {
+    position: absolute;
+    left: calc(24px + 32px + 12px);
+    bottom: 12px;
+
+    height: 32px;
+    cursor: pointer;
+    display: inline flex;
+    align-items: center;
+}
+.header-content-overlay-mute-btn > img {
+    height: 90%;
+}
+.header-content-overlay-enter-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 18%;
+    height: 10%;
+
+    box-sizing: border-box;
+    border: 1px solid var(--color-acfun);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    transition: 0.2s ease;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-content-overlay-enter-btn:hover {
+    background-color: var(--color-acfun);
+}
+.header-content-overlay-enter-btn-text {
+    color: var(--color-acfun);
+    font-size: clamp(12px, 1.5cqw, 28px);
+
+    transition: 0.4s ease;
+}
+.header-content-overlay-enter-btn:hover .header-content-overlay-enter-btn-text {
+    color: white;
+    font-weight: 350;
 }
 .header-nav {
     flex: 2;
