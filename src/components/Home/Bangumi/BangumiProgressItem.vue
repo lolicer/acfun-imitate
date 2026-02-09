@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { FollowingBangumiData } from '@/types/BangumiProgressItem'
+import { FollowingBangumi } from '@/types/BangumiProgressItem'
 import { getCssVar } from '@/utils/style'
 import { ElProgress } from 'element-plus'
 import { computed } from 'vue'
-import TruncatedText from '../public/TruncatedText.vue'
+import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const props = defineProps<{
-    data: FollowingBangumiData
+    data: FollowingBangumi
 }>()
 
 const processPercentage = computed(() => {

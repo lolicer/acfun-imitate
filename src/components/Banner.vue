@@ -6,4 +6,15 @@
     </div>
 </template>
 
-<style scoped src="./Banner.css"></style>
+<style scoped>
+.banner-content {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.banner-content > img {
+    min-height: 180px;
+    width: 120%;
+    object-fit: cover;
+}
+</style>

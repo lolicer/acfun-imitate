@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import HistoryInfoItem from './TitleBar/History/HistoryInfoItem.vue'
+import HistoryInfoItem from '@/components/TitleBar/History/HistoryInfoItem.vue'
 import { HistoryInfo } from '@/types/HistoryInfo'
 import {
     historyInfoData,
@@ -11,8 +11,8 @@ import {
     liveStreamers
 } from '@/data/TitleBar'
 import { Updates } from '@/types/Updates'
-import UpdatesItem from './TitleBar/Updates/UpdatesItem.vue'
-import LiveStreamItem from './TitleBar/Updates/LiveStreamItem.vue'
+import UpdatesItem from '@/components/TitleBar/Updates/UpdatesItem.vue'
+import LiveStreamItem from '@/components/TitleBar/Updates/LiveStreamItem.vue'
 import { ScrollbarInstance } from 'element-plus'
 
 const searchText = ref('')
