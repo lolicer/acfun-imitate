@@ -1,17 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import CameraIcon from '@/assets/icons/concise/Camera.vue'
-import ShopIcon from '@/assets/icons/concise/Shop.vue'
-import SearchIcon from '@/assets/icons/concise/Search.vue'
-import PhoneIcon from '@/assets/icons/concise/Phone.vue'
-import MessageIcon from '@/assets/icons/concise/Message.vue'
-import HistoryIcon from '@/assets/icons/concise/History.vue'
-import UpdatesIcon from '@/assets/icons/concise/Updates.vue'
-import UploadIcon from '@/assets/icons/concise/Upload.vue'
-import UploaderIcon from '@/assets/icons/concise/Uploader.vue'
-import ExitIcon from '@/assets/icons/concise/Exit.vue'
-
 import HistoryInfoItem from './TitleBar/History/HistoryInfoItem.vue'
 import { HistoryInfo } from '@/types/HistoryInfo'
 import {
@@ -52,14 +41,18 @@ const updates: Updates[] = updatesData
         <!-- 左边 -->
         <div id="left-content">
             <a href="/">
-                <img src="../assets/icons/acfunlogo.svg" alt="" />
+                <img src="/icons/public/acfunLogo.svg" alt="" />
             </a>
             <a
                 href="https://shop213417608.taobao.com/"
                 target="_blank"
                 class="extension"
             >
-                <ShopIcon class="extension-icon" id="shop-icon" />
+                <img
+                    src="/icons/public/titleBar/Shop.svg"
+                    class="extension-icon"
+                    id="shop-icon"
+                />
                 <span class="extension-text">周边商场</span>
             </a>
             <a
@@ -67,7 +60,12 @@ const updates: Updates[] = updatesData
                 target="_blank"
                 class="extension"
             >
-                <CameraIcon class="extension-icon" id="camera-icon" />
+                <img
+                    src="/icons/public/titleBar/Camera.svg"
+                    alt=""
+                    class="extension-icon"
+                    id="camera-icon"
+                />
                 <span class="extension-text">AcFun面补助手</span>
             </a>
         </div>
@@ -75,16 +73,11 @@ const updates: Updates[] = updatesData
         <!-- 中间 -->
         <div id="center-content">
             <div id="search">
-                <ElInput
-                    id="input"
-                    type="search"
-                    v-model="searchText"
-                    :suffix-icon="SearchIcon"
-                />
-                <!-- <div class="input">
-                    <input class="input-area" type="search" v-model="searchText">
-                    <button class="input-button"><Search class="input-button-icon"/></button>
-                </div> -->
+                <ElInput id="input" type="search" v-model="searchText">
+                    <template #suffix>
+                        <img src="/icons/public/titleBar/Search.svg" alt="" />
+                    </template>
+                </ElInput>
                 <div class="floating-block" id="search-result">
                     <div>
                         <div id="result-history-title">
@@ -131,18 +124,26 @@ const updates: Updates[] = updatesData
         <!-- 右边 -->
         <div id="right-content">
             <div id="phone">
-                <div><PhoneIcon class="mini-icon" /></div>
+                <div>
+                    <img
+                        src="/icons/public/titleBar/Phone.svg"
+                        class="mini-icon"
+                    />
+                </div>
                 <div class="floating-block" id="app-download">
-                    <img src="../assets/images/app-download.png" alt="" />
+                    <img
+                        src="/images/public/titleBar/app-download.png"
+                        alt=""
+                    />
                 </div>
             </div>
             <div id="avatar">
-                <img src="../assets/images/avatar.png" alt="" />
+                <img src="/images/public/titleBar/avatar.png" alt="" />
                 <div class="floating-block" id="user-info">
                     <div id="user-info-space">
                         <div id="user-info-space-name">七森中の阿卡林</div>
                         <div id="user-info-space-exit">
-                            <ExitIcon />
+                            <img src="/icons/public/titleBar/Exit.svg" alt="" />
                             <span>退出</span>
                         </div>
                     </div>
@@ -150,7 +151,7 @@ const updates: Updates[] = updatesData
                         <div id="user-info-acbi-left">
                             <img
                                 id="user-info-acbi-acbiimg"
-                                src="../assets/icons/acbi.svg"
+                                src="/icons/public/titleBar/acbi.svg"
                                 alt=""
                             />
                             <!--display：online-block-->
@@ -162,7 +163,12 @@ const updates: Updates[] = updatesData
                 </div>
             </div>
             <div id="message">
-                <div><MessageIcon class="mini-icon" /></div>
+                <div>
+                    <img
+                        src="/icons/public/titleBar/Message.svg"
+                        class="mini-icon"
+                    />
+                </div>
                 <div class="floating-block" id="message-info">
                     <div>评论</div>
                     <div>赞</div>
@@ -174,7 +180,12 @@ const updates: Updates[] = updatesData
                 </div>
             </div>
             <div id="history">
-                <div><HistoryIcon class="mini-icon" /></div>
+                <div>
+                    <img
+                        src="/icons/public/titleBar/history/History.svg"
+                        class="mini-icon"
+                    />
+                </div>
                 <div class="floating-block" id="history-info">
                     <div id="history-info-list">
                         <ElScrollbar>
@@ -189,7 +200,12 @@ const updates: Updates[] = updatesData
                 </div>
             </div>
             <div id="updates">
-                <div><UpdatesIcon class="mini-icon" /></div>
+                <div>
+                    <img
+                        src="/icons/public/titleBar/Updates.svg"
+                        class="mini-icon"
+                    />
+                </div>
                 <div class="floating-block" id="updates-info">
                     <ElScrollbar class="live-stream-list-scrollbar">
                         <!-- 
@@ -223,12 +239,17 @@ const updates: Updates[] = updatesData
             </div>
             <div id="upload">
                 <ElButton id="upload-button" color="var(--color-acfun)">
-                    <UploadIcon />
+                    <img src="/icons/public/titleBar/Upload.svg" alt="" />
                     <span id="upload-button-text">投稿</span>
                 </ElButton>
             </div>
             <div id="uploader">
-                <div><UploaderIcon class="mini-icon" /></div>
+                <div>
+                    <img
+                        src="/icons/public/titleBar/Uploader.svg"
+                        class="mini-icon"
+                    />
+                </div>
                 <div class="floating-block" id="uploader-info">
                     <div>稿件管理</div>
                     <div>数据中心</div>

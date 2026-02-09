@@ -2,7 +2,6 @@
 import TruncatedText from '@/components/public/TruncatedText.vue'
 import { SectionRanking } from '@/types/HomeSection'
 import { formatSeconds } from '../../../utils/time'
-import Up from '@/assets/icons/concise/Up.vue'
 
 const props = defineProps<{
     data: SectionRanking
@@ -26,7 +25,7 @@ const props = defineProps<{
                 :max-line="2"
             />
             <div class="info-line-2">
-                <Up class="up-icon" />
+                <img src="/icons/public/Up.svg" class="up-icon" />
                 <span class="up-name">{{ props.data.up }}</span>
             </div>
         </div>
@@ -105,7 +104,6 @@ const props = defineProps<{
     color: var(--color-acfun);
 }
 .up-icon {
-    color: var(--color-gray-1);
     transform: translateY(1px);
 }
 .up-name {

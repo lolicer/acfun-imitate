@@ -1,9 +1,6 @@
 <script lang="ts" setup>
 import { formatRelativeTime } from '@/utils/time'
 import { drawThumbnail } from '@/utils/canvas'
-import DeviceMobile from '@/assets/icons/concise/DeviceMobile.vue'
-import DevicePC from '@/assets/icons/concise/DevicePC.vue'
-import Up from '@/assets/icons/concise/Up.vue'
 import { LiveHistoryInfo } from '@/types/HistoryInfo'
 import { nextTick, onMounted, ref } from 'vue'
 import TruncatedText from '@/components/public/TruncatedText.vue'
@@ -47,11 +44,13 @@ onMounted(() => {
                 :max-line="2"
             />
             <div class="line-2">
-                <DevicePC
+                <img
+                    src="/icons/public/titleBar/history/DevicePC.svg"
                     class="device-icon"
                     v-if="props.data.device === 'pc'"
                 />
-                <DeviceMobile
+                <img
+                    src="/icons/public/titleBar/history/DeviceMobile.svg"
                     class="device-icon"
                     v-if="props.data.device === 'mobile'"
                 />
@@ -60,7 +59,7 @@ onMounted(() => {
                 }}</span>
             </div>
             <div class="line-3">
-                <Up class="uploader-icon" />
+                <img src="/icons/public/Up.svg" class="uploader-icon" />
                 <span class="uploader-name">{{ props.data.uploader }}</span>
             </div>
         </div>
@@ -137,7 +136,6 @@ onMounted(() => {
 .device-icon {
     width: 14px;
     height: 14px;
-    color: var(--color-gray-1);
 }
 .watching-time {
     font-size: 11px;
@@ -158,7 +156,6 @@ onMounted(() => {
 .uploader-icon {
     width: 15px;
     height: 15px;
-    color: var(--color-gray-1);
 }
 .uploader-name {
     font-size: 12px;
