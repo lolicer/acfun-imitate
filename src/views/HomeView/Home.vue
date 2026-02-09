@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import HeartCheck from '@/assets/icons/concise/HeartCheck.vue'
-import RightArrow from '@/assets/icons/concise/RightArrow.vue'
-
 import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus'
 
 import { CarouselTopData, VideoItemData, LiveItemData } from '@/data/Home'
@@ -78,7 +75,7 @@ const CarouselBangumiData = computed(() => {
             <div id="pagelet-bangumi-progress-titlebar">
                 <div id="pagelet-bangumi-progress-titlebar-title">
                     <div id="pagelet-bangumi-progress-titlebar-title-icon">
-                        <img src="/src/assets/icons/BangumiLike.png" alt="" />
+                        <img src="/icons/home/BangumiLike.png" alt="" />
                     </div>
                     <span id="pagelet-bangumi-progress-titlebar-title-text">
                         正在追
@@ -88,7 +85,7 @@ const CarouselBangumiData = computed(() => {
                     id="pagelet-bangumi-progress-titlebar-btn"
                     color="var(--color-acfun)"
                 >
-                    <HeartCheck />
+                    <img src="/icons/home/HeartCheck.svg" alt="" />
                     <span id="pagelet-bangumi-progress-titlebar-btn-text">
                         追番列表
                     </span>
@@ -121,10 +118,7 @@ const CarouselBangumiData = computed(() => {
             <div id="pagelet-bangumi-titlebar">
                 <div id="pagelet-bangumi-titlebar-title">
                     <div id="pagelet-bangumi-titlebar-title-icon">
-                        <img
-                            src="/src/assets/icons/BangumiSchedule.png"
-                            alt=""
-                        />
+                        <img src="/icons/home/BangumiSchedule.png" alt="" />
                     </div>
                     <span id="pagelet-bangumi-titlebar-title-text">
                         新番时间表
@@ -135,7 +129,7 @@ const CarouselBangumiData = computed(() => {
                     color="var(--color-acfun)"
                 >
                     <span id="pagelet-bangumi-titlebar-btn-text">查看全部</span>
-                    <RightArrow />
+                    <img src="/icons/home/RightArrow.svg" alt="" />
                 </ElButton>
             </div>
             <div id="pagelet-bangumi-content">

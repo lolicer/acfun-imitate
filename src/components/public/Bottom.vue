@@ -2,7 +2,7 @@
 
 <template>
     <div class="bottom">
-        <img src="/src/assets/icons/acfunlogo.svg" alt="" />
+        <img src="/icons/public/acfunLogo.svg" alt="" />
         <div class="bottom-text">Copyright © 2007-2022 AcFun. 保留所有权利</div>
     </div>
 </template>

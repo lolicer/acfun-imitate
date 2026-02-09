@@ -2,7 +2,7 @@
 
 <template>
     <div class="banner-content">
-        <img src="../assets/images/Banner.png" alt="" />
+        <img src="/images/banner/Banner.png" alt="" />
     </div>
 </template>
 

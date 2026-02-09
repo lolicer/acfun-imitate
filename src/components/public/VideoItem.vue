@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import BulletScreenCount from '@/assets/icons/concise/BulletScreenCount.vue'
-import Up from '@/assets/icons/concise/Up.vue'
-import ViewCount from '@/assets/icons/concise/ViewCount.vue'
 import VideoItem from '@/types/VideoItem'
 import {
     formatTimestampToDate,
@@ -21,11 +18,11 @@ const props = defineProps<{
             <div class="cover-overlay"></div>
             <div class="cover-info">
                 <div class="info-viewcount">
-                    <ViewCount />
+                    <img src="/icons/videoItem/ViewCount.svg" alt="" />
                     <span>{{ formatNumber(props.data.viewCount) }}</span>
                 </div>
                 <div class="info-bullet-screen-count">
-                    <BulletScreenCount />
+                    <img src="/icons/videoItem/BulletScreenCount.svg" alt="" />
                     <span>{{
                         formatNumber(props.data.bulletScreenCount)
                     }}</span>
@@ -46,7 +43,7 @@ const props = defineProps<{
             />
             <div class="info-line-2">
                 <div class="up">
-                    <Up class="up-icon" />
+                    <img src="/icons/public/Up.svg" class="up-icon" />
                     <span class="up-name">{{ props.data.up }}</span>
                 </div>
                 <span class="release-time"
@@ -149,7 +146,6 @@ const props = defineProps<{
     align-items: center;
 }
 .up-icon {
-    color: var(--color-gray-1);
     transform: translateY(1px);
 }
 .up-name {

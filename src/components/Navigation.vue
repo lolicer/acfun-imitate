@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import Barchart from '@/assets/icons/concise/Barchart.vue'
-
 const navigationData = [
     { name: '首页', to: '/' },
     { name: '直播', to: '/live', newTab: true },
@@ -28,7 +26,7 @@ const navigationData = [
             <router-link v-else :to="item.to">{{ item.name }}</router-link>
         </div>
         <div class="right-item">
-            <Barchart />
+            <img src="/icons/home/navigation/Barchart.svg" alt="" />
             全站排行榜
         </div>
     </div>
@@ -79,8 +77,7 @@ const navigationData = [
     box-sizing: border-box;
     padding-bottom: 6px;
 }
-.right-item > svg {
-    color: var(--color-acfun);
+.right-item > img {
     padding-right: 4px;
 }
 .right-item:hover {

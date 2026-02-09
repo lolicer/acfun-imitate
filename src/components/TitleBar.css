@@ -39,7 +39,6 @@
 .extension-icon {
     width: 18px;
     height: 18px;
-    color: var(--color-acfun);
 }
 .extension-text {
     font-size: 14px;
@@ -179,7 +178,6 @@
 .mini-icon {
     width: 18px;
     height: 18px;
-    color: var(--color-gray-2);
 }
 
 #avatar > img {

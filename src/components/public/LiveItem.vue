@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import Up from '@/assets/icons/concise/Up.vue'
-import Like from '@/assets/icons/concise/Like.vue'
-import People from '@/assets/icons/concise/People.vue'
 import LiveItem from '@/types/LiveItem'
 import { formatNumber } from '@/utils/time'
 import TruncatedText from './TruncatedText.vue'
@@ -20,11 +17,11 @@ const props = defineProps<{
                     {{ props.data.tag }}
                 </span>
                 <div class="cover-info-like">
-                    <Like />
+                    <img src="/icons/home/Like.svg" alt="" />
                     <span>{{ formatNumber(props.data.likeCount) }}</span>
                 </div>
                 <div class="cover-info-audience-count">
-                    <People />
+                    <img src="/icons/liveItem/People.svg" alt="" />
                     <span>{{ formatNumber(props.data.audienceCount) }}</span>
                 </div>
             </div>
@@ -41,7 +38,7 @@ const props = defineProps<{
                 />
                 <div class="info-line-2">
                     <div class="up">
-                        <Up class="up-icon" />
+                        <img src="/icons/public/Up.svg" class="up-icon" />
                         <span class="up-name">{{ props.data.up }}</span>
                     </div>
                 </div>
@@ -154,7 +151,6 @@ const props = defineProps<{
     align-items: center;
 }
 .up-icon {
-    color: var(--color-gray-1);
     transform: translateY(2px);
 }
 .up-name {
