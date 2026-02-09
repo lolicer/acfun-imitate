@@ -2,8 +2,8 @@ import { LiveHeader } from '@/types/Live.js'
 
 const LiveHeaderData: LiveHeader[] = [
     {
-        tag: '虚拟日常',
-        title: '【路伊丝】看AI创作大赛作品',
+        tag: '虚拟Singer',
+        title: '咦！是长颈鹿！',
         coverUrl: '/images/live/header/cover_0.jpg',
         videoUrl: '/videos/live/header/video_0.mp4'
     },
@@ -20,8 +20,8 @@ const LiveHeaderData: LiveHeader[] = [
         videoUrl: '/videos/live/header/video_2.mp4'
     },
     {
-        tag: '虚拟Singer',
-        title: '咦！是长颈鹿！',
+        tag: '虚拟日常',
+        title: '【路伊丝】看AI创作大赛作品',
         coverUrl: '/images/live/header/cover_3.jpg',
         videoUrl: '/videos/live/header/video_3.mp4'
     },
