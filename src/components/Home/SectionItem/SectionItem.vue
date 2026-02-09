@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { HomeSectionData } from '@/types/HomeSection'
+import { HomeSection } from '@/types/HomeSection'
 import VideoItem from '@/components/public/VideoItem.vue'
 import RankingItem from './RankingItem.vue'
 const props = defineProps<{
-    data: HomeSectionData
+    data: HomeSection
     titleIconUrl: string
     section: string
 }>()

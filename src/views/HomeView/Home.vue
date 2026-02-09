@@ -10,8 +10,8 @@ import { computed } from 'vue'
 
 import LiveItem from '@/components/public/LiveItem.vue'
 import VideoItem from '@/components/public/VideoItem.vue'
-import BangumiItem from '@/components/Home/BangumiItem.vue'
-import BangumiProgressItem from '@/components/Home/BangumiProgressItem.vue'
+import BangumiItem from '@/components/Home/Bangumi/BangumiItem.vue'
+import BangumiProgressItem from '@/components/Home/Bangumi/BangumiProgressItem.vue'
 import SectionItem from '@/components/Home/SectionItem/SectionItem.vue'
 
 const rightImg = '/images/home/pagelet-live-right.png'

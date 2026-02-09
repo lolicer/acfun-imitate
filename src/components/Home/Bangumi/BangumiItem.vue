@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { SeasonalBangumiData } from '@/types/BangumiItem'
-import TruncatedText from '../public/TruncatedText.vue'
+import { SeasonalBangumi } from '@/types/BangumiItem'
+import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const props = defineProps<{
-    data: SeasonalBangumiData
+    data: SeasonalBangumi
 }>()
 
 const BackgroundColors = {

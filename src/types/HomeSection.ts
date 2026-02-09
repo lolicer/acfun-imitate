@@ -13,9 +13,9 @@ interface SectionRanking {
     duration: number
 }
 
-interface HomeSectionData {
+interface HomeSection {
     main: VideoItem[]
     ranking: SectionRanking[]
 }
 
-export { type SectionRanking, type HomeSectionData }
+export { type SectionRanking, type HomeSection }
