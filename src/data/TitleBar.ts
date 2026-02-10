@@ -201,7 +201,7 @@ export const updatesData: Updates[] = [
     }
 ]
 
-export const liveStreamers: LiveStreamer[] = [
+export const liveStreamersData: LiveStreamer[] = [
     { name: '混沌之神虚妄喵', avatarUrl: '/images/updates/liveAvatars/0.png' },
     { name: '烛不遥', avatarUrl: '/images/updates/liveAvatars/1.png' },
     { name: '桜都子', avatarUrl: '/images/updates/liveAvatars/2.png' },
