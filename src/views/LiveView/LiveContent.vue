@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ElScrollbar } from 'element-plus'
-import { LiveHeaderData } from '@/data/Live'
+import { LiveHeaderData, RecommendSectionItemData } from '@/data/Live'
 import { ref } from 'vue'
 import { liveStreamersData } from '@/data/TitleBar'
 import TruncatedText from '@/components/public/TruncatedText.vue'
+import RecommendSectionItem from './RecommendSectionItem.vue'
 
 const activeVideo = ref(0)
 function changeVideo(index: number) {
@@ -106,8 +107,13 @@ function toogleMute() {
                         >
                     </div>
                     <div class="recommend-titlebar-following-right">
-                        <span class="recommend-titlebar-following-all">查看全部 ></span>
+                        <span class="recommend-titlebar-following-all"
+                            >查看全部 ></span
+                        >
                     </div>
+                </div>
+                <div class="recommend-titlebar-section">
+                    <div class="recommend-titlebar-section-title">推荐分区</div>
                 </div>
             </div>
             <div class="recommend-content">
@@ -127,6 +133,12 @@ function toogleMute() {
                             </div>
                         </div>
                     </ElScrollbar>
+                </div>
+                <div class="recommend-content-section">
+                    <RecommendSectionItem
+                        v-for="item in RecommendSectionItemData"
+                        :data="item"
+                    />
                 </div>
             </div>
         </div>
@@ -291,10 +303,12 @@ function toogleMute() {
 }
 
 .recommend-titlebar {
+    width: 100%;
     height: 50px;
     display: flex;
+    gap: 20px;
 }
-.recommend-titlebar-following{
+.recommend-titlebar-following {
     position: relative;
     bottom: 4px;
 
@@ -328,12 +342,26 @@ function toogleMute() {
     font-size: 12px;
     cursor: pointer;
 }
-.recommend-titlebar-following-all:hover{
+.recommend-titlebar-following-all:hover {
     color: var(--color-acfun);
+}
+
+.recommend-titlebar-section {
+    height: 50px;
+    flex-grow: 1;
+
+    position: relative;
+}
+.recommend-titlebar-section-title {
+    position: absolute;
+    bottom: 4px;
+    font-size: 20px;
 }
 
 .recommend-content {
     width: 100%;
+    display: flex;
+    gap: 20px;
 }
 .recommend-content-following {
     box-sizing: border-box;
@@ -376,5 +404,15 @@ function toogleMute() {
 }
 .recommend-content-following-scrollbar-item-text:hover {
     color: var(--color-acfun);
+}
+
+.recommend-content-section {
+    box-sizing: border-box;
+    padding: 10px 32px;
+
+    border-radius: 8px;
+    background-color: var(--color-gray-4);
+
+    display: flex;
 }
 </style>
