@@ -8,12 +8,11 @@ import {
     hotSearshData,
     searchHistoryData,
     updatesData,
-    liveStreamers
+    liveStreamersData
 } from '@/data/TitleBar'
 import { Updates } from '@/types/Updates'
 import UpdatesItem from '@/components/TitleBar/Updates/UpdatesItem.vue'
 import LiveStreamItem from '@/components/TitleBar/Updates/LiveStreamItem.vue'
-import { ScrollbarInstance } from 'element-plus'
 
 const searchText = ref('')
 
@@ -215,7 +214,7 @@ const updates: Updates[] = updatesData
                     -->
                         <div id="live-stream-list">
                             <LiveStreamItem
-                                v-for="item in liveStreamers"
+                                v-for="item in liveStreamersData"
                                 :data="item"
                             />
                         </div>
