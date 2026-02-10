@@ -9,4 +9,18 @@ interface LiveHeader {
     videoUrl: string
 }
 
-export { type LiveHeader }
+interface RecommendSectionItem {
+    /** 分区名称 */
+    tag: string
+    /** 分区图标地址 */
+    imgUrl: string
+    /** 下拉菜单 */
+    dropdownMenu?: {
+        /** 下拉菜单中的分区名称 */
+        tag: string
+        /** 下拉菜单中的分区图标地址 */
+        imgUrl: string
+    }[]
+}
+
+export { type LiveHeader, type RecommendSectionItem }
