@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { ElScrollbar } from 'element-plus'
 import { LiveHeaderData } from '@/data/Live'
 import { ref } from 'vue'
+import { liveStreamersData } from '@/data/TitleBar'
+import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const activeVideo = ref(0)
 function changeVideo(index: number) {
@@ -88,6 +91,42 @@ function toogleMute() {
                         :src="item.coverUrl"
                         :class="{ active: activeVideo === index }"
                     />
+                </div>
+            </div>
+        </div>
+        <div class="recommend">
+            <div class="recommend-titlebar">
+                <div class="recommend-titlebar-following">
+                    <div class="recommend-titlebar-following-left">
+                        <span class="recommend-titlebar-following-title"
+                            >我的关注</span
+                        >
+                        <span class="recommend-titlebar-following-details"
+                            >{{ liveStreamersData.length }}人直播中</span
+                        >
+                    </div>
+                    <div class="recommend-titlebar-following-right">
+                        <span class="recommend-titlebar-following-all">查看全部 ></span>
+                    </div>
+                </div>
+            </div>
+            <div class="recommend-content">
+                <div class="recommend-content-following">
+                    <ElScrollbar>
+                        <div class="recommend-content-following-scrollbar">
+                            <div
+                                class="recommend-content-following-scrollbar-item"
+                                v-for="item in liveStreamersData"
+                            >
+                                <img :src="item.avatarUrl" alt="" />
+                                <TruncatedText
+                                    class="recommend-content-following-scrollbar-item-text"
+                                    :text="item.name"
+                                    :max-line="2"
+                                />
+                            </div>
+                        </div>
+                    </ElScrollbar>
                 </div>
             </div>
         </div>
@@ -243,5 +282,99 @@ function toogleMute() {
     border-right: 10px solid var(--color-acfun);
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
+}
+
+.recommend {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 50px;
+}
+
+.recommend-titlebar {
+    height: 50px;
+    display: flex;
+}
+.recommend-titlebar-following{
+    position: relative;
+    bottom: 4px;
+
+    width: calc(5 * (10px + 58px + 10px) + 2 * 32px);
+    height: 100%;
+}
+.recommend-titlebar-following-left {
+    width: fit-content;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+.recommend-titlebar-following-right {
+    width: fit-content;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.recommend-titlebar-following-title {
+    font-size: 20px;
+}
+.recommend-titlebar-following-details {
+    font-size: 12px;
+    border-radius: 8.5px / 50%;
+    padding: 0 6px;
+    margin-left: 10px;
+    background-color: var(--color-acfun);
+    color: white;
+}
+.recommend-titlebar-following-all {
+    font-size: 12px;
+    cursor: pointer;
+}
+.recommend-titlebar-following-all:hover{
+    color: var(--color-acfun);
+}
+
+.recommend-content {
+    width: 100%;
+}
+.recommend-content-following {
+    box-sizing: border-box;
+    width: calc(5 * (10px + 58px + 10px) + 2 * 32px);
+
+    padding: 10px 32px 10px 32px;
+    border-radius: 8px;
+    background-color: var(--color-gray-4);
+}
+.recommend-content-following-scrollbar {
+    display: flex;
+}
+.recommend-content-following-scrollbar-item {
+    cursor: pointer;
+    flex-shrink: 0;
+    width: calc(10px + 58px + 10px);
+    box-sizing: border-box;
+    padding: 6px 10px 0px 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.recommend-content-following-scrollbar-item:hover {
+    background-color: var(--color-gray-3);
+}
+.recommend-content-following-scrollbar-item > img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+
+    box-sizing: border-box;
+    border: 1px solid var(--color-acfun);
+    padding: 2px;
+}
+.recommend-content-following-scrollbar-item-text {
+    text-align: center;
+    font-size: 13px;
+    margin: 4px 0 12px 0;
+}
+.recommend-content-following-scrollbar-item-text:hover {
+    color: var(--color-acfun);
 }
 </style>
