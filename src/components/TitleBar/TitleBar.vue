@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ElScrollbar } from 'element-plus'
 import { ref } from 'vue'
 
 import HistoryInfoItem from '@/components/TitleBar/History/HistoryInfoItem.vue'
