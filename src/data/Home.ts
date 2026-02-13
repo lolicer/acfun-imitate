@@ -124,7 +124,7 @@ export const LiveItemData: LiveItem[] = [
         audienceCount: 102
     },
     {
-        tag: '单机游戏',
+        tag: 'PC游戏',
         coverUrl: '/images/home/liveItems/cover-3.png',
         avatarUrl: '/images/home/liveItems/avatar-3.png',
         title: '继续丝之歌！！！',
