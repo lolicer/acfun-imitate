@@ -330,7 +330,7 @@ const LiveSectionData: {
     }
 ]
 
-const LiveListData: LiveItem = {
+const LiveListDataItem: LiveItem = {
     tag: '时政',
     coverUrl: '/images/live/main/no-cover.png',
     avatarUrl: '/images/live/main/no-avatar.png',
@@ -340,5 +340,19 @@ const LiveListData: LiveItem = {
     likeCount: 114514,
     audienceCount: 1024
 }
+const LiveListData: LiveItem[] = Array.from({ length: 50 }, () => {
+    return Math.random() > 0.02
+        ? LiveListDataItem
+        : {
+              ...LiveListDataItem,
+              title: '不要相信超级地球！',
+              coverUrl: '/images/live/main/no-cover-Cyberstan.png'
+          }
+})
 
-export { LiveHeaderData, RecommendSectionItemData, LiveSectionData, LiveListData }
+export {
+    LiveHeaderData,
+    RecommendSectionItemData,
+    LiveSectionData,
+    LiveListData
+}
