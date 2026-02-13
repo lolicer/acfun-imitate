@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import { ElScrollbar } from 'element-plus'
-import { LiveHeaderData, RecommendSectionItemData } from '@/data/Live'
-import { ref } from 'vue'
+import { ElScrollbar, ElTag } from 'element-plus'
+import {
+    LiveHeaderData,
+    RecommendSectionItemData,
+    LiveSectionData,
+    LiveListData
+} from '@/data/Live'
+import { computed, ref } from 'vue'
 import { liveStreamersData } from '@/data/TitleBar'
 import TruncatedText from '@/components/public/TruncatedText.vue'
 import RecommendSectionItem from './RecommendSectionItem.vue'
+import LiveItem from '@/components/public/LiveItem.vue'
 
 const activeVideo = ref(0)
 function changeVideo(index: number) {
@@ -33,6 +39,17 @@ function toogleMute() {
     isMuted.value = !isMuted.value
     headerVideoRef.value.muted = isMuted.value
 }
+
+const activeSectionId = ref<string>('all-0')
+function changeActiveSectionId(id: string) {
+    activeSectionId.value = id
+}
+
+const secondaryNavigationIdData = computed(() => {
+    return LiveSectionData.find((item) => {
+        return item.id.split('-')[0] === activeSectionId.value.split('-')[0]
+    }).children
+})
 </script>
 
 <template>
@@ -141,6 +158,62 @@ function toogleMute() {
                     />
                 </div>
             </div>
+        </div>
+        <div
+            class="live-nav-1"
+            :class="{ showShadow: secondaryNavigationIdData.length === 0 }"
+        >
+            <div
+                v-for="item in LiveSectionData"
+                class="live-nav-1-item"
+                @click="changeActiveSectionId(item.id)"
+            >
+                <span
+                    :class="{
+                        active:
+                            item.id.split('-')[0] ===
+                            activeSectionId.split('-')[0]
+                    }"
+                >
+                    {{ item.tag }}
+                </span>
+            </div>
+        </div>
+        <div
+            class="live-nav-2"
+            :class="{
+                showShadow: secondaryNavigationIdData.length !== 0
+            }"
+        >
+            <div
+                v-show="activeSectionId !== 'all-0'"
+                class="live-nav-2-item"
+                :class="{
+                    active: activeSectionId.split('-')[1] === '0'
+                }"
+                @click="
+                    changeActiveSectionId(activeSectionId.split('-')[0] + '-0')
+                "
+            >
+                全部
+            </div>
+            <div
+                v-for="item in secondaryNavigationIdData"
+                class="live-nav-2-item"
+                :class="{ active: item.id === activeSectionId }"
+                @click="changeActiveSectionId(item.id)"
+            >
+                {{ item.tag }}
+            </div>
+        </div>
+        <div class="live-list">
+            <LiveItem
+                v-for="(item, index) in Array.from(
+                    { length: 50 },
+                    (_, i) => i + 1
+                )"
+                :data="LiveListData"
+            />
         </div>
     </div>
 </template>
@@ -414,5 +487,74 @@ function toogleMute() {
     background-color: var(--color-gray-4);
 
     display: flex;
+}
+
+.live-nav-1 {
+    display: flex;
+    padding-top: 30px;
+    background-color: white;
+
+    position: sticky;
+    top: 22px;
+    z-index: 901;
+}
+.live-nav-1.showShadow {
+    box-shadow: var(--shadow-1);
+}
+.live-nav-1-item {
+    cursor: pointer;
+    flex: 1;
+    height: 34px;
+    min-width: 100px;
+    max-width: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.live-nav-1-item > span.active {
+    padding: 0 6px;
+    box-sizing: border-box;
+    border-bottom: 4px solid var(--color-acfun);
+}
+
+.live-nav-2 {
+    display: flex;
+    padding: 8px 0px;
+    background-color: white;
+
+    position: sticky;
+    top: calc(52px + 34px);
+    z-index: 900;
+}
+.live-nav-2.showShadow {
+    box-shadow: var(--shadow-1);
+}
+.live-nav-2-item {
+    cursor: pointer;
+    margin: 0 16px;
+    padding: 0 8px;
+
+    font-size: 13px;
+
+    box-sizing: border-box;
+    border: 1px solid var(--color-acfun);
+    border-radius: 25px;
+}
+.live-nav-2-item.active {
+    background-color: var(--color-acfun);
+    color: white;
+}
+
+.live-list {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 50px 0px;
+
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+
+    z-index: 800;
 }
 </style>
