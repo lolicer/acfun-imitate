@@ -208,11 +208,9 @@ const secondaryNavigationIdData = computed(() => {
         </div>
         <div class="live-list">
             <LiveItem
-                v-for="(item, index) in Array.from(
-                    { length: 50 },
-                    (_, i) => i + 1
-                )"
-                :data="LiveListData"
+                v-for="(item, index) in LiveListData"
+                :data="item"
+                :key="index"
             />
         </div>
     </div>
