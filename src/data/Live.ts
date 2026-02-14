@@ -1,4 +1,4 @@
-import { LiveTags } from '@/types/Live.js'
+import { LiveTags, RecommendSectionItem } from '@/types/Live.js'
 import LiveItem from '@/types/LiveItem.js'
 
 const LiveHeaderData: {
@@ -43,19 +43,7 @@ const LiveHeaderData: {
     }
 ]
 
-const RecommendSectionItemData: {
-    /** 分区名称 */
-    tag: LiveTags | '更多 >'
-    /** 分区图标地址 */
-    imgUrl: string
-    /** 下拉菜单 */
-    dropdownMenu?: {
-        /** 下拉菜单中的分区名称 */
-        tag: string
-        /** 下拉菜单中的分区图标地址 */
-        imgUrl: string
-    }[]
-}[] = [
+const RecommendSectionItemData: RecommendSectionItem[] = [
     {
         tag: 'PC游戏',
         imgUrl: '/icons/live/recommendSection/游戏_PC游戏.png'

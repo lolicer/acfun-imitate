@@ -40,4 +40,18 @@ type LiveTags =
     | '自习室'
     | '时政'
 
-export { LiveTags }
+interface RecommendSectionItem {
+    /** 分区名称 */
+    tag: LiveTags | '更多 >'
+    /** 分区图标地址 */
+    imgUrl: string
+    /** 下拉菜单 */
+    dropdownMenu?: {
+        /** 下拉菜单中的分区名称 */
+        tag: string
+        /** 下拉菜单中的分区图标地址 */
+        imgUrl: string
+    }[]
+}
+
+export { LiveTags, type RecommendSectionItem }

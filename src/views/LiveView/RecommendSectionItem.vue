@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { RecommendSectionItem } from '@/types/Live'
-import { nextTick, onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps<{
     data: RecommendSectionItem
 }>()
+
 // 是否存在下拉菜单
 const showDropdown =
     props.data.dropdownMenu && props.data.dropdownMenu.length != 0
