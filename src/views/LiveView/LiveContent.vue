@@ -208,6 +208,7 @@ const secondaryNavigationIdData = computed(() => {
         </div>
         <div class="live-list">
             <LiveItem
+                class="live-list-item"
                 v-for="(item, index) in LiveListData"
                 :data="item"
                 :key="index"
@@ -371,6 +372,9 @@ const secondaryNavigationIdData = computed(() => {
     width: 100%;
     box-sizing: border-box;
     padding: 0 50px;
+
+    position: relative; /* 默认的static无法使z-index生效 */
+    z-index: 902;
 }
 
 .recommend-titlebar {

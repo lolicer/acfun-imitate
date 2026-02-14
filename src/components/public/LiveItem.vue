@@ -51,7 +51,6 @@ const props = defineProps<{
 .live-item-content {
     display: inline-block;
     min-width: 186px;
-    aspect-ratio: 20 / 17;
     box-sizing: border-box;
 }
 .cover {
