@@ -229,6 +229,9 @@ const CarouselBangumiData = computed(() => {
     gap: 8px;
     width: 100%;
 }
+.live-item {
+    aspect-ratio: 20 / 17;
+}
 #content-right-img {
     text-align: right;
 }
