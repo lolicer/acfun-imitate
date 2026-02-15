@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus'
-import Carousel from '@/components/public/Carousel.vue'
 
 import { CarouselTopData, VideoItemData, LiveItemData } from '@/data/Home'
 import { FollowingBangumiData, SeasonalBangumiData } from '@/data/Bangumi'
@@ -32,13 +31,14 @@ const CarouselBangumiData = computed(() => {
         <div id="pagelet-top">
             <div id="pagelet-top-carousel-area">
                 <div>
-                    <Carousel class="pagelet-top-carousel">
+                    <ElCarousel class="pagelet-top-carousel" height="auto">
                         <ElCarouselItem
                             v-for="item in CarouselTopData"
                             :key="item.to"
+                            class="pagelet-top-carousel-item"
                         >
                             <img
-                                class="pagelet-top-carousel-img"
+                                class="pagelet-top-carousel-item-img"
                                 :src="item.imgUrl"
                                 alt=""
                             />
@@ -46,7 +46,7 @@ const CarouselBangumiData = computed(() => {
                                 {{ item.title }}
                             </div>
                         </ElCarouselItem>
-                    </Carousel>
+                    </ElCarousel>
                 </div>
             </div>
             <div id="pagelet-top-right-featured">
@@ -93,8 +93,9 @@ const CarouselBangumiData = computed(() => {
                 </ElButton>
             </div>
             <div id="pagelet-bangumi-progress-content">
-                <Carousel
+                <ElCarousel
                     id="pagelet-bangumi-progress-content-carousel"
+                    height="auto"
                     indicator-position="none"
                     arrow="always"
                     :autoplay="false"
@@ -110,7 +111,7 @@ const CarouselBangumiData = computed(() => {
                             :key="idx"
                         />
                     </ElCarouselItem>
-                </Carousel>
+                </ElCarousel>
             </div>
         </div>
 
@@ -174,11 +175,13 @@ const CarouselBangumiData = computed(() => {
 }
 .pagelet-top-carousel {
     width: 100%;
-    aspect-ratio: 16/9;
 }
-.pagelet-top-carousel-img {
+.pagelet-top-carousel-item {
+    height: auto;
+}
+.pagelet-top-carousel-item-img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     overflow: hidden;
 }
@@ -277,6 +280,7 @@ const CarouselBangumiData = computed(() => {
 }
 .pagelet-bangumi-progress-content-carousel-item {
     display: flex;
+    height: auto;
 }
 
 #pagelet-bangumi {
