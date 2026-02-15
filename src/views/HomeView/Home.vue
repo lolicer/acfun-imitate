@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus'
+import Carousel from '@/components/public/Carousel.vue'
 
 import { CarouselTopData, VideoItemData, LiveItemData } from '@/data/Home'
 import { FollowingBangumiData, SeasonalBangumiData } from '@/data/Bangumi'
@@ -31,7 +32,7 @@ const CarouselBangumiData = computed(() => {
         <div id="pagelet-top">
             <div id="pagelet-top-carousel-area">
                 <div>
-                    <ElCarousel class="pagelet-top-carousel">
+                    <Carousel class="pagelet-top-carousel">
                         <ElCarouselItem
                             v-for="item in CarouselTopData"
                             :key="item.to"
@@ -45,7 +46,7 @@ const CarouselBangumiData = computed(() => {
                                 {{ item.title }}
                             </div>
                         </ElCarouselItem>
-                    </ElCarousel>
+                    </Carousel>
                 </div>
             </div>
             <div id="pagelet-top-right-featured">
@@ -92,7 +93,7 @@ const CarouselBangumiData = computed(() => {
                 </ElButton>
             </div>
             <div id="pagelet-bangumi-progress-content">
-                <ElCarousel
+                <Carousel
                     id="pagelet-bangumi-progress-content-carousel"
                     indicator-position="none"
                     arrow="always"
@@ -109,7 +110,7 @@ const CarouselBangumiData = computed(() => {
                             :key="idx"
                         />
                     </ElCarouselItem>
-                </ElCarousel>
+                </Carousel>
             </div>
         </div>
 
@@ -183,10 +184,6 @@ const CarouselBangumiData = computed(() => {
 }
 .pagelet-top-carousel-img:hover {
     cursor: pointer;
-}
-:deep(.el-carousel__container) {
-    width: 100%;
-    height: 100%;
 }
 .pagelet-top-carousel-item-title {
     position: absolute;
@@ -277,7 +274,6 @@ const CarouselBangumiData = computed(() => {
 }
 #pagelet-bangumi-progress-content-carousel {
     padding: 10px 0 10px 0;
-    height: 180px;
 }
 .pagelet-bangumi-progress-content-carousel-item {
     display: flex;
