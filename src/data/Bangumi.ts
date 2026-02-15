@@ -1,7 +1,7 @@
 import { SeasonalBangumi } from '@/types/BangumiItem.js'
 import { FollowingBangumi } from '@/types/BangumiProgressItem.js'
 
-export const FollowingBangumiData: FollowingBangumi[] = [
+const FollowingBangumiData: FollowingBangumi[] = [
     {
         title: '雏子的笔记',
         imgUrl: '/images/home/bangumi/bangumi0.png',
@@ -84,7 +84,7 @@ export const FollowingBangumiData: FollowingBangumi[] = [
     }
 ]
 
-export const SeasonalBangumiData: SeasonalBangumi[] = [
+const SeasonalBangumiData: SeasonalBangumi[] = [
     {
         title: '漆黑的子弹 第二季',
         rank: 1,
@@ -158,3 +158,55 @@ export const SeasonalBangumiData: SeasonalBangumi[] = [
         tags: ['日常', '游戏改']
     }
 ]
+
+const BannerData: {
+    bannerUrl: string
+    coverUrl: string
+    title: string
+    sloganText: string
+}[] = [
+    {
+        bannerUrl: '/images/bangumi/banner/banner-0.png',
+        coverUrl: '/images/bangumi/banner/cover-0.png',
+        title: '我的青春恋爱物语果然有问题。完',
+        sloganText: '原来你是我最想留住的幸运'
+    },
+    {
+        bannerUrl: '/images/bangumi/banner/banner-1.png',
+        coverUrl: '/images/bangumi/banner/cover-1.png',
+        title: '葬送的芙莉莲',
+        sloganText: ''
+    },
+    {
+        bannerUrl: '/images/bangumi/banner/banner-2.png',
+        coverUrl: '/images/bangumi/banner/cover-2.png',
+        title: '魔女之旅',
+        sloganText: ''
+    },
+    {
+        bannerUrl: '/images/bangumi/banner/banner-3.png',
+        coverUrl: '/images/bangumi/banner/cover-3.png',
+        title: '因为太怕痛就全点防御力了',
+        sloganText: ''
+    },
+    {
+        bannerUrl: '/images/bangumi/banner/banner-4.png',
+        coverUrl: '/images/bangumi/banner/cover-4.png',
+        title: '中二病也要谈恋爱！恋',
+        sloganText: '爆炸吧现实，粉碎吧精神——'
+    },
+    {
+        bannerUrl: '/images/bangumi/banner/banner-5.png',
+        coverUrl: '/images/bangumi/banner/cover-5.png',
+        title: '堀与宫村',
+        sloganText: ''
+    },
+    {
+        bannerUrl: '/images/bangumi/banner/banner-6.png',
+        coverUrl: '/images/bangumi/banner/cover-6.png',
+        title: '明日酱的水手服',
+        sloganText: '凭实力政府全校的极致优雅'
+    }
+]
+
+export { FollowingBangumiData, SeasonalBangumiData, BannerData }
