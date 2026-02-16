@@ -60,9 +60,17 @@ function handleBannerMouseLeave() {
                     class="banner-carousel-item"
                 >
                     <img :src="item.bannerUrl" :alt="item.title" style="" />
+                    <div class="banner-slogan">
+                        <span class="banner-slogan-title">{{
+                            item.title
+                        }}</span>
+                        <span class="banner-slogan-slogantext">{{
+                            item.sloganText
+                        }}</span>
+                    </div>
+                    <div class="banner-overlay"></div>
                 </ElCarouselItem>
             </ElCarousel>
-            <div class="banner-overlay"></div>
             <div class="banner-indicator">
                 <div
                     class="banner-indicator-item"
@@ -105,6 +113,33 @@ function handleBannerMouseLeave() {
     aspect-ratio: 3 / 1;
     object-fit: cover;
     overflow: hidden;
+}
+
+.banner-slogan {
+    position: absolute;
+    bottom: 30%;
+    right: 60px;
+
+    height: 44px;
+    border-radius: 22px;
+    background-color: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+    align-items: center;
+}
+.banner-slogan-title {
+    font-size: 24px;
+    color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.banner-slogan-title:hover {
+    color:  var(--color-acfun);
+}
+.banner-slogan-slogantext {
+    font-size: 16px;
+    color: white;
+    padding-right: 16px;
 }
 
 .banner-overlay {
