@@ -1,29 +1,16 @@
 <script lang="ts" setup>
-import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus'
+import { ElCarousel, ElCarouselItem } from 'element-plus'
 
 import { CarouselTopData, VideoItemData, LiveItemData } from '@/data/Home'
-import { FollowingBangumiData, SeasonalBangumiData } from '@/data/Bangumi'
-import { FollowingBangumi } from '@/types/BangumiProgressItem'
 import { SectionItemData } from '@/data/HomeSection'
-
-import { computed } from 'vue'
 
 import LiveItem from '@/components/public/LiveItem.vue'
 import VideoItem from '@/components/public/VideoItem.vue'
-import BangumiItem from '@/components/Home/Bangumi/BangumiItem.vue'
-import BangumiProgressItem from '@/components/Home/Bangumi/BangumiProgressItem.vue'
 import SectionItem from '@/components/Home/SectionItem/SectionItem.vue'
+import BangumiProgress from '@/components/Bangumi/BangumiProgress/BangumiProgress.vue'
+import BangumiSchedule from '@/components/Bangumi/BangumiSchedule/BangumiSchedule.vue'
 
 const rightImg = '/images/home/pagelet-live-right.png'
-
-const CarouselBangumiData = computed(() => {
-    const res: FollowingBangumi[][] = []
-    for (let i = 0; i < FollowingBangumiData.length; i += 6) {
-        res.push(FollowingBangumiData.slice(i, i + 6))
-    }
-
-    return res
-})
 </script>
 
 <template>
@@ -71,73 +58,9 @@ const CarouselBangumiData = computed(() => {
             </div>
         </div>
 
-        <div id="pagelet-bangumi-progress">
-            <!-- 番剧进度pagelet，展示用户正在追的番剧。 -->
-            <div id="pagelet-bangumi-progress-titlebar">
-                <div id="pagelet-bangumi-progress-titlebar-title">
-                    <div id="pagelet-bangumi-progress-titlebar-title-icon">
-                        <img src="/icons/home/BangumiLike.png" alt="" />
-                    </div>
-                    <span id="pagelet-bangumi-progress-titlebar-title-text">
-                        正在追
-                    </span>
-                </div>
-                <ElButton
-                    id="pagelet-bangumi-progress-titlebar-btn"
-                    color="var(--color-acfun)"
-                >
-                    <img src="/icons/home/HeartCheck.svg" alt="" />
-                    <span id="pagelet-bangumi-progress-titlebar-btn-text">
-                        追番列表
-                    </span>
-                </ElButton>
-            </div>
-            <div id="pagelet-bangumi-progress-content">
-                <ElCarousel
-                    id="pagelet-bangumi-progress-content-carousel"
-                    height="auto"
-                    indicator-position="none"
-                    arrow="always"
-                    :autoplay="false"
-                >
-                    <ElCarouselItem
-                        class="pagelet-bangumi-progress-content-carousel-item"
-                        v-for="(group, index) in CarouselBangumiData"
-                        :key="index"
-                    >
-                        <BangumiProgressItem
-                            v-for="(item, idx) in group"
-                            :data="item"
-                            :key="idx"
-                        />
-                    </ElCarouselItem>
-                </ElCarousel>
-            </div>
-        </div>
-
-        <div id="pagelet-bangumi">
-            <!-- 新番时间表 -->
-            <div id="pagelet-bangumi-titlebar">
-                <div id="pagelet-bangumi-titlebar-title">
-                    <div id="pagelet-bangumi-titlebar-title-icon">
-                        <img src="/icons/home/BangumiSchedule.png" alt="" />
-                    </div>
-                    <span id="pagelet-bangumi-titlebar-title-text">
-                        新番时间表
-                    </span>
-                </div>
-                <ElButton
-                    id="pagelet-bangumi-titlebar-btn"
-                    color="var(--color-acfun)"
-                >
-                    <span id="pagelet-bangumi-titlebar-btn-text">查看全部</span>
-                    <img src="/icons/home/RightArrow.svg" alt="" />
-                </ElButton>
-            </div>
-            <div id="pagelet-bangumi-content">
-                <BangumiItem v-for="item in SeasonalBangumiData" :data="item" />
-            </div>
-        </div>
+        <BangumiProgress />
+        
+        <BangumiSchedule />
 
         <SectionItem
             v-for="(item, index) in SectionItemData"
@@ -240,90 +163,5 @@ const CarouselBangumiData = computed(() => {
     object-fit: cover;
     max-width: calc(100% - 25px);
     border-radius: 4px;
-}
-
-#pagelet-bangumi-progress {
-    width: 100%;
-    padding-top: 30px;
-}
-#pagelet-bangumi-progress-titlebar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#pagelet-bangumi-progress-titlebar-title {
-    display: flex;
-    align-items: center;
-}
-#pagelet-bangumi-progress-titlebar-title-icon {
-    display: inline-block;
-    width: 38px;
-    height: 38px;
-}
-#pagelet-bangumi-progress-titlebar-title-icon > img {
-    width: 100%;
-    height: 100%;
-}
-#pagelet-bangumi-progress-titlebar-title-text {
-    padding-left: 4px;
-    font-size: 24px;
-    font-weight: 500;
-}
-#pagelet-bangumi-progress-titlebar-btn {
-    color: white;
-}
-#pagelet-bangumi-progress-titlebar-btn-text {
-    padding-left: 2px;
-}
-#pagelet-bangumi-progress-content-carousel {
-    padding: 10px 0 10px 0;
-}
-.pagelet-bangumi-progress-content-carousel-item {
-    display: flex;
-    height: auto;
-}
-
-#pagelet-bangumi {
-    width: 100%;
-    padding-top: 30px;
-}
-#pagelet-bangumi-titlebar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#pagelet-bangumi-titlebar-title {
-    display: flex;
-    align-items: center;
-}
-#pagelet-bangumi-titlebar-title-icon {
-    display: inline-block;
-    width: 38px;
-    height: 38px;
-}
-#pagelet-bangumi-titlebar-title-icon > img {
-    width: 100%;
-    height: 100%;
-}
-#pagelet-bangumi-titlebar-title-text {
-    padding-left: 4px;
-    font-size: 24px;
-    font-weight: 500;
-}
-#pagelet-bangumi-titlebar-btn {
-    color: white;
-    display: flex;
-    align-items: center;
-    padding-right: 10px;
-}
-#pagelet-bangumi-titlebar-btn-text {
-    padding-right: 2px;
-}
-
-#pagelet-bangumi-content {
-    width: 100%;
-    display: flex;
-    gap: 16px;
-    padding: 10px 0 10px 0;
 }
 </style>
