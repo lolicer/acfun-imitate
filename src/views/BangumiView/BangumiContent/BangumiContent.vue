@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BangumiProgress from '@/components/Bangumi/BangumiProgress/BangumiProgress.vue'
+import BangumiSchedule from '@/components/Bangumi/BangumiSchedule/BangumiSchedule.vue'
 import TruncatedText from '@/components/public/TruncatedText.vue'
 import { BannerData } from '@/data/Bangumi'
 import { ElCarousel, ElCarouselItem } from 'element-plus'
@@ -90,6 +92,12 @@ function handleBannerMouseLeave() {
                 </div>
             </div>
         </div>
+
+        <div style="padding: 0 50px;">
+            <BangumiProgress />
+
+            <BangumiSchedule />
+        </div>
     </div>
 </template>
 
@@ -134,7 +142,7 @@ function handleBannerMouseLeave() {
     padding-right: 16px;
 }
 .banner-slogan-title:hover {
-    color:  var(--color-acfun);
+    color: var(--color-acfun);
 }
 .banner-slogan-slogantext {
     font-size: 16px;
