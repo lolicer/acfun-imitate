@@ -4,7 +4,35 @@ import BangumiSchedule from '@/components/Bangumi/BangumiSchedule/BangumiSchedul
 import TruncatedText from '@/components/public/TruncatedText.vue'
 import { BannerData } from '@/data/Bangumi'
 import { ElCarousel, ElCarouselItem } from 'element-plus'
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
+
+const emit = defineEmits<{
+    // Banner可见
+    'banner-visible': []
+    // Banner不可见
+    'banner-invisible': []
+}>()
+
+// 监听Banner是否在视窗内，滚出/滚入视窗时向父组件发出通知
+const bannerRef = ref<HTMLElement | null>(null)
+let observer: IntersectionObserver
+onMounted(() => {
+    observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) emit('banner-visible')
+            else emit('banner-invisible')
+        },
+        {
+            threshold: 0
+        }
+    )
+    if (bannerRef.value) {
+        observer.observe(bannerRef.value)
+    }
+})
+onUnmounted(() => {
+    if (observer) observer.disconnect()
+})
 
 const bannerCarouselRef = ref<InstanceType<typeof ElCarousel> | null>(null)
 // Banner是否自动播放，设置的原因是似乎手动setBannerActiveItem会使Banner停止自动播放
@@ -44,7 +72,7 @@ function handleBannerMouseLeave() {
 
 <template>
     <div class="bangumi-content">
-        <div class="banner">
+        <div class="banner" ref="bannerRef">
             <ElCarousel
                 ref="bannerCarouselRef"
                 class="banner-carousel"
@@ -93,7 +121,7 @@ function handleBannerMouseLeave() {
             </div>
         </div>
 
-        <div style="padding: 0 50px;">
+        <div style="padding: 0 50px">
             <BangumiProgress />
 
             <BangumiSchedule />
