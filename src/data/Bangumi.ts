@@ -175,19 +175,19 @@ const BannerData: {
         bannerUrl: '/images/bangumi/banner/banner-1.png',
         coverUrl: '/images/bangumi/banner/cover-1.png',
         title: '葬送的芙莉莲',
-        sloganText: ''
+        sloganText: '所谓的魔法，就是想象的世界'
     },
     {
         bannerUrl: '/images/bangumi/banner/banner-2.png',
         coverUrl: '/images/bangumi/banner/cover-2.png',
         title: '魔女之旅',
-        sloganText: ''
+        sloganText: '身在旅途，编织着我和我们的故事'
     },
     {
         bannerUrl: '/images/bangumi/banner/banner-3.png',
         coverUrl: '/images/bangumi/banner/cover-3.png',
         title: '因为太怕痛就全点防御力了',
-        sloganText: ''
+        sloganText: '欢迎来到大枫树公会！'
     },
     {
         bannerUrl: '/images/bangumi/banner/banner-4.png',
@@ -199,13 +199,13 @@ const BannerData: {
         bannerUrl: '/images/bangumi/banner/banner-5.png',
         coverUrl: '/images/bangumi/banner/cover-5.png',
         title: '堀与宫村',
-        sloganText: ''
+        sloganText: '若即若离，触手可及'
     },
     {
         bannerUrl: '/images/bangumi/banner/banner-6.png',
         coverUrl: '/images/bangumi/banner/cover-6.png',
         title: '明日酱的水手服',
-        sloganText: '凭实力政府全校的极致优雅'
+        sloganText: '挺起胸膛，面带笑容'
     }
 ]
 
