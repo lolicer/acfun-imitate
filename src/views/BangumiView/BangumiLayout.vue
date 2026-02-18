@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Bottom from '@/components/public/Bottom.vue'
 import TitleBar from '@/components/TitleBar/TitleBar.vue'
-import BangumiContent from './BangumiContent/BangumiContent.vue'
+import BangumiContent from '@/views/BangumiView//BangumiContent.vue'
 import { ref } from 'vue'
 
 const isBannerVisible = ref<boolean>(true)
