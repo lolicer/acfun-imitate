@@ -1,25 +1,36 @@
 <script setup lang="ts">
-import { nextTick, onMounted, ref } from 'vue'
-const props = defineProps<{
-    text: string
-    maxLine: number
-}>()
+import { computed, nextTick, ref, watch } from 'vue'
+const props = withDefaults(
+    defineProps<{
+        text: string
+        maxLine: number
+        trimStart?: boolean
+    }>(),
+    {
+        trimStart: true
+    }
+)
 
-const shouldTrimStart = [
-    '【',
-    '“',
-    '《',
-    '〈',
-    '「',
-    '『',
-    '‘',
-    '（',
-    '〔',
-    '〖',
-    '［',
-    '｛'
-].includes(props.text[0])
-const textIndent = shouldTrimStart ? '-0.5em' : '0'
+const textIndent = computed(() => {
+    if (!props.trimStart) return '0'
+
+    const shouldTrimStart = [
+        '【',
+        '“',
+        '《',
+        '〈',
+        '「',
+        '『',
+        '‘',
+        '（',
+        '〔',
+        '〖',
+        '［',
+        '｛'
+    ].includes(props.text?.[0] || '')
+
+    return shouldTrimStart ? '-0.5em' : '0'
+})
 
 const textRef = ref<HTMLElement | null>(null)
 const tooltip = ref('')
@@ -28,15 +39,19 @@ const checkOverflow = () => {
         // 判断文本是否溢出
         if (textRef.value.scrollHeight > textRef.value.clientHeight) {
             tooltip.value = props.text
+        } else {
+            tooltip.value = ''
         }
     }
 }
-
-onMounted(() => {
-    nextTick(() => {
-        checkOverflow()
-    })
-})
+watch(
+    () => props.text,
+    () => {
+        nextTick(() => {
+            checkOverflow()
+        })
+    }
+)
 </script>
 
 <template>
