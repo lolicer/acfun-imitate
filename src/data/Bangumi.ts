@@ -209,4 +209,83 @@ const BannerData: {
     }
 ]
 
-export { FollowingBangumiData, SeasonalBangumiData, BannerData }
+const HotBangumiData: {
+    title: string
+    score: number
+    viewCount: number
+    introduction: string
+    videoUrl: string
+    coverUrl: string
+    hasFollowed: boolean
+    bgColor: string
+}[] = [
+    {
+        title: '孤独摇滚！',
+        score: 9.9,
+        viewCount: 210000000,
+        introduction: `绰号“小孤独”的后藤独，是一个喜爱吉他的孤独少女。经常在家里独自弹奏吉他，但因为一些事情，加入了伊地知虹夏领衔的“纽带乐队”。不敢在他人面前演奏的后藤，能否成为一个出色的乐队成员呢……`,
+        videoUrl: '/videos/bangumi/hot/video-0.mp4',
+        coverUrl: '/images/bangumi/hot/cover-0.png',
+        hasFollowed: true,
+        bgColor: 'rgb(255, 182, 193)'
+    },
+    {
+        title: "BanG Dream！It's MyGO!!!!!",
+        score: 9.7,
+        viewCount: 91344000,
+        introduction: `“你能，和我组一辈子乐队吗？”
+高一的春末。羽丘女子学园的所有人都加入了乐队，晚入学的爱音为了尽快融入班级，急急忙忙地寻找着乐队成员。这时她得知，「羽丘的不可思议女孩」灯还没有加入乐队，于是爱音不由自主地向她打起了招呼，但是……。这是遍体鳞伤又狼狈不堪的，我们的＜ 音乐 呐喊 ＞。迷失方向也无所谓、在迷茫中前进吧！`,
+        videoUrl: '/videos/bangumi/hot/video-1.mp4',
+        coverUrl: '/images/bangumi/hot/cover-1.webp',
+        hasFollowed: false,
+        bgColor: 'rgb(37, 151, 196)'
+    },
+    {
+        title: '天使降临到了我身边！',
+        score: 9.8,
+        viewCount: 99884000,
+        introduction: `怕生的御宅族女大学生宫子，遇到了天使般的小学生！？
+在看到妹妹带来的新朋友小花的瞬间，宫子就无法抑制住心跳！！
+她为了和小花成为朋友而奋斗，但……。
+“想要和超绝可爱的她做朋友”系小品喜剧，开幕♪`,
+        videoUrl: '/videos/bangumi/hot/video-2.mp4',
+        coverUrl: '/images/bangumi/hot/cover-2.webp',
+        hasFollowed: true,
+        bgColor: 'rgb(138, 214, 207)'
+    },
+    {
+        title: '莉可丽丝',
+        score: 9.2,
+        viewCount: 83071000,
+        introduction: `安宁的日常——背后却暗藏秘密将犯罪防患于未然的秘密组织——“DA（Direct Attack）”隶属于DA的少女特工——“莉可丽丝”理所当然的日常，都要归功于她们。咖啡厅“莉可莉可” 作为DA支部，员工有号称史上最强莉可丽丝的精英·锦木千束、优秀却暗藏隐情的莉可丽丝·井上泷奈。这里供应的不光是咖啡和甜品，还有照顾孩子、代为购物、教外国人日语等服务，全都不像是“莉可丽丝”会做的事。自由随性又乐天的和平主义者·千束和效率至上的泷奈，反差巨大的两人组成搭档，开始了忙忙碌碌的每一天。`,
+        videoUrl: '/videos/bangumi/hot/video-3.mp4',
+        coverUrl: '/images/bangumi/hot/cover-3.jpg',
+        hasFollowed: true,
+        bgColor: 'rgb(230, 200, 157)'
+    },
+    {
+        title: 'One Room',
+        score: 9.8,
+        viewCount: 30085000,
+        introduction: `《One Room》的舞台，发生在“主角（One）的居室（Room）”当中。以第一视角和性格各异的女孩子们相处的故事！`,
+        videoUrl: '/videos/bangumi/hot/video-4.mp4',
+        coverUrl: '/images/bangumi/hot/cover-4.jpg',
+        hasFollowed: false,
+        bgColor: 'rgb(141, 110, 99)'
+    },
+    {
+        title: '摇曳露营Δ',
+        score: 9.5,
+        viewCount: 9890000,
+        introduction: `于富士山湖畔，一个人露营的女孩·凛。
+与独自骑着自行车来到富士山的女孩·抚子。
+两人所见的景色是……。
+抚子与凛，由两人的相遇而衍生的户外系girls story开始了。`,
+        videoUrl: '/videos/bangumi/hot/video-5.mp4',
+        coverUrl: '/images/bangumi/hot/cover-5.jpg',
+        hasFollowed: false,
+        bgColor: 'rgb(83, 151, 86)'
+    }
+]
+
+export { FollowingBangumiData, SeasonalBangumiData, BannerData, HotBangumiData }
