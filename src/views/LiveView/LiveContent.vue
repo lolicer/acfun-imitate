@@ -33,7 +33,7 @@ async function togglePlayback() {
 
 // 静音控制
 const isMuted = ref<boolean>(true)
-function toogleMute() {
+function toggleMute() {
     if (!headerVideoRef.value) return
 
     isMuted.value = !isMuted.value
@@ -79,7 +79,7 @@ const secondaryNavigationIdData = computed(() => {
                     </div>
                     <div
                         class="header-content-overlay-mute-btn"
-                        @click="toogleMute"
+                        @click="toggleMute"
                     >
                         <img
                             v-if="isMuted"
