@@ -127,7 +127,7 @@ function handleBannerMouseLeave() {
 
             <BangumiSchedule />
 
-            <BangumiHot />
+            <BangumiHot />、
         </div>
     </div>
 </template>
