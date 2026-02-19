@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 const props = withDefaults(
     defineProps<{
         text: string
@@ -52,6 +52,9 @@ watch(
         })
     }
 )
+onMounted(() => {
+    checkOverflow()
+})
 </script>
 
 <template>
