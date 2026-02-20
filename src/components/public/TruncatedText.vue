@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 const props = withDefaults(
     defineProps<{
         text: string
@@ -52,8 +52,26 @@ watch(
         })
     }
 )
+
+let resizeObserver: ResizeObserver | null = null
+
 onMounted(() => {
     checkOverflow()
+
+    if (textRef.value) {
+        resizeObserver = new ResizeObserver(() => {
+            // 当宽度或高度变化时，执行检查
+            checkOverflow()
+        })
+        resizeObserver.observe(textRef.value)
+    }
+})
+
+onUnmounted(()=> {
+    if (resizeObserver) {
+        resizeObserver.disconnect()
+        resizeObserver = null
+    }
 })
 </script>
 
