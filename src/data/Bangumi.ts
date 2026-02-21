@@ -1,5 +1,6 @@
 import { SeasonalBangumi } from '@/types/BangumiItem.js'
 import { FollowingBangumi } from '@/types/BangumiProgressItem.js'
+import { RecommendBangumi } from '@/types/BangumiRecommend.js'
 
 const FollowingBangumiData: FollowingBangumi[] = [
     {
@@ -288,4 +289,34 @@ const HotBangumiData: {
     }
 ]
 
-export { FollowingBangumiData, SeasonalBangumiData, BannerData, HotBangumiData }
+const RecommendBangumiData: RecommendBangumi[] = Array.from(
+    { length: 100 },
+    () => {
+        const allTags = ['奇幻', '战斗', '小说改', '校园', '恋爱']
+
+        // 随机打乱并取前两个
+        // 随机其实并不完全随机，但是模拟够用了
+        const randomTags = [...allTags]
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 2)
+
+        return {
+            title: '邪王真眼默示录·暗炎的修罗场',
+            sloganText: '如果那时握住的是勇者的手',
+            score: 9.8,
+            totalEpisodes: 12,
+            coverUrl: '/images/bangumi/recommend/recommend.jpg',
+            previewVideoUrl: '/videos/bangumi/recommend/recommend.mp4',
+            hasFollowed: false,
+            tags: randomTags
+        }
+    }
+)
+
+export {
+    FollowingBangumiData,
+    SeasonalBangumiData,
+    BannerData,
+    HotBangumiData,
+    RecommendBangumiData
+}
