@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BangumiHot from '@/views/BangumiView/BangumiHot.vue'
+import BangumiRecommend from '@/views/BangumiView//BangumiRecommend.vue'
 import BangumiProgress from '@/components/Bangumi/BangumiProgress/BangumiProgress.vue'
 import BangumiSchedule from '@/components/Bangumi/BangumiSchedule/BangumiSchedule.vue'
 import TruncatedText from '@/components/public/TruncatedText.vue'
@@ -127,7 +128,9 @@ function handleBannerMouseLeave() {
 
             <BangumiSchedule />
 
-            <BangumiHot />、
+            <BangumiHot />
+
+            <BangumiRecommend />
         </div>
     </div>
 </template>

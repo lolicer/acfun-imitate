@@ -33,6 +33,7 @@ declare module 'vue' {
     LiveStreamItem: typeof import('./src/components/TitleBar/Updates/LiveStreamItem.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     RankingItem: typeof import('./src/components/Home/SectionItem/RankingItem.vue')['default']
+    RecommendRow: typeof import('./src/components/Bangumi/BangumiRecommendRow/RecommendRow.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SectionItem: typeof import('./src/components/Home/SectionItem/SectionItem.vue')['default']
