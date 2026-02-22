@@ -4,6 +4,11 @@ import TitleBar from '@/components/TitleBar/TitleBar.vue'
 import Banner from '@/components/Banner.vue'
 import Navigation from '@/components/Navigation.vue'
 import Bottom from '@/components/public/Bottom.vue'
+import { onBeforeMount } from 'vue'
+
+onBeforeMount(() => {
+    document.title = 'AcFun | 首页'
+})
 </script>
 
 <template>
