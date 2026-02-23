@@ -261,4 +261,6 @@ const updates: Updates[] = updatesData
     </div>
 </template>
 
-<style scoped src="./TitleBar.css"></style>
+<style scoped>
+@import './TitleBar.css';
+</style>
