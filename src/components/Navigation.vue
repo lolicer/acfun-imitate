@@ -11,8 +11,7 @@ const navigationData = [
     { name: '科技', to: '/technology' },
     { name: '影视', to: '/filmandtv' },
     { name: '体育', to: '/sports' },
-    { name: '鱼塘', to: '/trending' },
-    { name: '文章', to: '/article' }
+    { name: '鱼塘', to: '/trending' }
 ]
 </script>
 
