@@ -1,4 +1,4 @@
-<script lang="ts" setup></script>
+<script setup lang="ts"></script>
 
 <template>娱乐</template>
 

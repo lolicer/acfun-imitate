@@ -22,6 +22,7 @@ declare module 'vue' {
     Banner: typeof import('./src/components/Banner.vue')['default']
     Bottom: typeof import('./src/components/public/Bottom.vue')['default']
     Carousel: typeof import('./src/components/public/Carousel.vue')['default']
+    CommonView: typeof import('./src/components/Home/CommonView/CommonView.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
