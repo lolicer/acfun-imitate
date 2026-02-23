@@ -96,14 +96,6 @@ const router = createRouter({
                     meta: {
                         title: 'AcFun | 首页-鱼塘'
                     }
-                },
-                {
-                    path: 'article',
-                    name: 'article',
-                    component: () => import('@/views/HomeView/Article.vue'),
-                    meta: {
-                        title: 'AcFun | 首页-文章'
-                    }
                 }
             ]
         },
