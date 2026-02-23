@@ -16,53 +16,62 @@ const router = createRouter({
                 {
                     path: 'donghua',
                     name: 'donghua',
-                    component: () => import('@/views/HomeView/Donghua.vue')
+                    component: () =>
+                        import('@/views/HomeView/CommonView/Donghua.vue')
                 },
                 {
                     path: 'entertainment',
                     name: 'entertainment',
                     component: () =>
-                        import('@/views/HomeView/Entertainment.vue')
+                        import('@/views/HomeView/CommonView/Entertainment.vue')
                 },
                 {
                     path: 'lifestyle',
                     name: 'lifestyle',
-                    component: () => import('@/views/HomeView/Lifestyle.vue')
+                    component: () =>
+                        import('@/views/HomeView/CommonView/Lifestyle.vue')
                 },
                 {
                     path: 'music',
                     name: 'music',
-                    component: () => import('@/views/HomeView/Music.vue')
+                    component: () =>
+                        import('@/views/HomeView/CommonView/Music.vue')
                 },
                 {
                     path: 'danceandidol',
                     name: 'danceandidol',
-                    component: () => import('@/views/HomeView/DanceAndIdol.vue')
+                    component: () =>
+                        import('@/views/HomeView/CommonView/DanceAndIdol.vue')
                 },
                 {
                     path: 'gaming',
                     name: 'gaming',
-                    component: () => import('@/views/HomeView/Gaming.vue')
+                    component: () =>
+                        import('@/views/HomeView/CommonView/Gaming.vue')
                 },
                 {
                     path: 'technology',
                     name: 'technology',
-                    component: () => import('@/views/HomeView/Technology.vue')
+                    component: () =>
+                        import('@/views/HomeView/CommonView/Technology.vue')
                 },
                 {
                     path: 'filmandtv',
                     name: 'filmandtv',
-                    component: () => import('@/views/HomeView/FilmAndTV.vue')
+                    component: () =>
+                        import('@/views/HomeView/CommonView/FilmAndTV.vue')
                 },
                 {
                     path: 'sports',
                     name: 'sports',
-                    component: () => import('@/views/HomeView/Sports.vue')
+                    component: () =>
+                        import('@/views/HomeView/CommonView/Sports.vue')
                 },
                 {
                     path: 'trending',
                     name: 'trending',
-                    component: () => import('@/views/HomeView/Trending.vue')
+                    component: () =>
+                        import('@/views/HomeView/CommonView/Trending.vue')
                 },
                 {
                     path: 'article',
