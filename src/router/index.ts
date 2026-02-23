@@ -20,12 +20,6 @@ const router = createRouter({
                         import('@/views/HomeView/CommonView/Donghua.vue')
                 },
                 {
-                    path: 'entertainment',
-                    name: 'entertainment',
-                    component: () =>
-                        import('@/views/HomeView/CommonView/Entertainment.vue')
-                },
-                {
                     path: 'lifestyle',
                     name: 'lifestyle',
                     component: () =>
