@@ -2,11 +2,7 @@
 import Bottom from '@/components/public/Bottom.vue'
 import TitleBar from '@/components/TitleBar/TitleBar.vue'
 import BangumiContent from '@/views/BangumiView//BangumiContent.vue'
-import { onBeforeMount, ref } from 'vue'
-
-onBeforeMount(() => {
-    document.title = 'AcFun | 番剧'
-})
+import { ref } from 'vue'
 
 const isBannerVisible = ref<boolean>(true)
 </script>
