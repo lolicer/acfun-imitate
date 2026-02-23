@@ -4,7 +4,6 @@ const navigationData = [
     { name: '直播', to: '/live', newTab: true },
     { name: '番剧', to: '/bangumi', newTab: true },
     { name: '动画', to: '/donghua' },
-    { name: '娱乐', to: '/entertainment' },
     { name: '生活', to: '/lifestyle' },
     { name: '音乐', to: '/music' },
     { name: '舞蹈·偶像', to: '/danceandidol' },
