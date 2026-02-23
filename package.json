@@ -27,6 +27,7 @@
         "@vue/tsconfig": "^0.7.0",
         "npm-run-all2": "^8.0.4",
         "prettier": "^3.8.1",
+        "rollup": "^4.59.0",
         "typescript": "~5.8.0",
         "unplugin-auto-import": "^20.2.0",
         "unplugin-vue-components": "^29.1.0",
