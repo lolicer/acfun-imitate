@@ -21,8 +21,8 @@ const props = defineProps<{
                     <img src="/icons/videoItem/ViewCount.svg" alt="" />
                     <span>{{ formatNumber(props.data.viewCount) }}</span>
                 </div>
-                <div class="info-bullet-screen-count">
-                    <img src="/icons/videoItem/BulletScreenCount.svg" alt="" />
+                <div class="info-bulletchat-count">
+                    <img src="/icons/videoItem/BulletChatCount.svg" alt="" />
                     <span>{{
                         formatNumber(props.data.bulletScreenCount)
                     }}</span>
@@ -112,7 +112,7 @@ const props = defineProps<{
 .info-viewcount > span {
     margin-left: 1px;
 }
-.info-bullet-screen-count > span {
+.info-bulletchat-count > span {
     margin-left: 1px;
 }
 .cover-info > div > span {
