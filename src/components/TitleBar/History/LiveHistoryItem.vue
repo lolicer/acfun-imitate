@@ -2,7 +2,7 @@
 import { formatRelativeTime } from '@/utils/time'
 import { drawThumbnail } from '@/utils/canvas'
 import { LiveHistoryInfo } from '@/types/HistoryInfo'
-import { nextTick, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const props = defineProps<{
@@ -13,8 +13,9 @@ const props = defineProps<{
 const coverCanvasRef = ref<HTMLCanvasElement | null>(null)
 
 onMounted(() => {
-    nextTick(() => {})
-    drawThumbnail(coverCanvasRef.value, props.data.imgUrl)
+    if (coverCanvasRef.value) {
+        drawThumbnail(coverCanvasRef.value, props.data.imgUrl)
+    }
 })
 </script>
 
@@ -25,13 +26,12 @@ onMounted(() => {
             <canvas
                 ref="coverCanvasRef"
                 class="cover-canvas"
-                alt="ceshi"
                 width="124"
                 height="63"
             ></canvas>
             <div
                 class="live-status live-status-true"
-                v-if="props.data.isLiveOn === true"
+                v-if="props.data.isLiveOn"
             >
                 直播中
             </div>
@@ -48,18 +48,18 @@ onMounted(() => {
                     src="/icons/public/titleBar/history/DevicePC.svg"
                     class="device-icon"
                     v-if="props.data.device === 'pc'"
-                />
+                 alt=""/>
                 <img
                     src="/icons/public/titleBar/history/DeviceMobile.svg"
                     class="device-icon"
                     v-if="props.data.device === 'mobile'"
-                />
+                 alt=""/>
                 <span class="watching-time">{{
                     formatRelativeTime(props.data.time)
                 }}</span>
             </div>
             <div class="line-3">
-                <img src="/icons/public/Up.svg" class="uploader-icon" />
+                <img src="/icons/public/Up.svg" class="uploader-icon"  alt=""/>
                 <span class="uploader-name">{{ props.data.uploader }}</span>
             </div>
         </div>
@@ -101,10 +101,7 @@ onMounted(() => {
     font-size: 10px;
     color: white;
     line-height: 14px;
-    padding-top: 1px;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-bottom: 1px;
+    padding: 1px 3px;
 }
 .live-status-false {
     background-color: var(--color-gray-1-transparent);
@@ -120,7 +117,7 @@ onMounted(() => {
 }
 .title {
     font-size: 13px;
-    line-height: 16.5px;
+    line-height: 16px;
     height: 33px;
 }
 .title:hover {

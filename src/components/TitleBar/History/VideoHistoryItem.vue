@@ -2,7 +2,7 @@
 import { formatRelativeTime, formatSeconds } from '@/utils/time'
 import { drawThumbnail } from '@/utils/canvas'
 import { VideoHistoryInfo } from '@/types/HistoryInfo'
-import { nextTick, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const props = defineProps<{
@@ -10,11 +10,12 @@ const props = defineProps<{
 }>()
 
 // 准备将原图绘制成缩略图
-const coverCanvasRef = ref<HTMLCanvasElement>(null)
+const coverCanvasRef = ref<HTMLCanvasElement | null>(null)
 
 onMounted(() => {
-    nextTick(() => {})
-    drawThumbnail(coverCanvasRef.value, props.data.imgUrl)
+    if (coverCanvasRef.value) {
+        drawThumbnail(coverCanvasRef.value, props.data.imgUrl)
+    }
 })
 </script>
 
@@ -25,7 +26,6 @@ onMounted(() => {
             <canvas
                 ref="coverCanvasRef"
                 class="cover-canvas"
-                alt="ceshi"
                 width="124"
                 height="63"
             ></canvas>
@@ -48,18 +48,18 @@ onMounted(() => {
                     src="/icons/public/titleBar/history/DevicePC.svg"
                     class="device-icon"
                     v-if="props.data.device === 'pc'"
-                />
+                 alt=""/>
                 <img
                     src="/icons/public/titleBar/history/DeviceMobile.svg"
                     class="device-icon"
                     v-if="props.data.device === 'mobile'"
-                />
+                 alt=""/>
                 <span class="watching-time">{{
                     formatRelativeTime(props.data.time)
                 }}</span>
             </div>
             <div class="line-3">
-                <img src="/icons/public/Up.svg" class="uploader-icon" />
+                <img src="/icons/public/Up.svg" class="uploader-icon"  alt=""/>
                 <span class="uploader-name">{{ props.data.uploader }}</span>
             </div>
         </div>
@@ -102,10 +102,7 @@ onMounted(() => {
     font-size: 10px;
     color: white;
     line-height: 14px;
-    padding-top: 1px;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-bottom: 1px;
+    padding: 1px 3px;
 }
 .info {
     flex: 6;
@@ -114,7 +111,7 @@ onMounted(() => {
 }
 .title {
     font-size: 13px;
-    line-height: 16.5px;
+    line-height: 16px;
     height: 33px;
 }
 .title:hover {

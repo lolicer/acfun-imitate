@@ -6,24 +6,16 @@ const props = defineProps<{
     data: SeasonalBangumi
 }>()
 
-const BackgroundColors = {
-    1: '#FDF0E6',
-    2: '#FCEBEC',
-    3: '#FCEBF8',
-    4: '#FDEBE9',
-    5: '#FCEBF8',
-    6: '#FDEBEA'
+const Colors: Record<number, { bg: string; idx: string }> = {
+    1: { bg: '#FDF0E6', idx: '#f8c9a3' },
+    2: { bg: '#FCEBEC', idx: '#f6b7bb' },
+    3: { bg: '#FCEBF8', idx: '#f6b7e6' },
+    4: { bg: '#FDEBE9', idx: '#fab6b0' },
+    5: { bg: '#FCEBF8', idx: '#f6b7e6' },
+    6: { bg: '#FDEBEA', idx: '#fab5b2' }
 }
-const IndexColors = {
-    1: '#f8c9a3',
-    2: '#f6b7bb',
-    3: '#f6b7e6',
-    4: '#fab6b0',
-    5: '#f6b7e6',
-    6: '#fab5b2'
-}
-const bgColor = BackgroundColors[props.data.rank]
-const indexColor = IndexColors[props.data.rank]
+const bgColor = Colors[props.data.rank].bg
+const indexColor = Colors[props.data.rank].idx
 </script>
 
 <template>

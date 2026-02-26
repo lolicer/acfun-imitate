@@ -2,18 +2,19 @@
 import { drawThumbnail } from '@/utils/canvas'
 import { formatRelativeTime } from '@/utils/time'
 import { Updates } from '@/types/Updates'
-import { nextTick, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const props = defineProps<{
     data: Updates
 }>()
 
-const coverCanvasRef = ref<HTMLCanvasElement>(null)
+const coverCanvasRef = ref<HTMLCanvasElement | null>(null)
 
 onMounted(() => {
-    nextTick(() => {})
-    drawThumbnail(coverCanvasRef.value, props.data.coverUrl, 100, 52)
+    if (coverCanvasRef.value) {
+        drawThumbnail(coverCanvasRef.value, props.data.coverUrl, 100, 52)
+    }
 })
 </script>
 
@@ -48,7 +49,6 @@ onMounted(() => {
             <canvas
                 ref="coverCanvasRef"
                 class="cover-canvas"
-                alt="ceshi"
                 width="100"
                 height="52"
             ></canvas>

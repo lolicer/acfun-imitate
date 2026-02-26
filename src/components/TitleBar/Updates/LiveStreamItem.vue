@@ -1,17 +1,18 @@
 <script lang="ts" setup>
 import { drawThumbnail } from '@/utils/canvas'
 import { LiveStreamer } from '@/types/Updates'
-import { nextTick, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const props = defineProps<{
     data: LiveStreamer
 }>()
 
-const avatarCanvasRef = ref<HTMLCanvasElement>(null)
+const avatarCanvasRef = ref<HTMLCanvasElement | null>(null)
 onMounted(() => {
-    nextTick(() => {})
-    drawThumbnail(avatarCanvasRef.value, props.data.avatarUrl, 44, 44)
+    if (avatarCanvasRef.value) {
+        drawThumbnail(avatarCanvasRef.value, props.data.avatarUrl, 44, 44)
+    }
 })
 </script>
 
@@ -21,7 +22,6 @@ onMounted(() => {
             <canvas
                 ref="avatarCanvasRef"
                 class="avatar-canvas"
-                alt="ceshi"
                 width="44"
                 height="44"
             ></canvas>

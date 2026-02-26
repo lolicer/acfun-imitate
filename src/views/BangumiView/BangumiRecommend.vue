@@ -40,14 +40,14 @@ function shouldExpand(rowIndex: number, index: number): boolean {
         : false
 }
 
-const itemContainerRef = ref<HTMLDivElement | null>(null)
+const itemContainerRef = ref<HTMLDivElement[] | null>(null)
 const initialWidth = computed(() => {
     return (contentWidth.value + 20) / itemsCountPerRow.value - 20
 })
-const itemHeight = computed(() => {
+const itemHeightStr = computed(() => {
     const res = initialWidth.value / (9 / 17)
     console.log('height', res)
-    return res
+    return res + 'px'
 })
 function handleContentItemMouseEnter(rowIndex: number, index: number) {
     // 鼠标进入时，清除自身的leaveTimer
@@ -82,6 +82,7 @@ function handleContentItemMouseEnter(rowIndex: number, index: number) {
     enterTimer = setTimeout(() => {
         ExpandedIndice.value = { rowIndex: rowIndex, index: index }
 
+        if (!itemContainerRef.value) return
         // 获取 rowIndex 行的所有 item 元素
         const items: NodeListOf<HTMLDivElement> =
             itemContainerRef.value[rowIndex].querySelectorAll('.content-item')
@@ -124,6 +125,7 @@ function handleContentItemMouseLeave(rowIndex: number, index: number) {
         timer: setTimeout(() => {
             ExpandedIndice.value = null
 
+            if (!itemContainerRef.value) return
             const items: NodeListOf<HTMLDivElement> =
                 itemContainerRef.value[rowIndex].querySelectorAll(
                     '.content-item'
@@ -279,12 +281,13 @@ onUnmounted(() => {
                             >
                                 <img
                                     :src="`/icons/bangumi/${item.hasFollowed ? 'Followed' : 'Follow'}.svg`"
+                                    alt=""
                                 />
                             </div>
                             <div
                                 class="item-cover-overlay-btn item-cover-overlay-btn-play"
                             >
-                                <img src="/icons/bangumi/Play.svg" />
+                                <img src="/icons/bangumi/Play.svg" alt="" />
                             </div>
                         </div>
                     </div>
@@ -327,7 +330,7 @@ onUnmounted(() => {
     overflow: hidden;
 }
 .content-item {
-    height: v-bind('`${itemHeight}px`');
+    height: v-bind(itemHeightStr);
     width: 100%;
     border-radius: 16px;
 
@@ -369,7 +372,7 @@ onUnmounted(() => {
 
 .item-cover-overlay {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     height: 100%;
 

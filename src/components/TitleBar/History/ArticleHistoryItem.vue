@@ -2,7 +2,7 @@
 import { formatRelativeTime } from '@/utils/time'
 import { drawThumbnail } from '@/utils/canvas'
 import { ArticleHistoryInfo } from '@/types/HistoryInfo'
-import { nextTick, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import TruncatedText from '@/components/public/TruncatedText.vue'
 
 const props = defineProps<{
@@ -10,11 +10,12 @@ const props = defineProps<{
 }>()
 
 // 准备将原图绘制成缩略图
-const coverCanvasRef = ref<HTMLCanvasElement>(null)
+const coverCanvasRef = ref<HTMLCanvasElement | null>(null)
 
 onMounted(() => {
-    nextTick(() => {})
-    drawThumbnail(coverCanvasRef.value, props.data.imgUrl)
+    if (coverCanvasRef.value) {
+        drawThumbnail(coverCanvasRef.value, props.data.imgUrl)
+    }
 })
 </script>
 
@@ -31,18 +32,20 @@ onMounted(() => {
                     src="/icons/public/titleBar/history/DevicePC.svg"
                     class="device-icon"
                     v-if="props.data.device === 'pc'"
+                    alt=""
                 />
                 <img
                     src="/icons/public/titleBar/history/DeviceMobile.svg"
                     class="device-icon"
                     v-if="props.data.device === 'mobile'"
+                    alt=""
                 />
                 <span class="watching-time">{{
                     formatRelativeTime(props.data.time)
                 }}</span>
             </div>
             <div class="line-3">
-                <img src="/icons/public/Up.svg" class="uploader-icon" />
+                <img src="/icons/public/Up.svg" class="uploader-icon" alt="" />
                 <span class="uploader-name">{{ props.data.uploader }}</span>
             </div>
         </div>
@@ -50,7 +53,6 @@ onMounted(() => {
             <canvas
                 ref="coverCanvasRef"
                 class="cover-canvas"
-                alt="ceshi"
                 width="124"
                 height="63"
             ></canvas>
@@ -91,16 +93,8 @@ onMounted(() => {
     box-sizing: border-box;
 }
 .title {
-    /* 控制超出两行自动省略 */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
     font-size: 13px;
-    line-height: 16.5px;
+    line-height: 16px;
     height: 33px;
 }
 .title:hover {
