@@ -114,13 +114,19 @@ const router = createRouter({
             meta: {
                 title: 'AcFun | 番剧'
             }
+        },
+        {
+            path: '/video_test',
+            component: () => import('@/views/VideoView/VideoLayout.vue'),
+            meta: {
+                title: '视频页面测试'
+            }
         }
     ]
 })
 
 router.afterEach((to) => {
-    const title = (to.meta.title as string) || 'AcFun'
-    document.title = title
+    document.title = (to.meta.title as string) || 'AcFun'
 })
 
 export default router
