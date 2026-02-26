@@ -83,11 +83,14 @@ export function formatNumber(num: number): string {
 
 /**
  * 将时间戳转换为日期字符串
- * @param timestamp 时间戳（毫秒）
- * @returns 格式化的日期字符串
+ * @param timestamp 时间戳，支持秒级和毫秒级
+ * @returns 格式化的日期字符串，小于七天则返回xxx前
  */
 export function formatTimestampToDate(timestamp: number): string {
-    const date = new Date(timestamp)
+    const date = new Date(
+        timestamp * (timestamp.toString().length === 10 ? 1000 : 1)
+    )
+
     const now = new Date()
 
     // 计算时间差（毫秒）
@@ -131,4 +134,24 @@ export function formatTimestampToDate(timestamp: number): string {
             return `${year}-${month}-${day}`
         }
     }
+}
+
+/**
+ * 将时间戳转换为日期字符串
+ * @param timestamp 时间戳，支持秒级和毫秒级
+ * @returns 格式化后的日期字符串
+ */
+export function formatTimestampToDateInDetail(timestamp: number): string {
+    const date = new Date(
+        timestamp * (timestamp.toString().length === 10 ? 1000 : 1)
+    )
+
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const day = String(date.getDate()).padStart(2, '0')
+    const hours = String(date.getHours()).padStart(2, '0')
+    const minutes = String(date.getMinutes()).padStart(2, '0')
+    const seconds = String(date.getSeconds()).padStart(2, '0')
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
 }
