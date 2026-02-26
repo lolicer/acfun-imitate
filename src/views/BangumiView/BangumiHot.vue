@@ -275,11 +275,13 @@ function changeActiveIndex(index: number) {
     aspect-ratio: 1.6 / 1;
     visibility: hidden;
 }
+
 .info-indicator-item {
     position: absolute;
     left: 0px;
     bottom: 0px;
 
+    /*noinspection CssUnresolvedCustomProperty*/
     transform: translateX(var(--item-offset));
     transition:
         transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
@@ -289,6 +291,7 @@ function changeActiveIndex(index: number) {
     display: inline-block;
     width: 28%;
     aspect-ratio: 2 / 1;
+    /*noinspection CssUnresolvedCustomProperty*/
     z-index: var(--item-z-index);
 
     box-sizing: border-box;
@@ -298,10 +301,12 @@ function changeActiveIndex(index: number) {
     overflow: hidden;
 }
 .info-indicator-item.active {
+    /*noinspection CssUnresolvedCustomProperty*/
     transform: translateX(var(--item-offset)) scale(1.1);
 }
 .info-indicator-item.covered {
     opacity: 0.6;
+    /*noinspection CssUnresolvedCustomProperty*/
     transform: translateX(var(--item-offset)) scale(0.9);
 }
 .info-indicator-item.to-right {

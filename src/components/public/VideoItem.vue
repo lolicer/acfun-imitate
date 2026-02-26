@@ -21,11 +21,11 @@ const props = defineProps<{
                     <img src="/icons/videoItem/ViewCount.svg" alt="" />
                     <span>{{ formatNumber(props.data.viewCount) }}</span>
                 </div>
-                <div class="info-bulletchat-count">
-                    <img src="/icons/videoItem/BulletChatCount.svg" alt="" />
+                <div class="info-danmaku-count">
+                    <img src="/icons/videoItem/DanmakuCount.svg" alt="" />
                     <span>{{
-                        formatNumber(props.data.bulletScreenCount)
-                    }}</span>
+                            formatNumber(props.data.danmakuCount)
+                        }}</span>
                 </div>
                 <div class="info-duration">
                     <span>{{ formatSeconds(props.data.duration) }}</span>
@@ -112,7 +112,7 @@ const props = defineProps<{
 .info-viewcount > span {
     margin-left: 1px;
 }
-.info-bulletchat-count > span {
+.info-danmaku-count > span {
     margin-left: 1px;
 }
 .cover-info > div > span {

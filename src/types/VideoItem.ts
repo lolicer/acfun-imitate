@@ -12,7 +12,7 @@ export default interface VideoItem {
     /** 观看数量 */
     viewCount: number
     /** 弹幕数量 */
-    bulletScreenCount: number
+    danmakuCount: number
     /** 视频时长 */
     duration: number
 }

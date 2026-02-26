@@ -37,7 +37,7 @@ export const VideoItemData: VideoItem[] = [
         up: '_雾岛和声',
         releaseTime: Date.now() - 2 * 1000, // 2min前
         viewCount: 9999,
-        bulletScreenCount: 233,
+        danmakuCount: 233,
         duration: 441
     },
     {
@@ -47,7 +47,7 @@ export const VideoItemData: VideoItem[] = [
         up: '菜鸟裔站',
         releaseTime: Date.now() - 14 * 60 * 1000, // 2min前
         viewCount: 12,
-        bulletScreenCount: 233,
+        danmakuCount: 233,
         duration: 441
     },
     {
@@ -57,7 +57,7 @@ export const VideoItemData: VideoItem[] = [
         up: '月初雪の誓言',
         releaseTime: Date.now() - 10 * 60 * 60 * 1000, // 10h前
         viewCount: 2330000,
-        bulletScreenCount: 233,
+        danmakuCount: 233,
         duration: 441
     },
     {
@@ -67,7 +67,7 @@ export const VideoItemData: VideoItem[] = [
         up: '巫妖王奥祖',
         releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000, // 3d前,
         viewCount: 23300000000,
-        bulletScreenCount: 233,
+        danmakuCount: 233,
         duration: 314
     },
     {
@@ -77,7 +77,7 @@ export const VideoItemData: VideoItem[] = [
         up: '泽音Melody',
         releaseTime: 1760500893000, // 2025-10-15 12:01:33,
         viewCount: 2330000,
-        bulletScreenCount: 233,
+        danmakuCount: 233,
         duration: 441
     },
     {
@@ -87,7 +87,7 @@ export const VideoItemData: VideoItem[] = [
         up: '勤奋的Tol',
         releaseTime: 1726754749000, // 2024-09-19 22:05:49,
         viewCount: 2330000,
-        bulletScreenCount: 233,
+        danmakuCount: 233,
         duration: 441
     }
 ]
