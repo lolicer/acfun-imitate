@@ -107,8 +107,7 @@ const rightImg = '/images/home/pagelet-live-right.png'
     aspect-ratio: 16 / 9;
     object-fit: cover;
     overflow: hidden;
-}
-.pagelet-top-carousel-img:hover {
+
     cursor: pointer;
 }
 .pagelet-top-carousel-item-title {
@@ -124,6 +123,8 @@ const rightImg = '/images/home/pagelet-live-right.png'
 .pagelet-top-carousel-item-title:hover {
     cursor: pointer;
 }
+
+/* noinspection CssUnusedSymbol */
 :deep(.el-carousel__button) {
     box-shadow:
         1px 1px 2px rgba(0, 0, 0, 0.8),

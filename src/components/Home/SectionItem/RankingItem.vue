@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TruncatedText from '@/components/public/TruncatedText.vue'
 import { SectionRanking } from '@/types/HomeSection'
-import { formatSeconds } from '../../../utils/time'
+import { formatSeconds } from '@/utils/time'
 
 const props = defineProps<{
     data: SectionRanking
@@ -25,7 +25,7 @@ const props = defineProps<{
                 :max-line="2"
             />
             <div class="info-line-2">
-                <img src="/icons/public/Up.svg" class="up-icon" />
+                <img src="/icons/public/Up.svg" class="up-icon"  alt=""/>
                 <span class="up-name">{{ props.data.up }}</span>
             </div>
         </div>
@@ -54,7 +54,7 @@ const props = defineProps<{
 }
 .cover-overlay {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
 
     width: 100%;
     height: 40%;
@@ -69,7 +69,7 @@ const props = defineProps<{
 .cover-overlay > span {
     position: absolute;
     right: 4px;
-    bottom: 0px;
+    bottom: 0;
     color: white;
     font-size: 13px;
 }

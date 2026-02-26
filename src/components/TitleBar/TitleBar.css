@@ -1,14 +1,11 @@
 /* 整体 */
 .titlebar-content {
     position: sticky;
-    top: 0px;
+    top: 0;
     display: flex;
     align-items: center;
     height: 44px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 4px 50px;
     box-shadow: var(--shadow-0);
     background-color: white;
     z-index: 999;
@@ -50,7 +47,7 @@
 
 #shop-icon {
     margin-left: 8px;
-    margin-right: 0px;
+    margin-right: 0;
 }
 #camera-icon {
     margin-left: 8px;
@@ -71,6 +68,8 @@
 #input {
     width: 100%;
 }
+
+/*noinspection CssUnusedSymbol*/
 :deep(.el-input__wrapper) {
     border-radius: 16px;
 }
@@ -91,14 +90,14 @@
     margin-right: 10px;
 }
 #result-history-title > span {
-    font-size: 12.5px;
+    font-size: 12px;
 }
 #result-history-button-list {
     margin-left: 10px;
     margin-right: 10px;
 }
 .result-history-button {
-    margin: 0px 12px 0px 0px;
+    margin: 0 12px 0 0;
     transition: none;
     /* border-color: var(--color-gray-3); */
 }
@@ -126,7 +125,7 @@
     margin-right: 10px;
 }
 #result-hotsearch-title > span {
-    font-size: 12.5px;
+    font-size: 12px;
 }
 #result-hotsearch-list {
     margin-bottom: 10px;

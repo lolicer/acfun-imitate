@@ -1,10 +1,5 @@
 <script lang="ts" setup>
-import type {
-    HistoryInfo,
-    VideoHistoryInfo,
-    LiveHistoryInfo,
-    ArticleHistoryInfo
-} from '@/types/HistoryInfo'
+import type { HistoryInfo } from '@/types/HistoryInfo'
 import {
     isVideoHistoryInfo,
     isLiveHistoryInfo,

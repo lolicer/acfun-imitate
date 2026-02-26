@@ -38,7 +38,7 @@ const props = defineProps<{
                 />
                 <div class="info-line-2">
                     <div class="up">
-                        <img src="/icons/public/Up.svg" class="up-icon" />
+                        <img src="/icons/public/Up.svg" class="up-icon"  alt=""/>
                         <span class="up-name">{{ props.data.up }}</span>
                     </div>
                 </div>
@@ -92,11 +92,11 @@ const props = defineProps<{
 .cover-info > div {
     display: flex;
     align-items: center;
-    font-size: 12.5px;
+    font-size: 12px;
 }
 .cover-info-tag {
     margin-right: auto;
-    font-size: 14.5px;
+    font-size: 14px;
 }
 .cover-info-like {
     margin-right: 8px;

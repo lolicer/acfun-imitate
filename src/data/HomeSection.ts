@@ -1,5 +1,6 @@
 import { HomeSection } from '@/types/HomeSection.js'
 
+// noinspection PointlessArithmeticExpressionJS
 const DonghuaSectionData: HomeSection = {
     main: [
         {
@@ -122,6 +123,7 @@ const DonghuaSectionData: HomeSection = {
     ]
 }
 
+// noinspection PointlessArithmeticExpressionJS
 const LifestyleSectionData: HomeSection = {
     main: [
         {
@@ -244,6 +246,7 @@ const LifestyleSectionData: HomeSection = {
     ]
 }
 
+// noinspection PointlessArithmeticExpressionJS
 const MusicSectionData: HomeSection = {
     main: [
         {
@@ -366,6 +369,7 @@ const MusicSectionData: HomeSection = {
     ]
 }
 
+// noinspection PointlessArithmeticExpressionJS
 const DanceAndIdolSectionData: HomeSection = {
     main: [
         {
@@ -488,6 +492,7 @@ const DanceAndIdolSectionData: HomeSection = {
     ]
 }
 
+// noinspection PointlessArithmeticExpressionJS
 const GamingSectionData: HomeSection = {
     main: [
         {
@@ -610,6 +615,7 @@ const GamingSectionData: HomeSection = {
     ]
 }
 
+// noinspection PointlessArithmeticExpressionJS
 const TechnologySectionData: HomeSection = {
     main: [
         {
@@ -732,6 +738,7 @@ const TechnologySectionData: HomeSection = {
     ]
 }
 
+// noinspection PointlessArithmeticExpressionJS
 const FilmAndTVSectionData: HomeSection = {
     main: [
         {
@@ -854,6 +861,7 @@ const FilmAndTVSectionData: HomeSection = {
     ]
 }
 
+// noinspection PointlessArithmeticExpressionJS
 const SportsSectionData: HomeSection = {
     main: [
         {
@@ -976,6 +984,7 @@ const SportsSectionData: HomeSection = {
     ]
 }
 
+// noinspection PointlessArithmeticExpressionJS
 const TrendingSectionData: HomeSection = {
     main: [
         {
