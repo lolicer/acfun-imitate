@@ -13,7 +13,7 @@ const props = defineProps<{
     videoData: {
         title: string
         viewCount: number
-        bulletchatCount: number
+        danmakuCount: number
         releaseTime: number
         videoUrl: string
     }
@@ -156,8 +156,8 @@ onMounted(() => {
             <div class="video-info">
                 <div class="info-icon info-view-count-icon"></div>
                 <span>{{ formatNumber(props.videoData.viewCount) }}</span>
-                <div class="info-icon info-bulletchat-chat-icon"></div>
-                <span>{{ formatNumber(props.videoData.bulletchatCount) }}</span>
+                <div class="info-icon info-danmaku-chat-icon"></div>
+                <span>{{ formatNumber(props.videoData.danmakuCount) }}</span>
                 <span class="info-release-time">{{
                     formatTimestampToDateInDetail(props.videoData.releaseTime)
                 }}</span>
@@ -280,9 +280,9 @@ onMounted(() => {
     -webkit-mask: url('/icons/video/ViewCount.svg') no-repeat center;
     mask: url('/icons/video/ViewCount.svg') no-repeat center;
 }
-.info-bulletchat-chat-icon {
-    -webkit-mask: url('/icons/video/BulletChatCount.svg') no-repeat center;
-    mask: url('/icons/video/BulletChatCount.svg') no-repeat center;
+.info-danmaku-chat-icon {
+    -webkit-mask: url('/icons/video/DanmakuCount.svg') no-repeat center;
+    mask: url('/icons/video/DanmakuCount.svg') no-repeat center;
 
     margin-left: 8px;
 }

@@ -18,7 +18,7 @@ const RecommendVideosData: VideoItem[] = Array.from({ length: 100 }, () => {
         up: 'TestUploader',
         releaseTime: Date.now() - 2 * 60 * 1000,
         viewCount: 233,
-        bulletScreenCount: 22,
+        danmakuCount: 22,
         duration: 33
     }
 })

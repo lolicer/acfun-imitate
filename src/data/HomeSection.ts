@@ -9,7 +9,7 @@ const DonghuaSectionData: HomeSection = {
             up: '莉莉周影探',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 22330,
-            bulletScreenCount: 535,
+            danmakuCount: 535,
             duration: 312
         },
         {
@@ -19,7 +19,7 @@ const DonghuaSectionData: HomeSection = {
             up: '影音娱乐珍藏馆',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 223300,
-            bulletScreenCount: 453,
+            danmakuCount: 453,
             duration: 300
         },
         {
@@ -29,7 +29,7 @@ const DonghuaSectionData: HomeSection = {
             up: '屑周不会剪',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 6464,
-            bulletScreenCount: 345,
+            danmakuCount: 345,
             duration: 187
         },
         {
@@ -39,7 +39,7 @@ const DonghuaSectionData: HomeSection = {
             up: '晴天Ultraman',
             releaseTime: Date.now() - 4 * 24 * 60 * 60 * 1000,
             viewCount: 6346,
-            bulletScreenCount: 654,
+            danmakuCount: 654,
             duration: 172
         },
         {
@@ -49,7 +49,7 @@ const DonghuaSectionData: HomeSection = {
             up: 'CoCo都可官方',
             releaseTime: Date.now() - 2 * 60 * 60 * 1000,
             viewCount: 9094,
-            bulletScreenCount: 412,
+            danmakuCount: 412,
             duration: 143
         },
         {
@@ -59,7 +59,7 @@ const DonghuaSectionData: HomeSection = {
             up: 'ENX叉叉酱',
             releaseTime: Date.now() - 14 * 60 * 60 * 1000,
             viewCount: 10541,
-            bulletScreenCount: 3000,
+            danmakuCount: 3000,
             duration: 145
         },
         {
@@ -69,7 +69,7 @@ const DonghuaSectionData: HomeSection = {
             up: '钙镁化合物',
             releaseTime: Date.now() - 21 * 60 * 60 * 1000,
             viewCount: 120013,
-            bulletScreenCount: 9123,
+            danmakuCount: 9123,
             duration: 276
         },
         {
@@ -79,7 +79,7 @@ const DonghuaSectionData: HomeSection = {
             up: '三杯星空',
             releaseTime: Date.now() - 9 * 24 * 60 * 60 * 1000,
             viewCount: 25234,
-            bulletScreenCount: 942,
+            danmakuCount: 942,
             duration: 256
         }
     ],
@@ -131,7 +131,7 @@ const LifestyleSectionData: HomeSection = {
             up: '墨良_斯帕罗',
             releaseTime: Date.now() - 9 * 24 * 60 * 60 * 1000,
             viewCount: 903245,
-            bulletScreenCount: 302,
+            danmakuCount: 302,
             duration: 302
         },
         {
@@ -141,7 +141,7 @@ const LifestyleSectionData: HomeSection = {
             up: '这里是Evan哒',
             releaseTime: Date.now() - 4 * 24 * 60 * 60 * 1000,
             viewCount: 37267,
-            bulletScreenCount: 178,
+            danmakuCount: 178,
             duration: 178
         },
         {
@@ -151,7 +151,7 @@ const LifestyleSectionData: HomeSection = {
             up: '老王在中国',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 916203,
-            bulletScreenCount: 1024,
+            danmakuCount: 1024,
             duration: 151
         },
         {
@@ -161,7 +161,7 @@ const LifestyleSectionData: HomeSection = {
             up: '豆豆豆豆逗是我',
             releaseTime: Date.now() - 91 * 24 * 60 * 60 * 1000,
             viewCount: 88145,
-            bulletScreenCount: 221,
+            danmakuCount: 221,
             duration: 162
         },
         {
@@ -171,7 +171,7 @@ const LifestyleSectionData: HomeSection = {
             up: 'Rosy偷春格',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 66431,
-            bulletScreenCount: 432,
+            danmakuCount: 432,
             duration: 223
         },
         {
@@ -181,7 +181,7 @@ const LifestyleSectionData: HomeSection = {
             up: '杨洋羊抽象王子',
             releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000,
             viewCount: 256112,
-            bulletScreenCount: 2241,
+            danmakuCount: 2241,
             duration: 123
         },
         {
@@ -191,7 +191,7 @@ const LifestyleSectionData: HomeSection = {
             up: '知名相声演员BBBBB大王',
             releaseTime: Date.now() - 4 * 60 * 60 * 1000,
             viewCount: 55412,
-            bulletScreenCount: 123,
+            danmakuCount: 123,
             duration: 634
         },
         {
@@ -201,7 +201,7 @@ const LifestyleSectionData: HomeSection = {
             up: 'littleforestZoe',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 6346,
-            bulletScreenCount: 412,
+            danmakuCount: 412,
             duration: 1651
         }
     ],
@@ -253,7 +253,7 @@ const MusicSectionData: HomeSection = {
             up: '绝区零',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 1250000,
-            bulletScreenCount: 8400,
+            danmakuCount: 8400,
             duration: 215
         },
         {
@@ -263,7 +263,7 @@ const MusicSectionData: HomeSection = {
             up: '梨茗子',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 45000,
-            bulletScreenCount: 320,
+            danmakuCount: 320,
             duration: 188
         },
         {
@@ -273,7 +273,7 @@ const MusicSectionData: HomeSection = {
             up: 'マサラダ',
             releaseTime: Date.now() - 11 * 24 * 60 * 60 * 1000,
             viewCount: 89000,
-            bulletScreenCount: 1200,
+            danmakuCount: 1200,
             duration: 242
         },
         {
@@ -283,7 +283,7 @@ const MusicSectionData: HomeSection = {
             up: '糖心蛋字幕组',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 230000,
-            bulletScreenCount: 4500,
+            danmakuCount: 4500,
             duration: 310
         },
         {
@@ -293,7 +293,7 @@ const MusicSectionData: HomeSection = {
             up: '梨茗子',
             releaseTime: Date.now() - 4 * 24 * 60 * 60 * 1000,
             viewCount: 12000,
-            bulletScreenCount: 85,
+            danmakuCount: 85,
             duration: 155
         },
         {
@@ -303,7 +303,7 @@ const MusicSectionData: HomeSection = {
             up: '祸尾氏',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 67000,
-            bulletScreenCount: 560,
+            danmakuCount: 560,
             duration: 278
         },
         {
@@ -313,7 +313,7 @@ const MusicSectionData: HomeSection = {
             up: '肇岁初十',
             releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000,
             viewCount: 156000,
-            bulletScreenCount: 2100,
+            danmakuCount: 2100,
             duration: 485
         },
         {
@@ -323,7 +323,7 @@ const MusicSectionData: HomeSection = {
             up: '宝钟玛琳Official',
             releaseTime: Date.now() - 16 * 60 * 60 * 1000,
             viewCount: 3400000,
-            bulletScreenCount: 52000,
+            danmakuCount: 52000,
             duration: 195
         }
     ],
@@ -375,7 +375,7 @@ const DanceAndIdolSectionData: HomeSection = {
             up: '星火セイカ_Clip',
             releaseTime: Date.now() - 2 * 60 * 60 * 1000,
             viewCount: 158000,
-            bulletScreenCount: 1200,
+            danmakuCount: 1200,
             duration: 645
         },
         {
@@ -385,7 +385,7 @@ const DanceAndIdolSectionData: HomeSection = {
             up: '蜡笔小仙__',
             releaseTime: Date.now() - 12 * 60 * 60 * 1000,
             viewCount: 42000,
-            bulletScreenCount: 350,
+            danmakuCount: 350,
             duration: 198
         },
         {
@@ -395,7 +395,7 @@ const DanceAndIdolSectionData: HomeSection = {
             up: '-陶可爱-',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 289000,
-            bulletScreenCount: 5600,
+            danmakuCount: 5600,
             duration: 135
         },
         {
@@ -405,7 +405,7 @@ const DanceAndIdolSectionData: HomeSection = {
             up: '-小身板儿-',
             releaseTime: Date.now() - 1.5 * 24 * 60 * 60 * 1000,
             viewCount: 12000,
-            bulletScreenCount: 88,
+            danmakuCount: 88,
             duration: 210
         },
         {
@@ -415,7 +415,7 @@ const DanceAndIdolSectionData: HomeSection = {
             up: '云呀么钰_',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 56000,
-            bulletScreenCount: 420,
+            danmakuCount: 420,
             duration: 228
         },
         {
@@ -425,7 +425,7 @@ const DanceAndIdolSectionData: HomeSection = {
             up: '矮乐多Aliga',
             releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000,
             viewCount: 890000,
-            bulletScreenCount: 12000,
+            danmakuCount: 12000,
             duration: 184
         },
         {
@@ -435,7 +435,7 @@ const DanceAndIdolSectionData: HomeSection = {
             up: '小无邪和猪小糖',
             releaseTime: Date.now() - 4 * 24 * 60 * 60 * 1000,
             viewCount: 34000,
-            bulletScreenCount: 215,
+            danmakuCount: 215,
             duration: 720
         },
         {
@@ -445,7 +445,7 @@ const DanceAndIdolSectionData: HomeSection = {
             up: '佐流Saryu',
             releaseTime: Date.now() - 5 * 24 * 60 * 60 * 1000,
             viewCount: 125000,
-            bulletScreenCount: 980,
+            danmakuCount: 980,
             duration: 156
         }
     ],
@@ -497,7 +497,7 @@ const GamingSectionData: HomeSection = {
             up: '不乐得',
             releaseTime: Date.now() - 4 * 60 * 60 * 1000,
             viewCount: 45000,
-            bulletScreenCount: 890,
+            danmakuCount: 890,
             duration: 542
         },
         {
@@ -507,7 +507,7 @@ const GamingSectionData: HomeSection = {
             up: '神泽233',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 128000,
-            bulletScreenCount: 2400,
+            danmakuCount: 2400,
             duration: 1245
         },
         {
@@ -517,7 +517,7 @@ const GamingSectionData: HomeSection = {
             up: '红警HBK08',
             releaseTime: Date.now() - 8 * 60 * 60 * 1000,
             viewCount: 67000,
-            bulletScreenCount: 320,
+            danmakuCount: 320,
             duration: 915
         },
         {
@@ -527,7 +527,7 @@ const GamingSectionData: HomeSection = {
             up: '椿酱丶',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 89000,
-            bulletScreenCount: 1100,
+            danmakuCount: 1100,
             duration: 185
         },
         {
@@ -537,7 +537,7 @@ const GamingSectionData: HomeSection = {
             up: 'YerukaLaQK',
             releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000,
             viewCount: 215000,
-            bulletScreenCount: 4500,
+            danmakuCount: 4500,
             duration: 1679 // 约28分钟
         },
         {
@@ -547,7 +547,7 @@ const GamingSectionData: HomeSection = {
             up: 'KL_qiqi_',
             releaseTime: Date.now() - 12 * 60 * 60 * 1000,
             viewCount: 15000,
-            bulletScreenCount: 45,
+            danmakuCount: 45,
             duration: 49
         },
         {
@@ -557,7 +557,7 @@ const GamingSectionData: HomeSection = {
             up: '崩坏星穹铁道',
             releaseTime: Date.now() - 5 * 60 * 60 * 1000,
             viewCount: 2450000,
-            bulletScreenCount: 38000,
+            danmakuCount: 38000,
             duration: 215
         },
         {
@@ -567,7 +567,7 @@ const GamingSectionData: HomeSection = {
             up: '叫我棉被',
             releaseTime: Date.now() - 1.5 * 24 * 60 * 60 * 1000,
             viewCount: 186000,
-            bulletScreenCount: 2900,
+            danmakuCount: 2900,
             duration: 840
         }
     ],
@@ -619,7 +619,7 @@ const TechnologySectionData: HomeSection = {
             up: '狼狼Vauk',
             releaseTime: Date.now() - 3 * 60 * 60 * 1000,
             viewCount: 124000,
-            bulletScreenCount: 3200,
+            danmakuCount: 3200,
             duration: 845
         },
         {
@@ -629,7 +629,7 @@ const TechnologySectionData: HomeSection = {
             up: '贪玩歌姬小宁子',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 560000,
-            bulletScreenCount: 12000,
+            danmakuCount: 12000,
             duration: 912
         },
         {
@@ -639,7 +639,7 @@ const TechnologySectionData: HomeSection = {
             up: '从良未遂vanely',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 89000,
-            bulletScreenCount: 560,
+            danmakuCount: 560,
             duration: 1540
         },
         {
@@ -649,7 +649,7 @@ const TechnologySectionData: HomeSection = {
             up: '黑鸡咕咕Debug',
             releaseTime: Date.now() - 12 * 60 * 60 * 1000,
             viewCount: 45000,
-            bulletScreenCount: 890,
+            danmakuCount: 890,
             duration: 2100
         },
         {
@@ -659,7 +659,7 @@ const TechnologySectionData: HomeSection = {
             up: 'epcdiy',
             releaseTime: Date.now() - 5 * 60 * 60 * 1000,
             viewCount: 320000,
-            bulletScreenCount: 4500,
+            danmakuCount: 4500,
             duration: 725
         },
         {
@@ -669,7 +669,7 @@ const TechnologySectionData: HomeSection = {
             up: '芙蕾德莉卡_',
             releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000,
             viewCount: 28000,
-            bulletScreenCount: 310,
+            danmakuCount: 310,
             duration: 1845
         },
         {
@@ -679,7 +679,7 @@ const TechnologySectionData: HomeSection = {
             up: 'SDU-ACM',
             releaseTime: Date.now() - 4 * 24 * 60 * 60 * 1000,
             viewCount: 12000,
-            bulletScreenCount: 150,
+            danmakuCount: 150,
             duration: 5400
         },
         {
@@ -689,7 +689,7 @@ const TechnologySectionData: HomeSection = {
             up: '怀里脏',
             releaseTime: Date.now() - 6 * 60 * 60 * 1000,
             viewCount: 6500,
-            bulletScreenCount: 42,
+            danmakuCount: 42,
             duration: 485
         }
     ],
@@ -741,7 +741,7 @@ const FilmAndTVSectionData: HomeSection = {
             up: 'fake宅',
             releaseTime: Date.now() - 8 * 60 * 60 * 1000,
             viewCount: 450000,
-            bulletScreenCount: 8900,
+            danmakuCount: 8900,
             duration: 642
         },
         {
@@ -751,7 +751,7 @@ const FilmAndTVSectionData: HomeSection = {
             up: '老不正经的小曲',
             releaseTime: Date.now() - 1.5 * 24 * 60 * 60 * 1000,
             viewCount: 1250000,
-            bulletScreenCount: 24000,
+            danmakuCount: 24000,
             duration: 1845
         },
         {
@@ -761,7 +761,7 @@ const FilmAndTVSectionData: HomeSection = {
             up: '吃蛋挞的折棒',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 86000,
-            bulletScreenCount: 1200,
+            danmakuCount: 1200,
             duration: 532
         },
         {
@@ -771,7 +771,7 @@ const FilmAndTVSectionData: HomeSection = {
             up: '高寒月薪十块',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 340000,
-            bulletScreenCount: 5600,
+            danmakuCount: 5600,
             duration: 412
         },
         {
@@ -781,7 +781,7 @@ const FilmAndTVSectionData: HomeSection = {
             up: '高寒月薪十块',
             releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000,
             viewCount: 210000,
-            bulletScreenCount: 3400,
+            danmakuCount: 3400,
             duration: 385
         },
         {
@@ -791,7 +791,7 @@ const FilmAndTVSectionData: HomeSection = {
             up: '一知半解书',
             releaseTime: Date.now() - 4 * 24 * 60 * 60 * 1000,
             viewCount: 89000,
-            bulletScreenCount: 920,
+            danmakuCount: 920,
             duration: 456
         },
         {
@@ -801,7 +801,7 @@ const FilmAndTVSectionData: HomeSection = {
             up: '梗百科',
             releaseTime: Date.now() - 5 * 24 * 60 * 60 * 1000,
             viewCount: 670000,
-            bulletScreenCount: 1500,
+            danmakuCount: 1500,
             duration: 184
         },
         {
@@ -811,7 +811,7 @@ const FilmAndTVSectionData: HomeSection = {
             up: '高寒月薪十块',
             releaseTime: Date.now() - 12 * 60 * 60 * 1000,
             viewCount: 15000,
-            bulletScreenCount: 88,
+            danmakuCount: 88,
             duration: 256
         }
     ],
@@ -863,7 +863,7 @@ const SportsSectionData: HomeSection = {
             up: 'BB姬Studio',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 890000,
-            bulletScreenCount: 15600,
+            danmakuCount: 15600,
             duration: 742
         },
         {
@@ -873,7 +873,7 @@ const SportsSectionData: HomeSection = {
             up: '业余球探刀先生',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 450000,
-            bulletScreenCount: 8200,
+            danmakuCount: 8200,
             duration: 1560
         },
         {
@@ -883,7 +883,7 @@ const SportsSectionData: HomeSection = {
             up: '开朗的白菜_',
             releaseTime: Date.now() - 5 * 24 * 60 * 60 * 1000,
             viewCount: 320000,
-            bulletScreenCount: 2100,
+            danmakuCount: 2100,
             duration: 1120
         },
         {
@@ -893,7 +893,7 @@ const SportsSectionData: HomeSection = {
             up: '小谭谭T-MacTz4ever',
             releaseTime: Date.now() - 4 * 60 * 60 * 1000,
             viewCount: 150000,
-            bulletScreenCount: 1800,
+            danmakuCount: 1800,
             duration: 315
         },
         {
@@ -903,7 +903,7 @@ const SportsSectionData: HomeSection = {
             up: 'KleKK',
             releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000,
             viewCount: 56000,
-            bulletScreenCount: 420,
+            danmakuCount: 420,
             duration: 125
         },
         {
@@ -913,7 +913,7 @@ const SportsSectionData: HomeSection = {
             up: '宋展辉',
             releaseTime: Date.now() - 12 * 60 * 60 * 1000,
             viewCount: 23000,
-            bulletScreenCount: 156,
+            danmakuCount: 156,
             duration: 945
         },
         {
@@ -923,7 +923,7 @@ const SportsSectionData: HomeSection = {
             up: '转生成为毛毛',
             releaseTime: Date.now() - 4 * 24 * 60 * 60 * 1000,
             viewCount: 120000,
-            bulletScreenCount: 890,
+            danmakuCount: 890,
             duration: 458
         },
         {
@@ -933,7 +933,7 @@ const SportsSectionData: HomeSection = {
             up: 'Danielsw',
             releaseTime: Date.now() - 6 * 24 * 60 * 60 * 1000,
             viewCount: 34000,
-            bulletScreenCount: 56,
+            danmakuCount: 56,
             duration: 185
         }
     ],
@@ -985,7 +985,7 @@ const TrendingSectionData: HomeSection = {
             up: '绝地潜兵官方',
             releaseTime: Date.now() - 2 * 60 * 60 * 1000,
             viewCount: 1250000,
-            bulletScreenCount: 45000,
+            danmakuCount: 45000,
             duration: 156
         },
         {
@@ -995,7 +995,7 @@ const TrendingSectionData: HomeSection = {
             up: '绝地潜兵官方',
             releaseTime: Date.now() - 5 * 60 * 60 * 1000,
             viewCount: 890000,
-            bulletScreenCount: 32000,
+            danmakuCount: 32000,
             duration: 124
         },
         {
@@ -1005,7 +1005,7 @@ const TrendingSectionData: HomeSection = {
             up: '绝地潜兵官方',
             releaseTime: Date.now() - 12 * 60 * 60 * 1000,
             viewCount: 2100000,
-            bulletScreenCount: 68000,
+            danmakuCount: 68000,
             duration: 210
         },
         {
@@ -1015,7 +1015,7 @@ const TrendingSectionData: HomeSection = {
             up: '绝地潜兵官方',
             releaseTime: Date.now() - 1 * 24 * 60 * 60 * 1000,
             viewCount: 560000,
-            bulletScreenCount: 15000,
+            danmakuCount: 15000,
             duration: 345
         },
         {
@@ -1025,7 +1025,7 @@ const TrendingSectionData: HomeSection = {
             up: '绝地潜兵官方',
             releaseTime: 1748611847000,
             viewCount: 430000,
-            bulletScreenCount: 8900,
+            danmakuCount: 8900,
             duration: 188
         },
         {
@@ -1035,7 +1035,7 @@ const TrendingSectionData: HomeSection = {
             up: '绝地潜兵官方',
             releaseTime: Date.now() - 2 * 24 * 60 * 60 * 1000,
             viewCount: 3200000,
-            bulletScreenCount: 120000,
+            danmakuCount: 120000,
             duration: 85
         },
         {
@@ -1045,7 +1045,7 @@ const TrendingSectionData: HomeSection = {
             up: '绝地潜兵官方',
             releaseTime: Date.now() - 3 * 24 * 60 * 60 * 1000,
             viewCount: 1580000,
-            bulletScreenCount: 56000,
+            danmakuCount: 56000,
             duration: 132
         },
         {
@@ -1055,7 +1055,7 @@ const TrendingSectionData: HomeSection = {
             up: '绝地潜兵官方',
             releaseTime: Date.now() - 4 * 24 * 60 * 60 * 1000,
             viewCount: 950000,
-            bulletScreenCount: 21000,
+            danmakuCount: 21000,
             duration: 420
         }
     ],
