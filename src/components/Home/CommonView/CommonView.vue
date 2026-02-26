@@ -25,7 +25,7 @@ function updateActiveCarouselItem(current: number) {
 <template>
     <div class="common-view-content">
         <div class="common-view-titlebar">
-            <img class="titlebar-icon" :src="props.titleIconUrl" />
+            <img class="titlebar-icon" :src="props.titleIconUrl" alt="" />
             <span class="titlebar-text"> {{ props.titleName }} </span>
         </div>
         <div class="common-view-main">
@@ -34,9 +34,7 @@ function updateActiveCarouselItem(current: number) {
                     class="common-view-carousel"
                     arrow="always"
                     height="100%"
-                    @change="
-                        (current, prev) => updateActiveCarouselItem(current)
-                    "
+                    @change="(current) => updateActiveCarouselItem(current)"
                 >
                     <ElCarouselItem
                         class="common-view-carousel-item"
@@ -62,7 +60,7 @@ function updateActiveCarouselItem(current: number) {
 
 <style scoped>
 .common-view-content {
-    padding: 30px 50px 0px;
+    padding: 30px 50px 0;
 }
 
 .common-view-titlebar {

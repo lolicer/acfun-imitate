@@ -52,7 +52,7 @@ const updates: Updates[] = updatesData
                     src="/icons/public/titleBar/Shop.svg"
                     class="extension-icon"
                     id="shop-icon"
-                />
+                 alt=""/>
                 <span class="extension-text">周边商场</span>
             </a>
             <a
@@ -128,7 +128,7 @@ const updates: Updates[] = updatesData
                     <img
                         src="/icons/public/titleBar/Phone.svg"
                         class="mini-icon"
-                    />
+                     alt=""/>
                 </div>
                 <div class="floating-block" id="app-download">
                     <img
@@ -157,7 +157,7 @@ const updates: Updates[] = updatesData
                             <!--display：online-block-->
                             <span id="user-info-acbi-number">233</span>
                         </div>
-                        <div id="user-info-acbi-recharge" type="text">充值</div>
+                        <div id="user-info-acbi-recharge">充值</div>
                     </div>
                     <div id="user-info-more">查看更多</div>
                 </div>
@@ -167,7 +167,7 @@ const updates: Updates[] = updatesData
                     <img
                         src="/icons/public/titleBar/Message.svg"
                         class="mini-icon"
-                    />
+                     alt=""/>
                 </div>
                 <div class="floating-block" id="message-info">
                     <div>评论</div>
@@ -184,7 +184,7 @@ const updates: Updates[] = updatesData
                     <img
                         src="/icons/public/titleBar/history/History.svg"
                         class="mini-icon"
-                    />
+                     alt=""/>
                 </div>
                 <div class="floating-block" id="history-info">
                     <div id="history-info-list">
@@ -204,7 +204,7 @@ const updates: Updates[] = updatesData
                     <img
                         src="/icons/public/titleBar/Updates.svg"
                         class="mini-icon"
-                    />
+                     alt=""/>
                 </div>
                 <div class="floating-block" id="updates-info">
                     <ElScrollbar class="live-stream-list-scrollbar">
@@ -248,7 +248,7 @@ const updates: Updates[] = updatesData
                     <img
                         src="/icons/public/titleBar/Uploader.svg"
                         class="mini-icon"
-                    />
+                     alt=""/>
                 </div>
                 <div class="floating-block" id="uploader-info">
                     <div>稿件管理</div>

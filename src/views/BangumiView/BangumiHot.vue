@@ -51,7 +51,7 @@ function changeActiveIndex(index: number) {
 <template>
     <div class="bangumi-hot">
         <div class="hot-titlebar">
-            <img src="/icons/bangumi/BangumiHot.png" />
+            <img src="/icons/bangumi/BangumiHot.png"  alt=""/>
             <span>热播推荐</span>
         </div>
         <div class="hot-content">
@@ -67,7 +67,7 @@ function changeActiveIndex(index: number) {
                 <img
                     class="hot-content-info-background-image"
                     :src="HotBangumiData[activeIndex].coverUrl"
-                />
+                 alt=""/>
                 <div class="hot-content-info-content">
                     <div class="info-title">
                         <TruncatedText
@@ -97,12 +97,12 @@ function changeActiveIndex(index: number) {
                     </div>
                     <div class="info-control">
                         <div class="info-control-btn info-control-play">
-                            <img src="/icons/bangumi/Play.svg" />
+                            <img src="/icons/bangumi/Play.svg"  alt=""/>
                         </div>
                         <div class="info-control-btn info-control-follow">
                             <img
                                 :src="`/icons/bangumi/${HotBangumiData[activeIndex].hasFollowed ? 'Followed' : 'Follow'}.svg`"
-                            />
+                             alt=""/>
                         </div>
                     </div>
                     <div class="info-indicator">
@@ -163,8 +163,8 @@ function changeActiveIndex(index: number) {
 
 .hot-content-video {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     z-index: var(--z-index-video);
 
     width: 60%;
@@ -180,8 +180,8 @@ function changeActiveIndex(index: number) {
 
 .hot-content-info {
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    bottom: 0;
+    right: 0;
     z-index: var(--z-index-info);
 
     width: 93%;
@@ -213,7 +213,7 @@ function changeActiveIndex(index: number) {
 }
 .hot-content-info-content {
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: 6%;
 
     width: calc(100% * 40 / 93);
@@ -249,7 +249,7 @@ function changeActiveIndex(index: number) {
     display: flex;
     gap: 16px;
     height: 48px;
-    padding: 4px 0px 8px;
+    padding: 4px 0 8px;
 }
 .info-control-btn {
     cursor: pointer;
@@ -278,8 +278,8 @@ function changeActiveIndex(index: number) {
 
 .info-indicator-item {
     position: absolute;
-    left: 0px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
 
     /*noinspection CssUnresolvedCustomProperty*/
     transform: translateX(var(--item-offset));

@@ -43,7 +43,7 @@ const props = defineProps<{
             />
             <div class="info-line-2">
                 <div class="up">
-                    <img src="/icons/public/Up.svg" class="up-icon" />
+                    <img src="/icons/public/Up.svg" class="up-icon"  alt=""/>
                     <span class="up-name">{{ props.data.up }}</span>
                 </div>
                 <span class="release-time"
