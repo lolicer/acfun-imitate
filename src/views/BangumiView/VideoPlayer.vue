@@ -67,18 +67,18 @@ function handleOverlayMouseLeave() {
     console.log('leave')
 }
 
-function checkRef(): boolean {
-    if (!videoRef.value) {
-        console.error('DOM不存在')
-        return false
-    } else {
-        return true
-    }
-}
+// function checkRef(): boolean {
+//     if (!videoRef.value) {
+//         console.error('DOM不存在')
+//         return false
+//     } else {
+//         return true
+//     }
+// }
 
 // 视频元数据加载完成
 function onMetadataLoaded() {
-    if (!checkRef()) return
+    if (!videoRef.value) return
 
     duration.value = videoRef.value.duration
     muted.value = videoRef.value.muted
@@ -86,28 +86,29 @@ function onMetadataLoaded() {
 
 // 视频时间更新
 function onTimeUpdate() {
-    if (!checkRef()) return
+    if (!videoRef.value) return
 
     currentTime.value = videoRef.value.currentTime
 }
 
 // 视频播放状态被改变
 function handlePlaybackChanged(playStatus: boolean) {
-    if (!checkRef()) return
+    if (!videoRef.value) return
 
     isPlaying.value = playStatus
 }
 
 //进度条被拖动
 function handleProgressBarInput(e: Event) {
+    if (!videoRef.value) return
+
     const target = e.target as HTMLInputElement
-    const newTime = parseFloat(target.value)
-    videoRef.value.currentTime = newTime
+    videoRef.value.currentTime = parseFloat(target.value)
 }
 
 // 更改视频播放状态
 async function togglePlayback() {
-    if (!checkRef()) return
+    if (!videoRef.value) return
 
     if (isPlaying.value) {
         videoRef.value.pause()
@@ -118,7 +119,7 @@ async function togglePlayback() {
 
 // 切换静音与否
 function toggleMute() {
-    if (!checkRef()) return
+    if (!videoRef.value) return
 
     muted.value = !muted.value
     videoRef.value.muted = muted.value
@@ -172,7 +173,7 @@ onUnmounted(() => {
                     >
                         <img
                             :src="`/icons/public/videoControl/${isPlaying ? 'pause' : 'play'}.svg`"
-                        />
+                         alt=""/>
                     </div>
                     <div class="overlay-control-time">
                         {{ formatSeconds(currentTime) }}/{{
@@ -184,7 +185,7 @@ onUnmounted(() => {
                     <div class="overlay-control-mute" @click="toggleMute">
                         <img
                             :src="`/icons/public/videoControl/${muted ? 'volumeOff' : 'volumeOn_2'}.svg`"
-                        />
+                         alt=""/>
                     </div>
                 </div>
             </div>
@@ -212,7 +213,7 @@ onUnmounted(() => {
 
 .video-overlay {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
 
     visibility: hidden;
 
@@ -226,13 +227,14 @@ onUnmounted(() => {
         transparent 100%
     );
 }
+/* noinspection CssUnusedSymbol */
 .video-overlay.show {
     visibility: visible;
 }
 .overlay-progressbar {
     cursor: pointer;
     position: absolute;
-    top: 0px;
+    top: 0;
 
     width: 96%;
     left: 2%;
@@ -243,7 +245,6 @@ onUnmounted(() => {
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
-    cursor: pointer;
 }
 .overlay-progressbar::-webkit-slider-container {
     overflow: hidden;

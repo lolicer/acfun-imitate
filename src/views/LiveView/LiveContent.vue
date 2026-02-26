@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ElScrollbar, ElTag } from 'element-plus'
+import { ElScrollbar } from 'element-plus'
 import {
     LiveHeaderData,
     RecommendSectionItemData,
@@ -46,9 +46,10 @@ function changeActiveSectionId(id: string) {
 }
 
 const secondaryNavigationIdData = computed(() => {
-    return LiveSectionData.find((item) => {
+    const matchItem = LiveSectionData.find((item) => {
         return item.id.split('-')[0] === activeSectionId.value.split('-')[0]
-    }).children
+    })
+    return matchItem?.children ?? []
 })
 </script>
 
@@ -74,8 +75,8 @@ const secondaryNavigationIdData = computed(() => {
                         <img
                             v-if="isPlaying"
                             src="/icons/public/videoControl/pause.svg"
-                        />
-                        <img v-else src="/icons/public/videoControl/play.svg" />
+                         alt=""/>
+                        <img v-else src="/icons/public/videoControl/play.svg"  alt=""/>
                     </div>
                     <div
                         class="header-content-overlay-mute-btn"
@@ -84,11 +85,11 @@ const secondaryNavigationIdData = computed(() => {
                         <img
                             v-if="isMuted"
                             src="/icons/public/videoControl/volumeOff.svg"
-                        />
+                         alt=""/>
                         <img
                             v-else
                             src="/icons/public/videoControl/volumeOn_2.svg"
-                        />
+                         alt=""/>
                     </div>
                     <div class="header-content-overlay-enter-btn">
                         <span class="header-content-overlay-enter-btn-text"
@@ -108,7 +109,7 @@ const secondaryNavigationIdData = computed(() => {
                     <img
                         :src="item.coverUrl"
                         :class="{ active: activeVideo === index }"
-                    />
+                     alt=""/>
                 </div>
             </div>
         </div>
@@ -393,21 +394,21 @@ const secondaryNavigationIdData = computed(() => {
 .recommend-titlebar-following-left {
     width: fit-content;
     position: absolute;
-    left: 0px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
 }
 .recommend-titlebar-following-right {
     width: fit-content;
     position: absolute;
-    right: 0px;
-    bottom: 0px;
+    right: 0;
+    bottom: 0;
 }
 .recommend-titlebar-following-title {
     font-size: 20px;
 }
 .recommend-titlebar-following-details {
     font-size: 12px;
-    border-radius: 8.5px / 50%;
+    border-radius: 9px / 50%;
     padding: 0 6px;
     margin-left: 10px;
     background-color: var(--color-acfun);
@@ -454,7 +455,7 @@ const secondaryNavigationIdData = computed(() => {
     flex-shrink: 0;
     width: calc(10px + 58px + 10px);
     box-sizing: border-box;
-    padding: 6px 10px 0px 10px;
+    padding: 6px 10px 0 10px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -522,7 +523,7 @@ const secondaryNavigationIdData = computed(() => {
 
 .live-nav-2 {
     display: flex;
-    padding: 8px 0px;
+    padding: 8px 0;
     background-color: white;
 
     position: sticky;
@@ -551,7 +552,7 @@ const secondaryNavigationIdData = computed(() => {
 .live-list {
     width: 100%;
     box-sizing: border-box;
-    padding: 20px 50px 0px;
+    padding: 20px 50px 0;
 
     display: grid;
     gap: 20px;

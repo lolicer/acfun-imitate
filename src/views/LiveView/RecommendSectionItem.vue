@@ -10,11 +10,11 @@ const props = defineProps<{
 const showDropdown =
     props.data.dropdownMenu && props.data.dropdownMenu.length != 0
 
-const recommendSectionItemContentRef = ref<HTMLElement>(null)
+const recommendSectionItemContentRef = ref<HTMLElement | null>(null)
 const dropdownPosition = ref<'bottom' | 'top'>('top')
 // 确定dropdown显示位置
 function determineDropdownPosition() {
-    if (!recommendSectionItemContentRef) return
+    if (!recommendSectionItemContentRef.value) return
 
     const { bottom } =
         recommendSectionItemContentRef.value.getBoundingClientRect()
@@ -105,9 +105,11 @@ function determineDropdownPosition() {
 .recommend-section-item-content:hover .section-dropdown {
     display: flex;
 }
+/* noinspection CssUnusedSymbol */
 .section-dropdown.top {
     bottom: 100%;
 }
+/* noinspection CssUnusedSymbol */
 .section-dropdown.bottom {
     top: 100%;
 }

@@ -1,5 +1,6 @@
 /**
  * @param title 标题
+ * @param rank 排名
  * @param imgUrl 图片地址
  * @param to 跳转链接
  * @param latestEpisode 最新集数

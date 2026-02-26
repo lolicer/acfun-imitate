@@ -46,11 +46,13 @@ const bannerActiveItem = ref<number>(0)
  * @param index 目标Item的序号
  */
 function setBannerActiveItem(index: number) {
+    if (!bannerCarouselRef.value) return
+
     bannerCarouselRef.value.setActiveItem(index)
 }
 
 /** Banner切换Item时 */
-function handleBannerChange(current: number, prev: number) {
+function handleBannerChange(current: number) {
     bannerActiveItem.value = current
 }
 
@@ -83,7 +85,7 @@ function handleBannerMouseLeave() {
                 indicator-position="none"
                 :motion-blur="true"
                 :interval="4000"
-                @change="handleBannerChange"
+                @change="(current)=>handleBannerChange(current)"
             >
                 <ElCarouselItem
                     v-for="(item, index) in BannerData"
@@ -96,7 +98,7 @@ function handleBannerMouseLeave() {
                         <span class="banner-slogan-title">{{
                             item.title
                         }}</span>
-                        <span class="banner-slogan-slogantext">{{
+                        <span class="banner-slogan-slogan-text">{{
                             item.sloganText
                         }}</span>
                     </div>
@@ -178,7 +180,7 @@ function handleBannerMouseLeave() {
 .banner-slogan-title:hover {
     color: var(--color-acfun);
 }
-.banner-slogan-slogantext {
+.banner-slogan-slogan-text {
     font-size: 16px;
     color: white;
     padding-right: 16px;
@@ -186,7 +188,7 @@ function handleBannerMouseLeave() {
 
 .banner-overlay {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     height: 30%;
     background: linear-gradient(
@@ -200,7 +202,7 @@ function handleBannerMouseLeave() {
 
 .banner-indicator {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
 
     display: flex;
     justify-content: center;
@@ -233,7 +235,7 @@ function handleBannerMouseLeave() {
 }
 .banner-indicator-item-overlay {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     height: 30%;
     background: linear-gradient(
