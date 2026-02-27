@@ -6,8 +6,9 @@ import {
     formatSeconds,
     formatTimestampToDateInDetail
 } from '@/utils/time'
-import { computed, onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import VolumeSlider from '@/components/Video/VolumeSlider.vue'
+import { useVideoPlayer } from '@/views/VideoView/hooks/useVideoPlayer'
 
 const props = defineProps<{
     videoData: {
@@ -20,129 +21,27 @@ const props = defineProps<{
 }>()
 
 const videoRef = ref<HTMLVideoElement | null>(null)
-// 视频当前时间
-const currentTime = ref<number>(0)
-// 视频时长
-const duration = ref<number>(0)
-//是否正在拖拽进度条，防止视频的@timeupdate事件和进度条的更新事件同时竞争currentTime变量
-const isDragging = ref<boolean>(false)
-// 视频播放状态
-const isPlaying = ref<boolean>(false)
-// 控制播放的按钮
-const playbackBtnUrl = computed(() => {
-    return `/icons/public/videoControl/${isPlaying.value ? 'pause' : 'play'}.svg`
-})
-// 视频是否静音
-const isMuted = ref<boolean>(false)
-// 视频音量
-const volume = ref<number>(0)
-// 控制音量的图标
-const volumeBtnUrl = computed(() => {
-    let fileName: string
-    if (isMuted.value || volume.value === 0) {
-        fileName = 'volumeOff'
-    } else if (volume.value <= 0.5) {
-        fileName = 'volumeOn_1'
-    } else {
-        fileName = 'volumeOn_2'
-    }
-
-    return `/icons/public/videoControl/${fileName}.svg`
-})
-// 倍速map
-const speeds = new Map<number, string>([
-    [2, '2.0x'],
-    [1.5, '1.5x'],
-    [1.25, '1.25x'],
-    [1, '1.0x'],
-    [0.75, '0.75x'],
-    [0.5, '0.5x']
-])
-// 视频倍速
-const speedRate = ref<number>(0)
-
-// 视频时间更新时，更新currentTime
-function handleVideoTimeUpdate() {
-    if (isDragging.value) return
-    currentTime.value = videoRef.value ? videoRef.value.currentTime : 0
-}
-
-// 视频元数据加载完成后，更新视频时长和音量
-function handleVideoLoadedMetadata() {
-    duration.value = videoRef.value ? videoRef.value.duration : 0
-}
-
-// 开始播放
-function handleVideoPlay() {
-    isPlaying.value = true
-}
-// 暂停播放
-function handleVideoPause() {
-    isPlaying.value = false
-}
-// 视频音量变化
-function handleVideoVolumeChange() {
-    if (!videoRef.value) return
-
-    volume.value = videoRef.value.volume
-}
-
-// 鼠标按下
-function handleVideoSliderMouseDown() {
-    isDragging.value = true
-}
-// 鼠标抬起
-function handleVideoSliderMouseUp() {
-    setTimeout(() => {
-        isDragging.value = false
-    }, 100)
-}
-// 改变进度条
-function handleVideoSliderChange(value: number) {
-    if (!videoRef.value) return
-
-    videoRef.value.currentTime = value
-}
-
-// 点击播放控制按钮
-async function handleControlsPlaybackClick() {
-    if (!videoRef.value) return
-
-    if (isPlaying.value) {
-        videoRef.value.pause()
-    } else {
-        await videoRef.value.play()
-    }
-}
-function handleControlsSpeedDropdownItemClick(speed: number) {
-    if (!videoRef.value) return
-
-    speedRate.value = speed
-    videoRef.value.playbackRate = speedRate.value
-}
-// 点击音量调节按钮
-function handleControlsVolumeClick() {
-    if (!videoRef.value) return
-
-    isMuted.value = !isMuted.value
-    videoRef.value.muted = isMuted.value
-}
-
-// 调节音量滑块
-function handleVolumeSliderInput(value: number) {
-    if (!videoRef.value) return
-
-    volume.value = value
-    videoRef.value.volume = volume.value
-}
-
-onMounted(() => {
-    if (videoRef.value) {
-        isMuted.value = videoRef.value.muted
-        volume.value = videoRef.value.volume
-        speedRate.value = videoRef.value.playbackRate
-    }
-})
+// 视频控制的钩子
+const {
+    speeds,
+    currentTime,
+    duration,
+    volume,
+    speedRate,
+    playbackBtnUrl,
+    volumeBtnUrl,
+    handleVideoLoadedMetadata,
+    handleVideoTimeUpdate,
+    handleVideoPlay,
+    handleVideoPause,
+    handleVideoSliderMouseDown,
+    handleVideoSliderMouseUp,
+    handleVideoSliderChange,
+    handleControlsPlaybackClick,
+    handleControlsSpeedDropdownItemClick,
+    handleControlsVolumeClick,
+    handleVolumeSliderInput
+} = useVideoPlayer(videoRef)
 </script>
 
 <template>
@@ -166,11 +65,10 @@ onMounted(() => {
                 <video
                     ref="videoRef"
                     :src="props.videoData.videoUrl"
-                    @timeupdate="handleVideoTimeUpdate"
                     @loadedmetadata="handleVideoLoadedMetadata"
+                    @timeupdate="handleVideoTimeUpdate"
                     @play="handleVideoPlay"
                     @pause="handleVideoPause"
-                    @volumechange="handleVideoVolumeChange"
                 ></video>
                 <div class="video-main-overlay">
                     <VideoSlider
