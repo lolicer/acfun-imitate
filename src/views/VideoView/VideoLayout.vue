@@ -12,7 +12,7 @@ import Bottom from '@/components/public/Bottom.vue'
             viewCount: 171223,
             danmakuCount: 324,
             releaseTime: Date.now(),
-            videoUrl: '/videos/video/video21d9.mp4'
+            videoUrl: '/videos/video/video16d9.mp4'
         }"
     />
     <Bottom />
