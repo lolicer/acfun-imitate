@@ -34,6 +34,7 @@ const {
     handleVideoTimeUpdate,
     handleVideoPlay,
     handleVideoPause,
+    handleVideoClick,
     handleVideoSliderMouseDown,
     handleVideoSliderMouseUp,
     handleVideoSliderChange,
@@ -69,6 +70,7 @@ const {
                     @timeupdate="handleVideoTimeUpdate"
                     @play="handleVideoPlay"
                     @pause="handleVideoPause"
+                    @click="handleVideoClick"
                 ></video>
                 <div class="video-main-overlay">
                     <VideoSlider
@@ -197,6 +199,7 @@ const {
     position: relative;
 }
 .video-main > video {
+    display: block; /* 消除基线空隙 */
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -204,12 +207,19 @@ const {
 .video-main-overlay {
     position: absolute;
     width: 100%;
-    height: 100%;
-    top: 0;
+    height: calc(7% + 16px);
+    bottom: 0;
     left: 0;
 
     box-sizing: border-box;
     padding: 0 20px;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+    );
 
     display: none;
     flex-direction: column;
@@ -222,7 +232,19 @@ const {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 7%;
+    height: calc(100% - 16px);
+    bottom: 0;
+    left: 0;
+
+    box-sizing: border-box;
+    padding: 0 20px;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 5%,
+        transparent 10%
+    );
 }
 .video-controls-icon {
     height: 100%;

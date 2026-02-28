@@ -62,6 +62,16 @@ export function useVideoPlayer(videoRef: Ref<HTMLVideoElement | null>) {
     function handleVideoPause() {
         isPlaying.value = false
     }
+    // 点击视频
+    async function handleVideoClick() {
+        if (!videoRef.value) return
+
+        if (isPlaying.value) {
+            videoRef.value.pause()
+        } else {
+            await videoRef.value.play()
+        }
+    }
     // 鼠标按下
     function handleVideoSliderMouseDown() {
         isDragging.value = true
@@ -138,6 +148,7 @@ export function useVideoPlayer(videoRef: Ref<HTMLVideoElement | null>) {
         handleVideoTimeUpdate,
         handleVideoPlay,
         handleVideoPause,
+        handleVideoClick,
         handleVideoSliderMouseDown,
         handleVideoSliderMouseUp,
         handleVideoSliderChange,
