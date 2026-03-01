@@ -62,8 +62,8 @@ export function useVideoPlayer(videoRef: Ref<HTMLVideoElement | null>) {
     function handleVideoPause() {
         isPlaying.value = false
     }
-    // 点击视频
-    async function handleVideoClick() {
+    // 点击弹幕区域（该区域覆盖了视频区域）
+    async function handleDanmakuOverlayClick() {
         if (!videoRef.value) return
 
         if (isPlaying.value) {
@@ -140,6 +140,7 @@ export function useVideoPlayer(videoRef: Ref<HTMLVideoElement | null>) {
         speeds,
         currentTime,
         duration,
+        isPlaying,
         volume,
         speedRate,
         playbackBtnUrl,
@@ -148,7 +149,7 @@ export function useVideoPlayer(videoRef: Ref<HTMLVideoElement | null>) {
         handleVideoTimeUpdate,
         handleVideoPlay,
         handleVideoPause,
-        handleVideoClick,
+        handleDanmakuOverlayClick,
         handleVideoSliderMouseDown,
         handleVideoSliderMouseUp,
         handleVideoSliderChange,

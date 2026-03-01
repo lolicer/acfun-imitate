@@ -9,6 +9,8 @@ import {
 import { ref } from 'vue'
 import VolumeSlider from '@/components/Video/VolumeSlider.vue'
 import { useVideoPlayer } from '@/views/VideoView/hooks/useVideoPlayer'
+import { DanmakuData } from '@/data/Video'
+import VideoDanmakuOverlay from '@/views/VideoView/VideoDanmakuOverlay.vue'
 
 const props = defineProps<{
     videoData: {
@@ -26,6 +28,7 @@ const {
     speeds,
     currentTime,
     duration,
+    isPlaying,
     volume,
     speedRate,
     playbackBtnUrl,
@@ -34,7 +37,7 @@ const {
     handleVideoTimeUpdate,
     handleVideoPlay,
     handleVideoPause,
-    handleVideoClick,
+    handleDanmakuOverlayClick,
     handleVideoSliderMouseDown,
     handleVideoSliderMouseUp,
     handleVideoSliderChange,
@@ -70,9 +73,15 @@ const {
                     @timeupdate="handleVideoTimeUpdate"
                     @play="handleVideoPlay"
                     @pause="handleVideoPause"
-                    @click="handleVideoClick"
                 ></video>
-                <div class="video-main-overlay">
+                <VideoDanmakuOverlay
+                    class="video-main-danmaku-overlay"
+                    :danmaku-data="DanmakuData"
+                    :current-time="currentTime"
+                    :is-playing="isPlaying"
+                    @click="handleDanmakuOverlayClick"
+                />
+                <div class="video-main-controls-overlay">
                     <VideoSlider
                         @mousedown="handleVideoSliderMouseDown"
                         @mouseup="handleVideoSliderMouseUp"
@@ -204,7 +213,14 @@ const {
     height: 100%;
     object-fit: contain;
 }
-.video-main-overlay {
+.video-main-danmaku-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - (7% + 16px));
+}
+.video-main-controls-overlay {
     position: absolute;
     width: 100%;
     height: calc(7% + 16px);
@@ -225,7 +241,7 @@ const {
     flex-direction: column;
     justify-content: flex-end;
 }
-.video-main:hover > .video-main-overlay {
+.video-main:hover > .video-main-controls-overlay {
     display: flex;
 }
 .video-controls {
