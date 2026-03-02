@@ -16,6 +16,18 @@ a {
     --color-gray-4: rgb(238, 238, 238);
     --color-white-transparent: rgba(255, 255, 255, 0.9);
 
+    --color-danmaku-white: rgba(255, 255, 255, 1);
+    --color-danmaku-yellow: rgba(255, 255, 0, 1);
+    --color-danmaku-blue: rgba(0, 0, 255, 1);
+    --color-danmaku-red: rgba(255, 0, 0, 1);
+    --color-danmaku-green: rgba(0, 255, 0, 1);
+    --color-danmaku-purple: rgba(128, 0, 128, 1);
+    --color-danmaku-orange: rgba(255, 165, 0, 1);
+    --color-danmaku-pink: rgba(255, 192, 203, 1);
+    --color-danmaku-brown: rgba(165, 42, 42, 1);
+    --color-danmaku-gray: rgba(128, 128, 128, 1);
+    --color-danmaku-black: rgba(0, 0, 0, 1);
+
     /* 阴影 */
     --shadow-0: 0px 2px 2px 1px rgba(0, 0, 0, 0.04);
     --shadow-1: 0px 2px 2px 1px rgba(0, 0, 0, 0.08);
