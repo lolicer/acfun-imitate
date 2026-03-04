@@ -8,9 +8,9 @@ const props = defineProps<{
     currentTime: number
     isPlaying: boolean
 }>()
-// 四舍五入后的当前时间
-const roundedCurrentTime = computed(() => {
-    return Math.round(props.currentTime)
+// 截断后的当前时间
+const truncatedCurrentTime = computed(() => {
+    return Math.trunc(props.currentTime)
 })
 
 const danmakuOverlayRef = ref<HTMLDivElement | null>(null)
@@ -79,14 +79,23 @@ function getDanmakuColor(trackIdx: number, itemIdx: number): string {
 
 // 弹幕动画结束或取消
 function handleItemAnimationEndOrCancel(trackIdx: number, itemIdx: number) {
-    NormalDanmakuStatus.value[trackIdx][itemIdx].animation = 'finished'
-    NormalDanmakuStatus.value[trackIdx][itemIdx].danmakuItem =
-        initialDanmakuItem
+    if (itemIdx !== TRACK_CAPACITY - 1) {
+        // 普通弹幕
+        NormalDanmakuStatus.value[trackIdx][itemIdx].animation = 'finished'
+        NormalDanmakuStatus.value[trackIdx][itemIdx].danmakuItem =
+            initialDanmakuItem
+    } else {
+        // 居中弹幕
+        CenterDanmakuStatus.value[trackIdx] = {
+            occupancy: 'free',
+            danmakuItem: initialDanmakuItem
+        }
+    }
 }
 
 // 监听时间变化，分配弹幕数据
 watch(
-    () => roundedCurrentTime.value,
+    () => truncatedCurrentTime.value,
     (currentTime) => {
         // 获取当前秒的弹幕数据
         const danmakuSecondData = props.danmakuData[currentTime]
@@ -132,6 +141,8 @@ watch(
                 }
             }
             // 对于居中弹幕（top或bottom），遍历每条轨道上是否还有可插入的位置
+            // 如果可插入位置，则插入，通过动画结束回调取消该弹幕
+            // 如果没有可插入位置，则跳过
             else {
                 if (danmakuItem.position === 'top') {
                     // 从上到下遍历CenterDanmakuStatus，若为free，则表示当前轨道没有居中弹幕，插入
@@ -141,14 +152,6 @@ watch(
                                 occupancy: 'occupied',
                                 danmakuItem
                             }
-                            setTimeout(() => {
-                                if (isMounted) {
-                                    CenterDanmakuStatus.value[i] = {
-                                        occupancy: 'free',
-                                        danmakuItem: initialDanmakuItem
-                                    }
-                                }
-                            }, 7000)
                             return
                         }
                     }
@@ -164,14 +167,6 @@ watch(
                                 occupancy: 'occupied',
                                 danmakuItem
                             }
-                            setTimeout(() => {
-                                if (isMounted) {
-                                    CenterDanmakuStatus.value[i] = {
-                                        occupancy: 'free',
-                                        danmakuItem: initialDanmakuItem
-                                    }
-                                }
-                            }, 7000)
                             return
                         }
                     }
@@ -260,7 +255,7 @@ onUnmounted(() => {
 }
 @keyframes danmaku-center {
     from {
-        transform: translateX(0);
+        transform: v-bind(centerTransformValue);
     }
     to {
         transform: v-bind(centerTransformValue);
@@ -300,7 +295,7 @@ onUnmounted(() => {
     animation: danmaku-move 10s linear;
 }
 .danmaku-item.centering {
-    animation: danmaku-center 10s step-start;
+    animation: danmaku-center 10s linear;
 }
 .danmaku-item.paused {
     animation-play-state: paused;
