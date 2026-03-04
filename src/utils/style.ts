@@ -5,3 +5,8 @@ export function getCssVar(
 ) {
     return getComputedStyle(elem).getPropertyValue(name).trim()
 }
+
+// 获取弹幕颜色
+export function getDanmakuColor(color: string): string {
+    return `var(--color-danmaku-${color})`
+}

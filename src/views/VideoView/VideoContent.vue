@@ -6,11 +6,14 @@ import {
     formatSeconds,
     formatTimestampToDateInDetail
 } from '@/utils/time'
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import VolumeSlider from '@/components/Video/VolumeSlider.vue'
 import { useVideoPlayer } from '@/views/VideoView/hooks/useVideoPlayer'
 import { DanmakuData } from '@/data/Video'
 import VideoDanmakuOverlay from '@/views/VideoView/VideoDanmakuOverlay.vue'
+import { ElInput } from 'element-plus'
+import DanmakuInputPrefix from '@/components/Video/DanmakuInputPrefix.vue'
+import { type DanmakuColor, DanmakuItem, DanmakuPosition } from '@/types/Video'
 
 const props = defineProps<{
     videoData: {
@@ -46,6 +49,60 @@ const {
     handleControlsVolumeClick,
     handleVolumeSliderInput
 } = useVideoPlayer(videoRef)
+
+const controlsRef = ref<HTMLElement | null>(null)
+
+// 弹幕数据
+const danmakuData = ref<Record<number, DanmakuItem[]>>(DanmakuData)
+// 弹幕输入框前缀图标大小
+const prefixSize = ref<string>('24px')
+
+let controlsObserver: ResizeObserver | null = null
+
+// 弹幕输入框字符
+const danmakuInputText = ref<string>('')
+
+// 弹幕位置和颜色
+const danmakuPosition = ref<DanmakuPosition>('normal')
+const danmakuColor = ref<DanmakuColor>('white')
+
+function handleDanmakuInputKeyDownEnter(evt?: Event | KeyboardEvent) {
+    console.log(danmakuInputText.value)
+    if (evt instanceof KeyboardEvent && danmakuInputText.value !== '') {
+        const ceiledCurrentTime = Math.floor(
+            Math.min(Math.ceil(currentTime.value), duration.value)
+        )
+        // 如果该秒没有弹幕，先添加一个空数组
+        if (!danmakuData.value[ceiledCurrentTime]) {
+            danmakuData.value[ceiledCurrentTime] = []
+        }
+        danmakuData.value[ceiledCurrentTime].push({
+            sendTime: ceiledCurrentTime,
+            content: danmakuInputText.value,
+            color: danmakuColor.value,
+            position: danmakuPosition.value
+        })
+
+        danmakuInputText.value = ''
+    }
+}
+
+onMounted(() => {
+    if (controlsRef.value) {
+        controlsObserver = new ResizeObserver(() => {
+            const inputHeight =
+                controlsRef.value!.getBoundingClientRect().height * (80 / 100)
+            prefixSize.value = Math.round(inputHeight * (70 / 100)) + 'px'
+        })
+        controlsObserver.observe(controlsRef.value)
+    }
+})
+onUnmounted(() => {
+    if (controlsObserver) {
+        controlsObserver.disconnect()
+        controlsObserver = null
+    }
+})
 </script>
 
 <template>
@@ -76,13 +133,14 @@ const {
                 ></video>
                 <VideoDanmakuOverlay
                     class="video-main-danmaku-overlay"
-                    :danmaku-data="DanmakuData"
+                    :danmaku-data="danmakuData"
                     :current-time="currentTime"
                     :is-playing="isPlaying"
                     @click="handleDanmakuOverlayClick"
                 />
                 <div class="video-main-controls-overlay">
                     <VideoSlider
+                        class="video-slider"
                         @mousedown="handleVideoSliderMouseDown"
                         @mouseup="handleVideoSliderMouseUp"
                         v-model="currentTime"
@@ -90,7 +148,7 @@ const {
                         @change="handleVideoSliderChange"
                         @input=""
                     />
-                    <div class="video-controls">
+                    <div class="video-controls" ref="controlsRef">
                         <div
                             class="video-controls-icon video-controls-playback"
                             @click="handleControlsPlaybackClick"
@@ -102,6 +160,21 @@ const {
                                 formatSeconds(duration)
                             }}
                         </span>
+                        <ElInput
+                            class="video-controls-danmaku-input"
+                            v-model="danmakuInputText"
+                            placeholder="发一条友善的弹幕见证当下"
+                            size="large"
+                            @keydown.enter="handleDanmakuInputKeyDownEnter"
+                        >
+                            <template #prefix>
+                                <DanmakuInputPrefix
+                                    :size="prefixSize"
+                                    v-model:selectedPosition="danmakuPosition"
+                                    v-model:selectedColor="danmakuColor"
+                                />
+                            </template>
+                        </ElInput>
                         <div class="video-controls-speed">
                             <span>{{
                                 speedRate === 1 ? '倍速' : speeds.get(speedRate)
@@ -241,16 +314,19 @@ const {
     flex-direction: column;
     justify-content: flex-end;
 }
-.video-main:hover > .video-main-controls-overlay {
+.video-main:hover > .video-main-controls-overlay,
+.video-main:focus-within > .video-main-controls-overlay {
     display: flex;
+}
+.video-slider {
+    z-index: 100;
 }
 .video-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: calc(100% - 16px);
-    bottom: 0;
-    left: 0;
+    z-index: 200;
 
     box-sizing: border-box;
     padding: 0 20px;
@@ -261,6 +337,8 @@ const {
         rgba(0, 0, 0, 0.4) 5%,
         transparent 10%
     );
+
+    position: relative;
 }
 .video-controls-icon {
     height: 100%;
@@ -277,6 +355,15 @@ const {
     line-height: 1;
     color: white;
     font-size: 13px;
+}
+.video-controls-danmaku-input {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50%;
+    height: 80%;
 }
 .video-controls-speed {
     display: flex;
