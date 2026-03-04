@@ -12,6 +12,11 @@ const props = defineProps<{
 const truncatedCurrentTime = computed(() => {
     return Math.trunc(props.currentTime)
 })
+// 是否应该显示弹幕
+// 设置这个变量是因为第0秒的居中弹幕会在视频未开始播放时渲染出来
+const shouldHideDanmaku = computed<boolean>(() => {
+    return !props.isPlaying && truncatedCurrentTime.value === 0
+})
 
 const danmakuOverlayRef = ref<HTMLDivElement | null>(null)
 let danmakuOverlayResizeObserver: ResizeObserver | null = null
@@ -223,7 +228,8 @@ onUnmounted(() => {
                     paused: !isPlaying,
                     finished:
                         NormalDanmakuStatus[trackIdx][itemIdx].animation ===
-                        'finished'
+                        'finished',
+                    hidden: shouldHideDanmaku
                 }"
                 :key="itemIdx"
                 @animationend="
@@ -299,6 +305,9 @@ onUnmounted(() => {
 }
 .danmaku-item.paused {
     animation-play-state: paused;
+}
+.danmaku-item.hidden {
+    display: none;
 }
 .danmaku-item:hover {
     animation-play-state: paused;
