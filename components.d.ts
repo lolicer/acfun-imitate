@@ -40,7 +40,6 @@ declare module 'vue' {
     VideoHistoryItem: typeof import('./src/components/TitleBar/History/VideoHistoryItem.vue')['default']
     VideoItem: typeof import('./src/components/public/VideoItem.vue')['default']
     VideoSlider: typeof import('./src/components/Video/VideoSlider.vue')['default']
-    Volume: typeof import('./src/components/Video/Volume.vue')['default']
     VolumeSlider: typeof import('./src/components/Video/VolumeSlider.vue')['default']
   }
 }
