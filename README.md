@@ -1,33 +1,53 @@
 # acfun-imitate
 
-This template should help get you started developing with Vue 3 in Vite.
+综合视频分享平台，包括视频播放、直播板块、番剧板块等核心内容板块。
 
-## Recommended IDE Setup
+## 技术栈
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Node.js | TypeScript | Vue3 | Vue-Router | Element Plus
 
-## Type Support for `.vue` Imports in TS
+## 界面预览
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+### 首页
 
-## Customize configuration
+![首页](assets/首页.webp)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+**titlebar**
 
-## Project Setup
+![titlebar](assets/titlebar.webp)
 
-```sh
-npm install
+**首页滚动**
+
+![首页滚动](assets/首页滚动.webp)
+
+### 直播页
+
+![直播页](assets/直播页.webp)
+
+### 番剧页
+
+![番剧页](assets/番剧页.webp)
+
+### 视频播放与弹幕发送
+
+![视频播放与弹幕发送](assets/视频播放与弹幕发送.webp)
+
+## 运行
+
+### Setup
+
+``` bash
+pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+### Run
 
-```sh
-npm run dev
+``` bash
+pnpm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Build
 
-```sh
-npm run build
+``` bash
+vite build
 ```
