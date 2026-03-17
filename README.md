@@ -32,6 +32,8 @@ Node.js | TypeScript | Vue3 | Vue-Router | Element Plus
 
 ![视频播放与弹幕发送](assets/视频播放与弹幕发送.webp)
 
+### 更多内容开发中……
+
 ## 运行
 
 ### Setup
