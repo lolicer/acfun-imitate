@@ -6,13 +6,14 @@ import {
     formatSeconds,
     formatTimestampToDateInDetail
 } from '@/utils/time'
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
 import VolumeSlider from '@/components/Video/VolumeSlider.vue'
 import { useVideoPlayer } from '@/views/VideoView/hooks/useVideoPlayer'
 import VideoDanmakuOverlay from '@/views/VideoView/VideoDanmakuOverlay.vue'
-import { ElInput } from 'element-plus'
+import { ElInput, ElMessage } from 'element-plus'
 import DanmakuInputPrefix from '@/components/Video/DanmakuInputPrefix.vue'
 import { useVideoControls } from '@/views/VideoView/hooks/useVideoControls'
+import Introduction from '@/components/Video/Introduction.vue'
 
 const props = defineProps<{
     videoData: {
@@ -21,8 +22,20 @@ const props = defineProps<{
         danmakuCount: number
         releaseTime: number
         videoUrl: string
+        coinCount: number
+        collectionCount: number
+        shareCount: number
+        introduction: string[]
+        tags: string[]
+        isCoinClicked: boolean
+        isCollectionClicked: boolean
     }
 }>()
+const [coinCount, collectionCount, shareCount]: Ref<number>[] = [
+    ref(props.videoData.coinCount),
+    ref(props.videoData.collectionCount),
+    ref(props.videoData.shareCount)
+]
 
 const videoRef = ref<HTMLVideoElement | null>(null)
 // 视频控制的钩子
@@ -54,8 +67,38 @@ const {
     danmakuData,
     prefixSize,
     pendingDanmaku,
-    handleDanmakuInputKeyDownEnter,
+    handleDanmakuInputKeyDownEnter
 } = useVideoControls(controlsRef, currentTime, duration)
+
+const isCoinClicked = ref(props.videoData.isCoinClicked)
+const isCollectionClicked = ref(props.videoData.isCollectionClicked)
+const isShareClicked = ref(false)
+
+// 硬币、收藏、分享点击事件
+function handleCoinOptionsClick() {
+    if (!isCoinClicked.value) {
+        coinCount.value = coinCount.value + 1
+        isCoinClicked.value = !isCoinClicked.value
+    }
+}
+function handleCollectionOptionsClick() {
+    collectionCount.value = isCollectionClicked.value
+        ? collectionCount.value - 1
+        : collectionCount.value + 1
+    isCollectionClicked.value = !isCollectionClicked.value
+}
+function handleShareOptionsClick() {
+    try {
+        navigator.clipboard.writeText(window.location.href)
+        if (!isShareClicked.value) {
+            shareCount.value = shareCount.value + 1
+        }
+        isShareClicked.value = true
+        ElMessage({ message: '复制成功', type: 'success' })
+    } catch (e) {
+        ElMessage({ message: '复制失败，请手动复制网址', type: 'error' })
+    }
+}
 </script>
 
 <template>
@@ -123,7 +166,9 @@ const {
                             <template #prefix>
                                 <DanmakuInputPrefix
                                     :size="prefixSize"
-                                    v-model:selectedPosition="pendingDanmaku.position"
+                                    v-model:selectedPosition="
+                                        pendingDanmaku.position
+                                    "
                                     v-model:selectedColor="pendingDanmaku.color"
                                 />
                             </template>
@@ -164,11 +209,39 @@ const {
                     </div>
                 </div>
             </div>
-            <div class="options"></div>
-            <div class="introduction">
-                <div class="introduction-text"></div>
-                <div class="introduction-tags"></div>
+            <div class="options">
+                <div
+                    class="options-item"
+                    :class="{ active: isCoinClicked }"
+                    @click="handleCoinOptionsClick"
+                >
+                    <div class="options-icon options-icon-coin"></div>
+                    <span class="options-text">{{
+                        formatNumber(coinCount)
+                    }}</span>
+                </div>
+                <div
+                    class="options-item"
+                    :class="{ active: isCollectionClicked }"
+                    @click="handleCollectionOptionsClick"
+                >
+                    <div class="options-icon options-icon-collection"></div>
+                    <span class="options-text">{{
+                        formatNumber(collectionCount)
+                    }}</span>
+                </div>
+                <div class="options-item" @click="handleShareOptionsClick">
+                    <div class="options-icon options-icon-share"></div>
+                    <span class="options-text">{{
+                        formatNumber(shareCount)
+                    }}</span>
+                </div>
             </div>
+            <Introduction
+                class="introduction"
+                :text="props.videoData.introduction"
+                :tags="props.videoData.tags"
+            />
             <div class="comments"></div>
         </div>
         <div class="content-right"></div>
@@ -381,6 +454,54 @@ const {
 }
 .video-controls-volume:hover .video-controls-volume-slider {
     display: flex;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+}
+.options-item {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    margin-top: 6px;
+    min-width: 90px;
+}
+.options-icon {
+    height: 36px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-gray-1);
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+}
+.options-item.active .options-icon {
+    background-color: var(--color-acfun);
+}
+.options-item:hover .options-icon {
+    background-color: var(--color-acfun-transparent);
+}
+.options-icon-coin {
+    mask-image: url('/icons/video/options/Coin.svg');
+    -webkit-mask-image: url('/icons/video/options/Coin.svg');
+}
+.options-icon-collection {
+    mask-image: url('/icons/video/options/Collection.svg');
+    -webkit-mask-image: url('/icons/video/options/Collection.svg');
+}
+.options-icon-share {
+    mask-image: url('/icons/video/options/Share.svg');
+    -webkit-mask-image: url('/icons/video/options/Share.svg');
+}
+.options-text {
+    padding-left: 4px;
+}
+.options-item.active .options-text {
+     color: var(--color-acfun);
+ }
+.options-item:hover .options-text {
+    color: var(--color-acfun-transparent);
 }
 
 .content-right {

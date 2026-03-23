@@ -25,6 +25,7 @@ declare module 'vue' {
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElInput: typeof import('element-plus/es')['ElInput']
     HistoryInfoItem: typeof import('./src/components/TitleBar/History/HistoryInfoItem.vue')['default']
+    Introduction: typeof import('./src/components/Video/Introduction.vue')['default']
     LiveHistoryItem: typeof import('./src/components/TitleBar/History/LiveHistoryItem.vue')['default']
     LiveItem: typeof import('./src/components/public/LiveItem.vue')['default']
     LiveStreamItem: typeof import('./src/components/TitleBar/Updates/LiveStreamItem.vue')['default']
