@@ -14,6 +14,7 @@ import { ElInput, ElMessage } from 'element-plus'
 import DanmakuInputPrefix from '@/components/Video/DanmakuInputPrefix.vue'
 import { useVideoControls } from '@/views/VideoView/hooks/useVideoControls'
 import Introduction from '@/components/Video/Introduction.vue'
+import Comment from '@/components/Video/Comment.vue'
 
 const props = defineProps<{
     videoData: {
@@ -242,7 +243,7 @@ function handleShareOptionsClick() {
                 :text="props.videoData.introduction"
                 :tags="props.videoData.tags"
             />
-            <div class="comments"></div>
+            <Comment />
         </div>
         <div class="content-right"></div>
     </div>
@@ -498,8 +499,8 @@ function handleShareOptionsClick() {
     padding-left: 4px;
 }
 .options-item.active .options-text {
-     color: var(--color-acfun);
- }
+    color: var(--color-acfun);
+}
 .options-item:hover .options-text {
     color: var(--color-acfun-transparent);
 }

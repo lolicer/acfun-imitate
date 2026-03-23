@@ -6,7 +6,7 @@ const props = withDefaults(
         text: string[]
         tags?: string[]
         /**
-         * 折叠时最多显示的行数（超过则可折叠/展开）
+         * 收起时最多显示的行数（超过则可收起/展开）
          */
         maxLine?: number
     }>(),
@@ -28,7 +28,7 @@ const checkOverflow = () => {
     const el = collapsedTextRef.value
     if (!el) return
 
-    // 折叠态下，如果内容高度大于可视高度，说明确实被截断了
+    // 收起态下，如果内容高度大于可视高度，说明确实被截断了
     const overflow = el.scrollHeight > el.clientHeight + 1
     shouldShowToggle.value = overflow
 
@@ -76,7 +76,7 @@ const toggleExpanded = () => {
 <template>
     <div class="video-introduction">
         <div class="video-introduction-content">
-            <!-- 折叠态：用于展示截断效果 + 计算是否溢出 -->
+            <!-- 收起态：用于展示截断效果 + 计算是否溢出 -->
             <div
                 ref="collapsedTextRef"
                 class="intro-text intro-text--collapsed"
@@ -100,7 +100,7 @@ const toggleExpanded = () => {
                 :aria-expanded="isExpanded"
                 @click="toggleExpanded"
             >
-                {{ isExpanded ? '折叠' : '展开' }}
+                {{ isExpanded ? '收起' : '展开' }}
             </button>
 
             <div v-if="props.tags?.length" class="intro-tags">

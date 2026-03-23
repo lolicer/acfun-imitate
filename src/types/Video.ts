@@ -36,3 +36,22 @@ interface DanmakuItem {
 
 export type { DanmakuColor, DanmakuPosition, DanmakuItem }
 export { DanmakuColors, DanmakuPositions }
+
+interface CommentBase {
+    /** 发送时间戳（毫秒） */
+    time: number
+    /** 发送者 */
+    userName: string
+    /** 评论内容 */
+    text: string[]
+    /** 点赞数 */
+    likeCount: number
+}
+interface ChildComment extends CommentBase {}
+interface RootComment extends CommentBase {
+    /** 是否置顶 */
+    topped: boolean
+    children: ChildComment[] | null
+}
+
+export type { CommentBase, ChildComment, RootComment }
