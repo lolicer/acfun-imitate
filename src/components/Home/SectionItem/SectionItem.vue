@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { HomeSection } from '@/types/HomeSection'
 import VideoItem from '@/components/public/VideoItem.vue'
-import RankingItem from './RankingItem.vue'
+import SideVideoItem from '../../public/SideVideoItem.vue'
 const props = defineProps<{
     data: HomeSection
     titleIconUrl: string
@@ -34,7 +34,7 @@ const props = defineProps<{
             </div>
             <div class="section-side">
                 <div class="section-side-content">
-                    <RankingItem
+                    <SideVideoItem
                         v-for="item in props.data.ranking"
                         :data="item"
                     />

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import TruncatedText from '@/components/public/TruncatedText.vue'
-import { SectionRanking } from '@/types/HomeSection'
+import { SideVideoItem } from '@/types/HomeSection'
 import { formatSeconds } from '@/utils/time'
 
 const props = defineProps<{
-    data: SectionRanking
+    data: SideVideoItem
 }>()
 </script>
 
@@ -25,7 +25,7 @@ const props = defineProps<{
                 :max-line="2"
             />
             <div class="info-line-2">
-                <img src="/icons/public/Up.svg" class="up-icon"  alt=""/>
+                <img src="/icons/public/Up.svg" class="up-icon" alt="" />
                 <span class="up-name">{{ props.data.up }}</span>
             </div>
         </div>
