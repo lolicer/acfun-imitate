@@ -10,7 +10,9 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig({
     plugins: [
         vue(),
-        vueDevTools(),
+        vueDevTools({
+            launchEditor: 'D:\\Apps\\WebStorm 2025.3.3\\bin\\webstorm64.exe'
+        }),
         AutoImport({
             resolvers: [ElementPlusResolver()]
         }),
