@@ -15,6 +15,7 @@ import DanmakuInputPrefix from '@/views/VideoView/components/DanmakuInputPrefix.
 import { useVideoControls } from '@/views/VideoView/hooks/useVideoControls'
 import Introduction from '@/views/VideoView/components/Introduction.vue'
 import Comment from '@/views/VideoView/components/Comment.vue'
+import UserCard from '@/views/VideoView/components/UserCard.vue'
 
 const props = defineProps<{
     videoData: {
@@ -246,6 +247,11 @@ function handleShareOptionsClick() {
             <Comment />
         </div>
         <div class="content-right">
+            <UserCard
+                avatar-url="images/video/avatar.png"
+                user-name="测试用户"
+                signature="我是一个测试用户啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦~"
+            />
 
         </div>
     </div>
@@ -256,13 +262,11 @@ function handleShareOptionsClick() {
     display: flex;
     gap: 30px;
 
-    padding: 0 50px;
+    padding: 40px 50px 0;
 }
 
 .content-left {
     flex: 7.5;
-
-    padding-top: 40px;
 }
 .video-title {
     font-size: 23px;
