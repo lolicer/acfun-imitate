@@ -3,12 +3,12 @@ import { computed, ref } from 'vue'
 import { CommentData } from '@/data/Video'
 import type { RootComment as VideoRootComment } from '@/types/Video'
 import { formatNumber } from '@/utils/time'
-import CommentItem from '@/components/Video/CommentItem.vue'
-import CommentEditor from '@/components/Video/CommentEditor.vue'
+import CommentItem from '@/views/VideoView/components/CommentItem.vue'
+import CommentEditor from '@/views/VideoView/components/CommentEditor.vue'
 import type {
     ChildCommentNode,
     RootCommentNode
-} from '@/components/Video/commentTypes'
+} from '@/views/VideoView/components/commentTypes'
 
 type SortType = 'hot' | 'new'
 

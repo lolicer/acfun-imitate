@@ -11,10 +11,10 @@ import VolumeSlider from '@/components/Video/VolumeSlider.vue'
 import { useVideoPlayer } from '@/views/VideoView/hooks/useVideoPlayer'
 import VideoDanmakuOverlay from '@/views/VideoView/VideoDanmakuOverlay.vue'
 import { ElInput, ElMessage } from 'element-plus'
-import DanmakuInputPrefix from '@/components/Video/DanmakuInputPrefix.vue'
+import DanmakuInputPrefix from '@/views/VideoView/components/DanmakuInputPrefix.vue'
 import { useVideoControls } from '@/views/VideoView/hooks/useVideoControls'
-import Introduction from '@/components/Video/Introduction.vue'
-import Comment from '@/components/Video/Comment.vue'
+import Introduction from '@/views/VideoView/components/Introduction.vue'
+import Comment from '@/views/VideoView/components/Comment.vue'
 
 const props = defineProps<{
     videoData: {
@@ -245,7 +245,9 @@ function handleShareOptionsClick() {
             />
             <Comment />
         </div>
-        <div class="content-right"></div>
+        <div class="content-right">
+
+        </div>
     </div>
 </template>
 

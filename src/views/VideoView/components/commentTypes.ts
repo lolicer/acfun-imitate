@@ -1,4 +1,4 @@
-import type { CommentBase, ChildComment, RootComment } from '@/types/Video.js'
+import type { CommentBase, ChildComment, RootComment } from '@/types/Video'
 
 /** 组件层评论基类：复用全局评论字段，补充本地状态字段 */
 export interface CommentNodeBase extends CommentBase {
