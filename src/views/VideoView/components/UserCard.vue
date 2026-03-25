@@ -60,7 +60,6 @@ function handleJumpToUserSpace() {}
 
 .user-name {
     font-size: 17px;
-    line-height: 1;
     color: var(--color-gray-0);
 }
 
