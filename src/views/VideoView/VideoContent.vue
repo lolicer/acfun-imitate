@@ -16,6 +16,8 @@ import { useVideoControls } from '@/views/VideoView/hooks/useVideoControls'
 import Introduction from '@/views/VideoView/components/Introduction.vue'
 import Comment from '@/views/VideoView/components/Comment.vue'
 import UserCard from '@/views/VideoView/components/UserCard.vue'
+import SideVideoItem from '@/components/public/SideVideoItem.vue'
+import { RecommendedVideoData } from '@/data/Video'
 
 const props = defineProps<{
     videoData: {
@@ -252,7 +254,15 @@ function handleShareOptionsClick() {
                 user-name="测试用户"
                 signature="我是一个测试用户啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦~"
             />
-
+            <div class="recommend-videos">
+                <h3 class="recommend-videos-title">推荐视频</h3>
+                <SideVideoItem
+                    v-for="item in RecommendedVideoData"
+                    :key="item.to"
+                    class="recommend-video-item"
+                    :data="item"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -513,5 +523,20 @@ function handleShareOptionsClick() {
 
 .content-right {
     flex: 2.5;
+}
+.recommend-videos {
+    margin-top: 30px;
+}
+.recommend-videos-title {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+.recommend-video-item {
+    width: 100%;
+}
+.recommend-video-item:not(:first-of-type) {
+    margin-top: 12px;
 }
 </style>

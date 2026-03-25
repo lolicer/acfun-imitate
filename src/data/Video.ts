@@ -1,4 +1,5 @@
 import { RootComment, DanmakuItem } from '@/types/Video.js'
+import { SideVideoItem } from '@/types/HomeSection.js'
 
 const baseSendTime = Date.now()
 
@@ -997,3 +998,77 @@ export const CommentData: {
         }
     ]
 }
+
+/** 推荐视频数据 */
+export const RecommendedVideoData: SideVideoItem[] = [
+    {
+        imgUrl: '/images/video/recommend/cover-0.webp',
+        title: '【中字】这段分镜太神了！十分钟看懂名场面设计',
+        to: '/video/10001',
+        up: '动画补完计划',
+        duration: 625
+    },
+    {
+        imgUrl: '/images/video/recommend/cover-1.webp',
+        title: '六花高能片段合集：邪王真眼启动瞬间',
+        to: '/video/10002',
+        up: '中二研究所',
+        duration: 812
+    },
+    {
+        imgUrl: '/images/video/recommend/cover-2.webp',
+        title: '七宫人物向混剪：笑着说再见的那一刻',
+        to: '/video/10003',
+        up: '回忆放映室',
+        duration: 418
+    },
+    {
+        imgUrl: '/images/video/recommend/cover-3.webp',
+        title: '从作画到配乐，这集为什么能封神？',
+        to: '/video/10004',
+        up: '番剧拆解员',
+        duration: 703
+    },
+    {
+        imgUrl: '/images/video/recommend/cover-4.webp',
+        title: '勇太视角解读：中二外壳下的真实成长',
+        to: '/video/10005',
+        up: '剧情观测站',
+        duration: 556
+    },
+    {
+        imgUrl: '/images/video/recommend/cover-5.webp',
+        title: '名场面补帧对比：老番也能这么丝滑',
+        to: '/video/10006',
+        up: '作画观察员',
+        duration: 489
+    },
+    {
+        imgUrl: '/images/video/recommend/cover-6.webp',
+        title: '中二台词朗读会：谁是最强咏唱王',
+        to: '/video/10007',
+        up: '弹幕合唱团',
+        duration: 732
+    },
+    {
+        imgUrl: '/images/video/recommend/cover-7.webp',
+        title: '三分钟看懂勇太与六花关系线',
+        to: '/video/10008',
+        up: '关系图鉴',
+        duration: 214
+    },
+    {
+        imgUrl: '/images/video/recommend/cover-8.webp',
+        title: '七宫篇泪点混剪：笑着说喜欢你',
+        to: '/video/10009',
+        up: '青春放映厅',
+        duration: 544
+    },
+    {
+        imgUrl: '/images/video/recommend/cover-9.webp',
+        title: '京阿尼镜头语言解析：风与光的叙事',
+        to: '/video/10010',
+        up: '镜头课代表',
+        duration: 556
+    }
+]
