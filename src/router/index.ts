@@ -121,6 +121,13 @@ const router = createRouter({
             meta: {
                 title: '视频页面测试'
             }
+        },
+        {
+            path: '/login_test',
+            component: () => import('@/views/LoginView/LoginLayout.vue'),
+            meta: {
+                title: 'AcFun | 登录'
+            }
         }
     ]
 })
